@@ -1,0 +1,71 @@
+header * { font-family: "Titillium Web", sans-serif; }
+a { text-decoration: none; }
+
+header {
+    background-color: aliceblue;
+
+    .header-top {
+        .title {
+            position: absolute;
+            left: 50%;
+            top: 0%;
+            transform: translate(-50%, -50%);
+            text-transform: uppercase;
+            color: rgb(97, 206, 112)
+        }
+
+        .logo {
+            transition-duration: 0.1s;
+            height: 10vw;
+            &:hover { scale: 1.1; }
+        }
+
+        .access-button {
+            background-color: rgb(119, 194, 255);
+            padding: 10px;
+            color: #fff;
+        }
+    }
+    
+    nav {
+        display: flex;
+        ul {
+            display: flex;
+            list-style: none;
+            
+            li + li {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .social-media {
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        display: flex;
+
+        a {
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            border-radius: 50%;
+            width: 3vw;
+            height: 3vw;
+            aspect-ratio: 1;
+            margin-right: 10px;
+            margin-top: 10px;
+            right: 0%;
+            user-select: none;
+
+            &:hover {
+                scale: 1.1;
+            }
+    
+            svg {
+                filter: invert(48%) sepia(79%) saturate(800%) hue-rotate(190deg) brightness(118%) contrast(119%);
+                height: 3vw;
+                aspect-ratio: 1;
+            }
+        }
+    }
+}
