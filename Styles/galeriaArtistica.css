@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;  
     margin: 0;  
     padding: 20px;  
-    background-color: #f0f0f0;  
-}   
+    background-color: #fdfdfd;  
+}  
 
 .subirSeta {  
     text-align: center;  
@@ -14,4 +14,19 @@ body {
     padding: 10px 20px;  
     font-size: 16px;  
     cursor: pointer;  
+}  
+
+.imagesContenedor {  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+}  
+
+.seta {  
+    margin-bottom: 10px;
+}  
+
+img {  
+    width: 25%; 
+    height: auto;  
 }  
