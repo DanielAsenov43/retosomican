@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background: linear-gradient(to bottom, #c1e6f9, #f4eff5);
+  padding: 10px 20px;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.botonAcceso {
+  background-color: #60c3e0;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 22px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tituloPrincipal {
+  color: ;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.barraPrincipal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 20px 0;
+  position: relative;
+}
+
+.barraNav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.acciones {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  right: 20px;
+}
+
+.iconos img {
+  width: 24px;
+}
+
+.busqueda {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.busqueda input {
+  border: none;
+  outline: none;
+}
+
+.busqueda button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer (ya existente) */
+.footer {
+  background: linear-gradient(to bottom, #6a6e79, #b1bdd5);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.footerContenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 20px;
+  gap: 20px;
+}
+
+.footerIzquierda,
+.footerLinks,
+.footerPolitica,
+.footerContacto {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footerIzquierda h2 {
+  margin: 0;
+  font-size: 28px;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.footerIzquierda p {
+  margin: 5px 0;
+}
+
+.footerLinks ul,
+.footerPolitica ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerLinks li,
+.footerPolitica li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footerContacto h3 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footerContacto p {
+  margin: 4px 0;
+}
+
+.iconos a img {
+  width: 28px;
+  margin-right: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.logoCamargo {
+  margin-top: 20px;
+  width: 60px;
+}
+
+.footerAbajo {
+  background-color: #1f1f1f;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+}
