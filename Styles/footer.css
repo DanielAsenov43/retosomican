@@ -38,6 +38,13 @@
     padding: 0;
 }
 
+.simpleLinks{
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
 .footerLinks li,
 .footerPolitica li {
     margin-bottom: 10px;
@@ -76,17 +83,15 @@
 
 /* Dropdown Button */
 .footerDropbtn {
-    background: linear-gradient(to bottom, #6a6e79, #b1bdd5);
-    opacity: 0.1;
-    color: black;
+    background-color: transparent;
+    border: none;
+    color: white;
     font-family: Arial, sans-serif;
     height: 50px;
     display: flex;
     list-style: none;
     width: 15vw;
-    border: none;
     justify-content: center;
-
   }
   
   .footerDropbtn div{
