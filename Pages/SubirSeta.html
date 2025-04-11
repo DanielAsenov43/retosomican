@@ -5,9 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SOMICAN</title>
-  <link rel="stylesheet" href="./Styles/index.css">
-  <link rel="stylesheet" href="./Styles/header.css" />
-  <link rel="stylesheet" href="./Styles/footer.css" />
+  <link rel="stylesheet" href="../Styles/header.css" />
+  <link rel="stylesheet" href="../Styles/footer.css" />
   <!-- Fuente de google: Titillium Web -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,33 +45,54 @@
 </header>
 
 <body>
-  <h1>Galería de Imágenes</h1>  
-    <div class="subirSeta">  
-        <button>SUBIR UNA SETA</button>
-    </div>
+  <main class="registro-container">
+    <h1>Registrar Seta Nueva</h1>
+    <form class="form-seta">
+      <div>
+        <label>Nombre científico*</label>
+        <input type="text" name="nombre_cientifico" required>
 
-    <div id="setas">  
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>  
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />  
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>   
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />  
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>   
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" /> 
-            <img src="./Images/usuaio.jpg" alt="Usuario" /> 
-        </div>   
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />  
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>   
-    </div>
+        <label>Fecha de recogida*</label>
+        <input type="date" name="fecha_recogida" required>
+
+        <label>Lugar de recogida*</label>
+        <input type="text" name="lugar_recogida" required>
+
+        <label>Hábitat*</label>
+        <input type="text" name="habitat" required>
+
+        <label>Altura nivel del mar*</label>
+        <input type="number" name="altura" required>
+        
+        <label>Nombre común</label>
+        <input type="text" name="nombre_comun">
+
+        <label>Olor</label>
+        <input type="text" name="olor">
+
+        <label>Sabor</label>
+        <input type="text" name="sabor">
+
+        <label>Tipo de suelo</label>
+        <input type="text" name="suelo">
+
+        <label>Climatología</label>
+        <input type="text" name="clima">
+      </div>
+      <div class="subirFoto">
+        <label for="myfile">Sube la foto:</label>
+        <input type="file" id="myfile" name="myfile">
+      </div>
+      <div class="observaciones">
+        <label>Observaciones</label>
+        <textarea name="observaciones" rows="4"></textarea>
+      </div>
+
+      <div class="form-button">
+        <button type="submit">SUBIR</button>
+      </div>
+    </form>
+  </main>
 </body>
 
 <footer class="footer">

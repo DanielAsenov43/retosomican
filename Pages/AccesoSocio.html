@@ -4,10 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOMICAN</title>
-  <link rel="stylesheet" href="./Styles/index.css">
-  <link rel="stylesheet" href="./Styles/header.css" />
-  <link rel="stylesheet" href="./Styles/footer.css" />
+  <title>Acceso a socios</title>
+  <link rel="stylesheet" href="../Styles/header.css" />
+  <link rel="stylesheet" href="../Styles/footer.css" />
   <!-- Fuente de google: Titillium Web -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +17,6 @@
     <a href=".">
       <img class="logo" src="./Images/Logo.png" alt="Logo Somican" />
     </a>
-    <a class="access-button" href=".">Acceso Socios</a>
     <p class="title">Sociedad Micológica Cántabra</p>
   </div>
 
@@ -33,10 +31,10 @@
   </nav>
 
   <div class="social-media">
-    <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
+    <a href=".">
       <svg class="facebook" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
     </a>
-    <a href="https://www.youtube.com/@SociedadMicologicaCantabra">
+    <a href=".">
       <svg class="youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
     </a>
     <a href=".">
@@ -46,33 +44,19 @@
 </header>
 
 <body>
-  <h1>Galería de Imágenes</h1>  
-    <div class="subirSeta">  
-        <button>SUBIR UNA SETA</button>
-    </div>
-
-    <div id="setas">  
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>  
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />  
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>   
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />  
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>   
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" /> 
-            <img src="./Images/usuaio.jpg" alt="Usuario" /> 
-        </div>   
-        <div>  
-            <img src="./Images/seta.jpg" alt="Icono" />  
-            <img src="./Images/usuaio.jpg" alt="Usuario" />
-        </div>   
-    </div>
+    <div class="login-container">
+        <h1>INICIAR SESIÓN</h1>
+        <p class="subtitulo">Acceso a SOMICAN como Socio</p>
+        <form>
+          <label for="email">CORREO ELECTRÓNICO</label>
+          <input type="email" id="email" name="email" placeholder="socio01@gmail.com" required />
+    
+          <label for="password">CONTRASEÑA</label>
+          <input type="password" id="password" name="password" placeholder="********" required />
+    
+          <button type="submit">ACCEDER</button>
+        </form>
+      </div>
 </body>
 
 <footer class="footer">
@@ -82,8 +66,8 @@
       <p>Sociedad Micológica Cántabra</p>
       <p>Desde 1986 compartiendo la pasión por la micología en Cantabria.</p>
       <div class="iconos">
-        <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES"><img src="facebook-icon.png" alt="Facebook" /></a>
-        <a href="https://www.youtube.com/@SociedadMicologicaCantabra"><img src="youtube-icon.png" alt="YouTube" /></a>
+        <a href="#"><img src="facebook-icon.png" alt="Facebook" /></a>
+        <a href="#"><img src="youtube-icon.png" alt="YouTube" /></a>
       </div>
     </div>
 
