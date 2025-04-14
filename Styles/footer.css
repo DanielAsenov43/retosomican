@@ -47,6 +47,10 @@
     font-size: 15px;
 }
 
+.simpleLinks button:hover{
+    cursor: pointer;
+}
+
 .footerLinks li,
 .footerPolitica li {
     margin-bottom: 10px;
