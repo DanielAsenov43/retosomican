@@ -1,63 +1,67 @@
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(0, 0, 0);
-    
-        .login-container{
-            background: rgba(0, 0, 0, 0.6);
-            padding: 30px 40px;
-            border-radius: 10px;
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
-        .h1 {
-            margin-top: 0;
-            color: #ff4d4d;
-            font-size: 28px;
-            text-transform: uppercase;
-          }
-          
-        .subtitulo {
-            margin-bottom: 20px;
-            font-size: 16px;
-          }
-          
-        .form {
-            display: flex;
-            flex-direction: column;
-          }
-          
-        .label {
-            font-size: 12px;
-            margin: 10px 0 5px;
-            font-weight: bold;
-          }
-          
-        .input {
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            font-size: 14px;
-          }
-          
-        .button {
-            background-color: #ff4d4d;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            text-transform: uppercase;
-          }
-          
-        .button:hover {
-            background-color: #e64040;
-          }
-  }
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #f5f5f5;
+}
 
+.login-container {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  
+  background-image: url(../Images/seta.jpg);
+  background-color: rgba(0, 0, 0, 0.30); /* Fondo oscuro con 70% transparencia */
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay; /* Mezcla la imagen y el color */
+}
+
+.login-container h1 {
+  font-size: 28px;
+  color: red;
+  margin-bottom: 10px;
+}
+
+.login-container .subtitulo {
+  font-size: 18px;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-container label {
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+}
+
+.login-container input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.login-container button[type="submit"] {
+  padding: 12px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
