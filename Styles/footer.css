@@ -38,11 +38,17 @@
     padding: 0;
 }
 
-.simpleLinks{
-    text-align: center;
-    background-color: transparent;
+.simpleLinks button{
+    outline: none;
     border: none;
+    background: none;
     color: white;
+    height: 50px;
+    font-size: 15px;
+}
+
+.simpleLinks button:hover{
+    cursor: pointer;
 }
 
 .footerLinks li,
@@ -60,17 +66,22 @@
     margin: 4px 0;
 }
 
-.iconos a img {
-    width: 28px;
-    margin-right: 10px;
+.iconos svg{
     border: 2px solid white;
+    padding: 10px;
     border-radius: 50%;
-    padding: 4px;
+    width: 3vw;
+    height: 3vw;
+    aspect-ratio: 1;
+    margin-right: 10px;
+    margin-top: 10px;
+    right: 0%;
+    user-select: none;
 }
 
 .logoCamargo {
-    margin-top: 20px;
-    width: 60px;
+    margin-top: 0px;
+    width: 100px;
 }
 
 .footerAbajo {
@@ -91,7 +102,8 @@
     display: flex;
     list-style: none;
     width: 15vw;
-    justify-content: center;
+    justify-content: left;
+    font-size: 15px;
   }
   
   .footerDropbtn div{
