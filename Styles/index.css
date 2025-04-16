@@ -1,7 +1,3 @@
-html {
-  
-}
-
 body {
   margin: 0px;
   font-family: "Titillium web", sans-serif;
@@ -9,42 +5,44 @@ body {
 }
 
 .titulo {
+  user-select: none;
   z-index: -1;
   width: 100%;
   text-align: center;
   color: rgb(224, 58, 58);
-  font-size: 2rem;
+  font-size: 3rem;
   position: absolute;
+}
 
-  .subir-seta {
-    z-index: 1;
-    position: absolute;
-    right: 4vw;
-    top: 3vw;
-    padding: 20px 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 0px;
-    background-color: #78c4fc;
-    color: #fff;
-    border: none;
+.subir-seta {
+  z-index: 2;
+  position: absolute;
+  right: 55px;
+  transform: translateY(40px);
+  padding: 20px 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0px;
+  background-color: #78c4fc;
+  color: #fff;
+  border: none;
 
-    &:hover {
-      background-color: rgb(224, 58, 58);
-    }
+  &:hover {
+    background-color: rgb(224, 58, 58);
   }
 }
 
 #gallery-container {
   width: 100%;
-  margin-top: 100px;
+  margin-top: 150px;
   position: relative;
-  justify-content: center;
+  /*border: red 2px solid;
+  * { border: lime 2px solid; }*/
 
   .gallery {
     display: flex;
+    justify-content: center;
     padding: 50px 10px;
-    margin-left: 1vw;
     flex-wrap: wrap;
     user-select: none;
   
@@ -53,6 +51,12 @@ body {
         width: 350px;
         aspect-ratio: auto;
         margin: 25px 10px;
+
+        &:hover {
+          transition-duration: 0.05s;
+          filter: brightness(80%);
+          scale: 1.02;
+        }
       }
   
       .usuario {
