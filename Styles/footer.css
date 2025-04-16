@@ -47,7 +47,7 @@
     padding: 0;
 }
 
-.simpleLinks button{
+.simpleLinks a{
     outline: none;
     border: none;
     background: none;
@@ -56,7 +56,7 @@
     font-size: 15px;
 }
 
-.simpleLinks button:hover{
+.simpleLinks a:hover{
     cursor: pointer;
 }
 
