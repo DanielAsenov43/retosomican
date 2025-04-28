@@ -47,7 +47,7 @@
               <button class="dropbtn"><div>GALERÍAS +</div></button>
               <div class="dropdown-content">
                   <a href=".">GALERIA ARTISTICA</a>
-                  <a href="../Pages/galeriacientifica.php">GALERIA CIENTIFICA</a>
+                  <a href="./Pages/galeriacientifica.php">GALERIA CIENTIFICA</a>
               </div>
           </div>
       </li>
