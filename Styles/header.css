@@ -33,6 +33,7 @@ header {
             text-align: center;
             left: 50%;
             top: 11vh;
+            top: 10vh;
             transform: translate(-50%, -50%);
 
             &:hover {

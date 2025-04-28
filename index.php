@@ -1,3 +1,11 @@
+<?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $database = "retosomican";
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $database);
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,8 +46,8 @@
           <div class="dropdown">
               <button class="dropbtn"><div>GALERÍAS +</div></button>
               <div class="dropdown-content">
-                  <a href="./index.html">GALERIA ARTISTICA</a>
-                  <a href="./Pages/galeriacientifica.html">GALERIA CIENTIFICA</a>
+                  <a href=".">GALERIA ARTISTICA</a>
+                  <a href="../Pages/galeriacientifica.php">GALERIA CIENTIFICA</a>
               </div>
           </div>
       </li>
@@ -77,54 +85,14 @@
 
     <div id="gallery-container"> 
         <div class="gallery">
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
-            <div>
-                <a href="."><img class="seta" src="./Images/seta.jpg" alt="Icono" /></a>
-                <img class="usuario" src="./Images/user.webp" alt="Usuario" />
-            </div>
+            <?php
+                $query = "SELECT * FROM retosomican.setas WHERE registrada = TRUE;";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_row($result)) {
+                    echo "<div><a href='.'><img class='seta' src='./Images/seta.jpg' alt='Icono' /></a>";
+                    echo "<img class='usuario' src='./Images/user.webp' alt='Usuario' /></div>";
+                }
+            ?>
         </div>
     </div>
 </body>
@@ -146,6 +114,7 @@
                 </a>
             </div>
         </div>
+    </div>
 
     <div class="footerLinks">
         <ul>
@@ -168,9 +137,7 @@
                     </div>
                 </div>
             </li>
-            <li class="simpleLinks">
-                <a href="https://somican.com/revista-micologia-yesca/">REVISTA YESCA</a>
-            </li>
+            <li><div class="simpleLinks"><a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a></div></li>
             <li>
                 <div class="footerDropdown">
                     <button class="footerDropbtn"><div>MEDIOS ▼</div></button>
@@ -180,25 +147,21 @@
                     </div>
                 </div>
             </li>
-            <li class="simpleLinks">
-                <a href="https://somican.com/contacto/">CONTACTO</a>
-            </li>
+            <li><div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTO</button></a></div></li>
         </ul>
     </div>
 
     <div class="footerPolitica">
         <ul>
-            <li class="simpleLinks"><a href="https://somican.com/aviso-legal/">LEGAL</a></li>
-            <li class="simpleLinks"><a href="https://somican.com/politica-de-privacidad/">POLÍTICA DE PRIVACIDAD</a></li>
-            <li class="simpleLinks"><a href="https://somican.com/cookies/">POLÍTICA DE COOKIES</a></li>
+            <li><div class="simpleLinks"><a href="https://somican.com/aviso-legal/"><button>LEGAL</button></a></div></li>
+            <li><div class="simpleLinks"><a href="https://somican.com/politica-de-privacidad/"><button>POLÍTICA DE PRIVACIDAD</button></a></div></li>
+            <li><div class="simpleLinks"><a href="https://somican.com/cookies/"><button>POLÍTICA DE COOKIES</button></a></div></li>
         </ul>
-        <img src="../Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo"/>
+        <img src="../Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
     </div>
 
     <div class="footerContacto">
-        <h3 class="simpleLinks">
-            <a href="https://somican.com/contacto/">CONTACTA CON NOSOTROS</a>
-        </h3>
+        <h3><div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTA CON NOSOTROS</button></a></div></h3>
         <p><strong>SOMICAN</strong></p>
         <p>Sociedad Micológica Cántabra</p>
         <p>Plaza Mª Blanchard 7-2 bajo</p>
