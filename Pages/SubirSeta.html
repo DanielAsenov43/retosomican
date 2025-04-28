@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  <script src="../Scripts/subirSeta.js"></script>
 </head>
 <header>
   <div class="header-top">
@@ -73,51 +74,62 @@
     </a>
   </div>
 </header>
-
 <body>
   <main class="registro-container">
     <h1>Registrar Seta Nueva</h1>
     <form class="form-seta">
-      <div>
-        <label>Nombre científico*</label>
-        <input type="text" name="nombre_cientifico" required>
+      <div class="form-grid">
+        <div class="col">
+          <label>Nombre científico*</label>
+          <input type="text" name="nombre_cientifico" required>
 
-        <label>Fecha de recogida*</label>
-        <input type="date" name="fecha_recogida" required>
+          <label>Fecha de recogida*</label>
+          <input type="date" name="fecha_recogida" required>
 
-        <label>Lugar de recogida*</label>
-        <input type="text" name="lugar_recogida" required>
+          <label>Lugar de recogida*</label>
+          <input type="text" name="lugar_recogida" required>
 
-        <label>Hábitat*</label>
-        <input type="text" name="habitat" required>
+          <label>Hábitat*</label>
+          <input type="text" name="habitat" required>
 
-        <label>Altura nivel del mar*</label>
-        <input type="number" name="altura" required>
-        
-        <label>Nombre común</label>
-        <input type="text" name="nombre_comun">
+          <label>Altura nivel del mar*</label>
+          <input type="number" name="altura" required>
 
-        <label>Olor</label>
-        <input type="text" name="olor">
+        </div>
+        <div class="col">
+                    
+          <label>Nombre común</label>
+          <input type="text" name="nombre_comun">
 
-        <label>Sabor</label>
-        <input type="text" name="sabor">
+          <label>Olor</label>
+          <input type="text" name="olor">
 
-        <label>Tipo de suelo</label>
-        <input type="text" name="suelo">
+          <label>Sabor</label>
+          <input type="text" name="sabor">
 
-        <label>Climatología</label>
-        <input type="text" name="clima">
+          <label>Tipo de suelo</label>
+          <input type="text" name="suelo">
+
+          <label>Climatología</label>
+          <input type="text" name="clima">
+        </div>
+        <div class="subirFoto">
+          <label for="myfile">Sube la foto (artistica):</label>
+          <input type="file" id="myfile" name="myfile" onchange="previewImage()">
+          <!-- Contenedor para la imagen vista previa -->
+          <div id="imagePreview"></div>
+        </div>
+        <div class="subirFoto">
+          <label for="myfile">Sube la foto(cientifica):</label>
+          <input type="file" id="myfile" name="myfile" onchange="previewImage()">
+          <!-- Contenedor para la imagen vista previa -->
+          <div id="imagePreview"></div>
+        </div>
+        <div class="observaciones">
+          <label>Observaciones</label>
+          <textarea name="observaciones" rows="4"></textarea>
+        </div>
       </div>
-      <div class="subirFoto">
-        <label for="myfile">Sube la foto:</label>
-        <input type="file" id="myfile" name="myfile">
-      </div>
-      <div class="observaciones">
-        <label>Observaciones</label>
-        <textarea name="observaciones" rows="4"></textarea>
-      </div>
-
       <div class="form-button">
         <button type="submit">SUBIR</button>
       </div>

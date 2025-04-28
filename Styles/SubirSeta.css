@@ -95,4 +95,35 @@ form.form-seta textarea {
   }
 }
 
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Cambié esto de 3 columnas a 2 */
+  gap: 30px;
+}
 
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.col input, 
+.col textarea {
+  width: 100%;
+}
+
+#imagePreview {
+  max-width: 300px; /* Ajusta el tamaño máximo que ocupará la imagen */
+  max-height: 300px; /* Controla la altura máxima de la imagen */
+  overflow: hidden; /* Asegura que la imagen no se desborde */
+  margin: 20px 0; /* Espaciado superior e inferior */
+  display: flex;
+  justify-content: center; /* Centra la imagen dentro del contenedor */
+  align-items: center; /* Centra la imagen verticalmente */
+}
+
+#imagePreview img {
+  width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste sin distorsión */
+}
