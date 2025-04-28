@@ -3,7 +3,7 @@
   $username = "root";
   $password = "";
   $database = "retosomican";
-  // Create connection
+  // Crear la conexión con la BBDD
   $conn = new mysqli($servername, $username, $password, $database);
 ?>
 <!DOCTYPE html>
@@ -47,7 +47,7 @@
               <button class="dropbtn"><div>GALERÍAS +</div></button>
               <div class="dropdown-content">
                   <a href=".">GALERIA ARTISTICA</a>
-                  <a href="../Pages/galeriacientifica.php">GALERIA CIENTIFICA</a>
+                  <a href="./Pages/galeriacientifica.php">GALERIA CIENTIFICA</a>
               </div>
           </div>
       </li>
