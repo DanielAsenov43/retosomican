@@ -33,11 +33,12 @@ body {
   }
 
   .search-box {
-    margin: 120px 0;
+    margin: 120px;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: 5%;
+    margin-left: 50%;
+    transform: translateX(-50%);
     background-color: #78c4fc;
     border: none;
     padding: 10px 15px 10px 10px;

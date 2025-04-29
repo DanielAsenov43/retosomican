@@ -25,9 +25,13 @@ function mostrarSetas(filtro) {
     let numeroSetasMostradas = 0; // Se utiliza para saber si hay resultados o no.
 
     for(let seta of setas) { // Iterar por todas las setas, obtener sus datos y comprobar si contienen el filtro.
-        let nombreCientifico = seta.children[1].innerHTML.toLowerCase();
-        let nombreComun = seta.children[2].innerHTML.toLowerCase();
-        let fecha = seta.children[3].innerHTML;
+        let elementoNombreCientifico = seta.children[1];
+        let elementoNombreComun = seta.children[2];
+        let elementoFecha = seta.children[3];
+
+        let nombreCientifico = elementoNombreCientifico.innerHTML.toLowerCase();
+        let nombreComun = elementoNombreComun.innerHTML.toLowerCase();
+        let fecha = elementoFecha.innerHTML;
         
         if(nombreCientifico.includes(filtroNormalizado) || nombreComun.includes(filtroNormalizado) || fecha.includes(filtroNormalizado)) {
             // Si la seta contiene la información que se busca:
