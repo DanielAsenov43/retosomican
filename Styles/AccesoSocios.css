@@ -12,7 +12,7 @@ body {
   text-align: center;
   
   background-image: url(../Images/seta.jpg);
-  background-color: rgba(255, 255, 255, 0.1); /* Fondo oscuro con 90% transparencia */
+  background-color: rgba(49, 49, 49, 0.788); /* Fondo oscuro con 90% transparencia */
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay; /* Mezcla la imagen y el color */
@@ -20,7 +20,8 @@ body {
 
 .login-container h1 {
   font-size: 28px;
-  color: red;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px black;
   margin-bottom: 10px;
 }
 

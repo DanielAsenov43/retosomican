@@ -1,70 +1,78 @@
-body {
-  margin: 0px;
-  font-family: "Titillium web", sans-serif;
-  justify-content: center;
+html {
+    /* Colores */
+    --color-principal: rgb(121, 199, 255);
+    --color-secundario: rgb(151, 187, 219);
+    --color-acento: rgb(224, 58, 58);
+    --color-principal-fondo: white;
+    --color-secundario-fondo: aliceblue;
 }
 
-.titulo {
-  user-select: none;
-  z-index: -1;
-  width: 100%;
-  text-align: center;
-  color: rgb(224, 58, 58);
-  font-size: 3rem;
-  position: absolute;
+body {
+    margin: 0px;
+    font-family: "Titillium web", sans-serif;
+    justify-content: center;
+
+    .title {
+        user-select: none;
+        z-index: -1;
+        width: 100%;
+        text-align: center;
+        color: var(--color-acento);
+        font-size: 3rem;
+        position: absolute;
+    }
 }
 
 .subir-seta {
-  z-index: 2;
-  position: absolute;
-  right: 55px;
-  transform: translateY(40px);
-  padding: 20px 30px;
-  font-weight: bold;
-  font-size: 1rem;
-  border-radius: 0px;
-  background-color: #78c4fc;
-  color: #fff;
-  border: none;
+    z-index: 2;
+    position: absolute;
+    right: 55px;
+    transform: translateY(40px);
+    padding: 20px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
 
-  &:hover {
-    background-color: rgb(224, 58, 58);
-  }
+    &:hover {
+        background-color: var(--color-acento);
+    }
 }
 
 #gallery-container {
-  width: 100%;
-  margin-top: 150px;
-  position: relative;
-  /*border: red 2px solid;
-  * { border: lime 2px solid; }*/
+    width: 100%;
+    margin-top: 150px;
+    position: relative;
 
-  .gallery {
-    display: flex;
-    justify-content: center;
-    padding: 50px 10px;
-    flex-wrap: wrap;
-    user-select: none;
-  
-    div {
-      .seta {
-        width: 350px;
-        aspect-ratio: auto;
-        margin: 25px 10px;
+    .gallery {
+        display: flex;
+        justify-content: center;
+        padding: 10px 10px 50px 10px;
+        flex-wrap: wrap;
+        user-select: none;
 
-        &:hover {
-          transition-duration: 0.05s;
-          filter: brightness(80%);
-          scale: 1.02;
+        div {
+            .mushroom {
+                border-radius: 10px;
+                width: 350px;
+                aspect-ratio: auto;
+                margin: 25px 10px;
+
+                &:hover {
+                    transition-duration: 0.05s;
+                    filter: brightness(80%);
+                    scale: 1.02;
+                }
+            }
+
+            .user {
+                position: absolute;
+                width: 150px;
+                transform: translate(-380px, 220px);
+                z-index: 1;
+            }
         }
-      }
-  
-      .usuario {
-        position: absolute;
-        width: 150px;
-        transform: translate(-380px, 220px);
-        z-index: 1;
-      }
     }
-  }
 }
