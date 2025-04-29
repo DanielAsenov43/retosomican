@@ -38,6 +38,11 @@ body {
     align-items: center;
     gap: 10px;
     margin-left: 5%;
+    background-color: #78c4fc;
+    border: none;
+    padding: 10px 15px 10px 10px;
+    border-radius: 5px;
+    width: min-content;
   }
   
   .search-box input {
@@ -48,15 +53,7 @@ body {
     width: 250px;
   }
   
-  .search-box button {
-    background-color: #78c4fc;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .search-box button img {
+  .search-box img {
     width: 20px;
     height: 20px;
   }
@@ -113,4 +110,13 @@ body {
   .fecha {
     font-size: 0.9rem;
     color: #888;
+  }
+
+  #sin-resultados {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -200%);
+    font-weight: bold;
+    font-size: 1.2vw;
+    opacity: 40%;
   }

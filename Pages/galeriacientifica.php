@@ -19,6 +19,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <script src="../Scripts/galeriaCientifica.js"></script>
 </head>
 <header>
     <div class="header-top">
@@ -81,25 +83,27 @@
     <h1 class="titulo">Galería de Imágenes</h1>
     <a class="subir-seta" href="./SubirSeta.html">SUBIR UNA SETA</a>
 
-        <div class="search-box">
-            <input type="text" placeholder="Search...">
-            <button><img src="../Images/search-icon.png" alt="Search"></button>
-        </div>
+    <div class="search-box">
+        <input type="text" id="caja-de-busqueda" placeholder="Buscar...">
+        <img src="../Images/search-icon.png" alt="Búsqueda">
+    </div>
 
-        <div id="setas">
-            <?php
-                $query = "SELECT * FROM retosomican.setas WHERE registrada = TRUE;";
-                $result = mysqli_query($conn, $query);
-                while ($row = mysqli_fetch_row($result)) {
-                    echo "<div>";
-                    echo "<img src='../Images/seta.jpg' alt='Icono' />  ";
-                    echo "<p class='nombreCientifico'>".$row[4]."</p>";
-                    echo "<p class='nombreComun'>".$row[5]."</p>";
-                    echo "<p class='fecha'>".$row[6]."</p>";
-                    echo "</div>";
-                }
-            ?>
-        </div>
+    <div id="setas">
+        <?php
+            $query = "SELECT * FROM retosomican.setas WHERE registrada = TRUE;";
+            $result = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_row($result)) {
+                echo "<div>";
+                echo "<img src='../Images/seta.jpg' alt='Icono' />  ";
+                echo "<p class='nombreCientifico'>".$row[4]."</p>";
+                echo "<p class='nombreComun'>".$row[5]."</p>";
+                echo "<p class='fecha'>".$row[6]."</p>";
+                echo "</div>";
+            }
+        ?>
+    </div>
+
+    <span id="sin-resultados"></span>
 </body>
 
 <footer class="footer">
