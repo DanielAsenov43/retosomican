@@ -2,7 +2,7 @@ const logoutURL = "./PHPScripts/logout.php";
 const WELCOME_MESSAGE = "Hola, {USERNAME}";
 const LOGOUT_BUTTON_TEXT = "Cerrar Sesión";
 
-window.onload = () => {
+window.addEventListener("load", () => {
     // Inicializar elementos
     let loginButton = document.getElementById("access-button");
     let headerTitle = document.getElementById("header-title");
@@ -18,5 +18,5 @@ window.onload = () => {
     headerTitle.innerHTML = WELCOME_MESSAGE.replace("{USERNAME}", username)
     loginButton.innerHTML = LOGOUT_BUTTON_TEXT;
     loginButton.href = (isIndex) ? logoutURL : "." + logoutURL;
-}
+});
 

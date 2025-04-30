@@ -3,7 +3,7 @@ const MENSAJE_SIN_RESULTADOS = "No se ha encontrado {SETA}";
 let buscador, setas, sinResultados; // Elementos
 let oldFilterText, newFilterText; // Texto para comparar lo que se ha buscado
 
-window.onload = () => {
+window.addEventListener("load", () => {
     // Inicializar elementos
     buscador = document.getElementById("caja-de-busqueda");
     setas = document.getElementById("setas").children;
@@ -18,7 +18,7 @@ window.onload = () => {
             mostrarSetas(newFilterText);
         }
     }, 10);
-}
+});
 
 // Función que filtra las setas dependiendo del texto que se le pase (filterText)
 function mostrarSetas(filterText) {
