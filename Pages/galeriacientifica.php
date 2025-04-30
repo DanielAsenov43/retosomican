@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "retosomican";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+    // Inicializar las variables para la conexión a la BBDD
+    $nombreHost = "localhost";
+    $usuario = "root";
+    $contrasenia = "";
+    $nombreBBDD = "retosomican";
+    // Iniciar la conexión
+    $conexion = new mysqli($nombreHost, $usuario, $contrasenia, $nombreBBDD);
 
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
-    // session isn't started
-    session_start();
-}
-echo "<script>console.log('PHP: " . $_SESSION['userEmail'] . "');</script>";
+    // Crear una sesión si no existe
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
 
-if(!isset($_SESSION["userEmail"])){
-    header("location: ./accesoSocio.html");
-}
+    if(!isset($_SESSION["userEmail"])){
+        header("location: ./accesoSocios.html");
+    }
+
+    echo '<meta name="username" content="'.$_SESSION['username'].'"/>';
+    echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
+    //echo "Has iniciado sesión como: ".$_SESSION['username'];
 ?>
 
 <head>
@@ -41,8 +43,8 @@ if(!isset($_SESSION["userEmail"])){
         <a href="https://somican.com/#">
             <img class="logo" src="../Images/Logo.png" alt="Logo Somican" />
         </a>
-        <a class="access-button" href="./accesoSocio.html">Acceso Socios</a>
-        <p class="header-title">Sociedad Micológica Cántabra</p>
+        <a id="access-button" href="./accesoSocios.html">Acceso Socios</a>
+        <p id="header-title">Sociedad Micológica Cántabra</p>
     </div>
 
     <nav>
@@ -114,14 +116,14 @@ if(!isset($_SESSION["userEmail"])){
     <a class="subir-seta" href="./SubirSeta.html">SUBIR UNA SETA</a>
 
     <div class="search-box">
-        <input type="text" id="caja-de-busqueda" placeholder="Buscar...">
+        <input type="text" id="caja-de-busqueda" placeholder="Buscar..." maxlength="50">
         <img src="../Images/search-icon.png" alt="Búsqueda">
     </div>
 
     <div id="setas">
         <?php
         $query = "SELECT * FROM retosomican.setas WHERE registrada = TRUE;";
-        $result = mysqli_query($conn, $query);
+        $result = mysqli_query($conexion, $query);
         while ($row = mysqli_fetch_row($result)) {
             echo "<div>";
             echo "<img src='../Images/seta.jpg' alt='Icono' />  ";
@@ -130,10 +132,9 @@ if(!isset($_SESSION["userEmail"])){
             echo "<p class='fecha'>" . $row[6] . "</p>";
             echo "</div>";
         }
-        $conn -> close();
+        $conexion -> close();
         ?>
     </div>
-
     <span id="sin-resultados"></span>
 </body>
 

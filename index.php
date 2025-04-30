@@ -8,10 +8,19 @@
     $nombreBBDD = "retosomican";
     // Iniciar la conexión
     $conexion = new mysqli($nombreHost, $usuario, $contrasenia, $nombreBBDD);
-    session_start();
-    //session_destroy();
+
+    // Crear la sesión
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+
+    if(isset($_SESSION["userEmail"])) {
+        // Creamos un elemento <meta> que contiene información de PHP para poder acceder desde JS
+        echo '<meta name="username" content="'.$_SESSION['username'].'"/>';
+        // Creamos el script
+        echo '<script src="./Scripts/changeLoginButton.js"></script>';
+    }
 ?>
 <head>
+    <meta name="index" content="true"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -34,8 +43,8 @@
         <a href="https://somican.com/#">
             <img class="logo" src="./Images/Logo.png" alt="Logo Somican" />
         </a>
-        <a class="access-button" href="./Pages/AccesoSocio.html">Acceso Socios</a>
-        <p class="header-title">Sociedad Micológica Cántabra</p>
+        <a id="access-button" href="./Pages/AccesoSocios.html">Acceso Socios</a>
+        <p id="header-title">Sociedad Micológica Cántabra</p>
     </div>
 
     <nav>
@@ -114,6 +123,7 @@
                     echo "<img class='user' src='./Images/user.webp' alt='Usuario' />";
                     echo "</div>";
                 }
+                $conexion -> close();
             ?>
         </div>
     </div>

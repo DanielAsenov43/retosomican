@@ -14,7 +14,7 @@ header {
     background-color: var(--color-secundario-fondo);
 
     .header-top {
-        .header-title {
+        #header-title {
             position: absolute;
             left: 50%;
             top: 0%;
@@ -31,7 +31,7 @@ header {
             &:hover { scale: 1.1; }
         }
 
-        .access-button {
+        #access-button {
             background-color: var(--color-principal);
             padding: 10px;
             color: var(--color-principal-fondo);
