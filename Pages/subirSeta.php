@@ -26,11 +26,12 @@
     <title>Subir Setas - SOMICAN</title>
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/footer.css" />
-    <link rel="stylesheet" href="../Styles/SubirSeta.css" />
+    <link rel="stylesheet" href="../Styles/subirSeta.css" />
     <!-- Fuente de google: Titillium Web -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+    <!-- Scripts -->
     <script src="../Scripts/subirSeta.js"></script>
 </head>
 
@@ -110,7 +111,7 @@
 <body>
     <main class="registro-container">
         <h1>Registrar Seta Nueva</h1>
-        <form class="form-seta">
+        <form id="form-seta">
             <div class="form-grid">
                 <div class="col">
                     <label>Nombre científico*</label>

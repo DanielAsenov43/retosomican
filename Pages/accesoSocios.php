@@ -15,7 +15,7 @@ if(isset($_SESSION["ERROR-LOGIN"])) {
   <title>Acceso a Socios - SOMICAN</title>
   <link rel="stylesheet" href="../Styles/header.css" />
   <link rel="stylesheet" href="../Styles/footer.css" />
-  <link rel="stylesheet" href="../Styles/AccesoSocios.css">
+  <link rel="stylesheet" href="../Styles/accesoSocios.css">
   <!-- Fuente de google: Titillium Web -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
