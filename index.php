@@ -12,9 +12,9 @@
     // Crear la sesión
     if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
 
-    if(isset($_SESSION["userEmail"])) {
+    if(isset($_SESSION["USER-EMAIL"])) {
         // Creamos un elemento <meta> que contiene información de PHP para poder acceder desde JS
-        echo '<meta name="username" content="'.$_SESSION['username'].'"/>';
+        echo '<meta name="username" content="'.$_SESSION['USER-NAME'].'"/>';
         // Creamos el script
         echo '<script src="./Scripts/changeLoginButton.js"></script>';
     }
@@ -43,7 +43,7 @@
         <a href="https://somican.com/#">
             <img class="logo" src="./Images/Logo.png" alt="Logo Somican" />
         </a>
-        <a id="access-button" href="./Pages/AccesoSocios.html">Acceso Socios</a>
+        <a id="access-button" href="./Pages/AccesoSocios.php">Acceso Socios</a>
         <p id="header-title">Sociedad Micológica Cántabra</p>
     </div>
 
@@ -107,7 +107,7 @@
 
 <body>
     <h1 class="title">Galería Artística</h1>
-    <a class="subir-seta" href="./Pages/SubirSeta.html">SUBIR UNA SETA</a>
+    <a class="subir-seta" href="./Pages/SubirSeta.php">SUBIR UNA SETA</a>
 
 
     <div id="gallery-container">

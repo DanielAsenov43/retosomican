@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+    // Inicializar las variables para la conexión a la BBDD
+    $nombreHost = "localhost";
+    $usuario = "root";
+    $contrasenia = "";
+    $nombreBBDD = "retosomican";
+    // Iniciar la conexión
+    $conexion = new mysqli($nombreHost, $usuario, $contrasenia, $nombreBBDD);
 
+    // Crear una sesión si no existe
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+
+    if(!isset($_SESSION["USER-EMAIL"])){
+        header("location: ./accesoSocios.php");
+    }
+
+    echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
+    echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
+    //echo "Has iniciado sesión como: ".$_SESSION['username'];
+?>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,7 +39,7 @@
         <a href="https://somican.com/#">
             <img class="logo" src="../Images/Logo.png" alt="Logo Somican" />
         </a>
-        <a id="access-button" href="./accesoSocios.html">Acceso Socios</a>
+        <a id="access-button" href="./accesoSocios.php">Acceso Socios</a>
         <p id="header-title">Sociedad Micológica Cántabra</p>
     </div>
 

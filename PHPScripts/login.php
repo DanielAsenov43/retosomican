@@ -4,24 +4,34 @@ $username = "root";
 $password = "";
 $database = "retosomican";
 // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+$connection = new mysqli($servername, $username, $password, $database);
 
-session_start();
-if(!isset($_SESSION['email']) || !isset( $_SESSION['password'])){
-    header('location: ../Pages/accesoSocios.html');
+if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+
+if(!isset($_POST["email"]) || !isset( $_POST["password"])){
+    // Si falta algún dato, volver a la página de acceso
+    header('location: ../Pages/accesoSocios.php');
 }
-$userEmail = $_POST['email'];
-$userPassword = $_POST['password'];
 
-$query = "SELECT * FROM retosomican.socios WHERE clave IS NULL AND email LIKE \"" . $userEmail . "\" AND contrasenia LIKE \"" . $userPassword . "\"";
-$result = mysqli_query($conn, $query);
+$userEmail = $_POST["email"];
+$userPassword = $_POST["password"];
 
-if(mysqli_num_rows($result) > 0) {
+$emailQuery = "SELECT * FROM retosomican.socios WHERE email LIKE \"" . $userEmail . "\"";
+$result = mysqli_query($connection, $emailQuery);
+
+if(mysqli_num_rows($result) > 0) { // Existe un usuario registrado con ese correo
     $row = mysqli_fetch_array($result);
-    $_SESSION['username'] = $row[1];
-    $_SESSION['userEmail'] = $userEmail;
-    header("location: ../Pages/galeriaCientifica.php");
+    if($userPassword == $row[4]) {
+        $_SESSION["USER-ID"] = $row[0];
+        $_SESSION["USER-NAME"] = $row[1];
+        $_SESSION["USER-EMAIL"] = $userEmail;
+        header("location: ../Pages/galeriaCientifica.php");
+    } else {
+        // Error: contraseña incorrecta
+        $_SESSION["ERROR-LOGIN"] = "¡Contraseña incorrecta!";
+    }
 } else {
-    echo "error";
+    // Error: correo no registrado
+    $_SESSION["ERROR-LOGIN"] = "¡Correo incorrecto!";
 }
 ?>

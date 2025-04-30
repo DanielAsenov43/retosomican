@@ -12,11 +12,11 @@
     // Crear una sesión si no existe
     if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
 
-    if(!isset($_SESSION["userEmail"])){
-        header("location: ./accesoSocios.html");
+    if(!isset($_SESSION["USER-EMAIL"])){
+        header("location: ./accesoSocios.php");
     }
 
-    echo '<meta name="username" content="'.$_SESSION['username'].'"/>';
+    echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
     echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
     //echo "Has iniciado sesión como: ".$_SESSION['username'];
 ?>
@@ -41,7 +41,7 @@
         <a href="https://somican.com/#">
             <img class="logo" src="../Images/Logo.png" alt="Logo Somican" />
         </a>
-        <a id="access-button" href="./accesoSocios.html">Acceso Socios</a>
+        <a id="access-button" href="./accesoSocios.php">Acceso Socios</a>
         <p id="header-title">Sociedad Micológica Cántabra</p>
     </div>
 
@@ -111,7 +111,7 @@
 
 <body>
     <h1 class="titulo">Galería de Imágenes</h1>
-    <a class="subir-seta" href="./SubirSeta.html">SUBIR UNA SETA</a>
+    <a class="subir-seta" href="./SubirSeta.php">SUBIR UNA SETA</a>
 
     <div class="search-box">
         <input type="text" id="caja-de-busqueda" placeholder="Buscar..." maxlength="50">
