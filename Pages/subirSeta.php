@@ -111,29 +111,29 @@
 <body>
     <main class="registro-container">
         <h1>Registrar Seta Nueva</h1>
-        <form id="form-seta">
+        <form id="form-seta" method="POST" action="../PHPScripts/upload.php">
             <div class="form-grid">
                 <div class="col">
-                    <label>Nombre científico*</label>
-                    <input type="text" name="nombre_cientifico" required>
+                    <label>Nombre científico<span>*</span></label>
+                    <input type="text" name="nombre-cientifico" required>
 
-                    <label>Fecha de recogida*</label>
-                    <input type="date" name="fecha_recogida" required>
+                    <label>Fecha de recogida<span>*</span></label>
+                    <input type="date" name="fecha" required>
 
-                    <label>Lugar de recogida*</label>
-                    <input type="text" name="lugar_recogida" required>
+                    <label>Lugar de recogida<span>*</span></label>
+                    <input type="text" name="lugar" required>
 
-                    <label>Hábitat*</label>
+                    <label>Hábitat<span>*</span></label>
                     <input type="text" name="habitat" required>
 
-                    <label>Altura nivel del mar*</label>
-                    <input type="number" name="altura" required>
+                    <label>Altura nivel del mar<span>*</span></label>
+                    <input type="number" name="altura" min="0" required>
 
                 </div>
                 <div class="col">
 
                     <label>Nombre común</label>
-                    <input type="text" name="nombre_comun">
+                    <input type="text" name="nombre-comun">
 
                     <label>Olor</label>
                     <input type="text" name="olor">
@@ -149,12 +149,6 @@
                 </div>
                 <div class="subirFoto">
                     <label for="myfile">Sube la foto (artistica):</label>
-                    <input type="file" id="myfile" name="myfile" onchange="previewImage()">
-                    <!-- Contenedor para la imagen vista previa -->
-                    <div id="imagePreview"></div>
-                </div>
-                <div class="subirFoto">
-                    <label for="myfile">Sube la foto(cientifica):</label>
                     <input type="file" id="myfile" name="myfile" onchange="previewImage()">
                     <!-- Contenedor para la imagen vista previa -->
                     <div id="imagePreview"></div>
