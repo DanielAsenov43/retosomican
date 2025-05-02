@@ -148,6 +148,57 @@
 </body>
 
 <footer class="footer">
+    <nav>
+        <ul>
+            <li>
+                <div class="footer-dropdown">
+                    <!-- Boton que se despliega al tener el cursor sobre él -->
+                    <button>SOMICAN +</button>
+                    <div class="footer-dropdown-content">
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de sus noticias -->
+                        <a href="https://somican.com/blog/">NOTICIAS</a>
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
+                        <a href="https://somican.com/historia-la-sociedad-micologica-cantabra/">HISTORIA</a>
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican para consultar informacion respecto a los socios -->
+                        <a href="https://somican.com/socios-la-sociedad-micologica-cantabra/">SOCIOS</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="footer-dropdown">
+                    <!-- Boton que se despliega al tener el cursor sobre él -->
+                    <button>GALERÍAS +</button>
+                    <div class="footer-dropdown-content">
+                        <!-- Botón que al pinchar sobre él te redirige a nuestro Galería Artística -->
+                        <a href="">GALERIA ARTÍSTICA</a>
+                        <!-- Botón que al pinchar sobre él te redirige a nuestra Galeria Cientifica (será necesario acceder como socio para verla) -->
+                        <a href="./Pages/galeriacientifica.php">GALERIA CIENTÍFICA</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de la Revista Yesca -->
+                <a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a>
+            </li>
+            <li>
+                <div class="footer-dropdown">
+                    <!-- Boton que se despliega al tener el cursor sobre él -->
+                    <button>MEDIOS +</button>
+                    <div class="footer-dropdown-content">
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su biblioteca -->
+                        <a href="https://somican.com/biblioteca-micologia/">BIBLIOTECA</a>
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
+                        <a href="https://somican.com/enlaces-interes-micologia/">ENLACES DE INTERÉS</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <!-- Botón que al pinchar sobre el te redirige al canal de Youtube de Somican -->
+                <a href="https://somican.com/contacto/"><button>CONTACTO</button></a>
+            </li>
+        </ul>
+    </nav>
+
     <div class="footerContenedor">
         <div class="footerIzquierda">
             <h2>SOMICAN</h2>
@@ -172,51 +223,6 @@
                 </a>
             </div>
         </div>
-    </div>
-
-    <div class="footerLinks">
-        <ul>
-            <li>
-                <div class="footerDropdown">
-                    <button class="footerDropbtn">
-                        <div>SOMICAN +</div>
-                    </button>
-                    <div class="footerDropdown-content">
-                        <a href="https://somican.com/blog/">NOTICIAS</a>
-                        <a href="https://somican.com/historia-la-sociedad-micologica-cantabra/">HISTORIA</a>
-                        <a href="https://somican.com/socios-la-sociedad-micologica-cantabra/">SOCIOS</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="footerDropdown">
-                    <button class="footerDropbtn">
-                        <div>GALERÍAS +</div>
-                    </button>
-                    <div class="footerDropdown-content">
-                        <a href="../index.html">GALERIA ARTISTICA</a>
-                        <a href="../Pages/galeriacientifica.html">GALERIA CIENTIFICA</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="simpleLinks"><a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a></div>
-            </li>
-            <li>
-                <div class="footerDropdown">
-                    <button class="footerDropbtn">
-                        <div>MEDIOS +</div>
-                    </button>
-                    <div class="footerDropdown-content">
-                        <a href="https://somican.com/biblioteca-micologia/">BIBLIOTECA</a>
-                        <a href="https://somican.com/enlaces-interes-micologia/">ENLACES DE INTERÉS</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTO</button></a></div>
-            </li>
-        </ul>
     </div>
 
     <div class="footerPolitica">
