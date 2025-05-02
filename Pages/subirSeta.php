@@ -67,6 +67,7 @@
             </li>
             <li>
                 <a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a>
+            </li>
             <li>
                 <div class="header-dropdown">
                     <button>MEDIOS +</button>
