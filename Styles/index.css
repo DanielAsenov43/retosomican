@@ -35,6 +35,7 @@ body {
     background-color: var(--color-principal);
     color: white;
     border: none;
+    user-select: none;
 
     &:hover {
         background-color: var(--color-acento);

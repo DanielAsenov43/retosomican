@@ -2,19 +2,32 @@ body {
     margin: 0;
     font-family: 'Titillium Web', sans-serif;
     justify-content: center;
-  }
-  
-  .titulo {
-  user-select: none;
-  z-index: -1;
-  width: 100%;
-  text-align: center;
-  color: rgb(224, 58, 58);
-  font-size: 3rem;
-  position: absolute;
-  }
-  
-  .subir-seta {
+    background-color: var(--color-secundario-fondo);
+}
+
+#background-image {
+    opacity: 25%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    aspect-ratio: inherit;
+    position: fixed;
+    z-index: -1;
+}
+
+.titulo {
+    user-select: none;
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+    color: rgb(224, 58, 58);
+    font-size: 3rem;
+    position: absolute;
+}
+
+.subir-seta {
     z-index: 2;
     position: absolute;
     right: 55px;
@@ -26,13 +39,14 @@ body {
     background-color: #78c4fc;
     color: #fff;
     border: none;
-  
-    &:hover {
-      background-color: rgb(224, 58, 58);
-    }
-  }
+    user-select: none;
 
-  .search-box {
+    &:hover {
+        background-color: rgb(224, 58, 58);
+    }
+}
+
+.search-box {
     margin: 120px;
     display: flex;
     align-items: center;
@@ -57,10 +71,10 @@ body {
         width: 20px;
         height: 20px;
     }
-  }
-  
-  /* Galería de setas */
-  #setas {
+}
+
+/* Galería de setas */
+#setas {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -69,54 +83,55 @@ body {
     margin-left: auto;
     margin-right: auto;
     transform: translateY(-75px);
-  }
-  
-  #setas > div { /* selecciona en el elemento con id="setas" hijos directos que son <div> */
+}
+
+#setas>div {
+    /* selecciona en el elemento con id="setas" hijos directos que son <div> */
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
     width: 250px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
         cursor: pointer;
         transform: scale(1.02);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
-  }
-  
-  #setas img {
+}
+
+#setas img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 10px;
     user-select: none;
-  }
-  
-  .nombreCientifico {
+}
+
+.nombreCientifico {
     font-weight: bold;
     font-style: italic;
     margin: 5px 0;
-  }
-  
-  .nombreComun {
+}
+
+.nombreComun {
     color: #555;
     margin: 5px 0;
-  }
-  
-  .fecha {
+}
+
+.fecha {
     font-size: 0.9rem;
     color: #888;
-  }
+}
 
-  #sin-resultados {
+#sin-resultados {
     position: absolute;
     left: 50%;
     transform: translate(-50%, -200%);
     font-weight: bold;
     font-size: 1.2vw;
     opacity: 40%;
-  }
+}

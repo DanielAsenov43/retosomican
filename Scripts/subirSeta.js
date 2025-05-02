@@ -1,5 +1,5 @@
 function previewImage() {
-  const file = document.getElementById("myfile").files[0];
+  const file = document.getElementById("uploadedImage").files[0];
   const preview = document.getElementById("imagePreview");
   const reader = new FileReader();
 
@@ -19,5 +19,5 @@ function previewImage() {
 }
 // Asocia el evento de cambio de archivo al input
 window.onload = function() {
-    document.getElementById("myfile").addEventListener("change", previewImage);
+    document.getElementById("uploadedImage").addEventListener("change", previewImage);
 }

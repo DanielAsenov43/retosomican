@@ -13,12 +13,12 @@
     transition-duration: 0.35s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    #detail-image {
+    #detail-image-container {
         width: 100%;
         justify-content: center;
         text-align: center;
 
-        img {
+        #detail-image {
             max-width: 400px;
             border-radius: 10px;
             user-select: none;

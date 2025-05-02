@@ -1,20 +1,22 @@
 let viewingDetail = false; // Este valor será "true" si se está mostrando el panel informativo
-let background, infoPanel; // El elemento de fondo y el panel en sí
+let background, infoPanel, image; // El elemento de fondo y el panel en sí
 
 window.addEventListener("load", () => {
     // Al cargar la página, inicializar los elementos
     background = document.getElementById("background-black-fade");
     infoPanel = document.getElementById("detalles-seta");
+    image = document.getElementById("detail-image");
 });
 
 // Función que es llamada al darle click a una seta
-function showInfoPanel(nombreLegado, nombreDeterminado, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, olor, sabor, tipoSuelo, climatologia, observaciones) {
+function showInfoPanel(IDSeta, nombreLegado, nombreDeterminado, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, olor, sabor, tipoSuelo, climatologia, observaciones) {
     // Cambiar la variable "viewingDetail"
     viewingDetail = true;
     // Cambiar algunos estilos
     background.style.display = "block";
     infoPanel.style.opacity = "100%";
     infoPanel.style.transform = "translate(-50%, -50%) scale(100%)";
+    image.src = "../GalleryImages/SETA_" + IDSeta + ".png";
     // Actualizar la información de los elementos del panel informativo
     showInfo("detail-nombre-legado", "Legado: ", titleCase(nombreLegado));
     showInfo("detail-nombre-determinado", "Determinado: ", titleCase(nombreDeterminado));
@@ -23,7 +25,8 @@ function showInfoPanel(nombreLegado, nombreDeterminado, nombreCientifico, nombre
     showInfo("detail-fecha-recogida", "Fecha de recogida: ", fechaRecogida);
     showInfo("detail-lugar-recogida", "Lugar de recogida: ", lugarRecogida);
     showInfo("detail-habitat", "Hábitat: ", habitat);
-    showInfo("detail-altura-mar", "Altura sobre el nivel del mar: ", alturaMar + " metros");
+    let textoMetros = (alturaMar == "1") ? " metro" : " metros";
+    showInfo("detail-altura-mar", "Altura sobre el nivel del mar: ", alturaMar + textoMetros);
     showInfo("detail-olor", "Olor: ", olor);
     showInfo("detail-sabor", "Sabor: ", sabor);
     showInfo("detail-tipo-suelo", "Tipo de suelo: ", tipoSuelo);
