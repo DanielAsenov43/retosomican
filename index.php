@@ -80,6 +80,7 @@
             <li>
                 <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de la Revista Yesca -->
                 <a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a>
+            </li>
             <li>
                 <div class="header-dropdown">
                     <!-- Boton que se despliega al tener el cursor sobre él -->
@@ -178,7 +179,7 @@
             <li>
                 <div class="footerDropdown">
                     <button class="footerDropbtn">
-                        <div>SOMICAN ▼</div>
+                        <div>SOMICAN +</div>
                     </button>
                     <div class="footerDropdown-content">
                         <a href="https://somican.com/blog/">NOTICIAS</a>
@@ -190,7 +191,7 @@
             <li>
                 <div class="footerDropdown">
                     <button class="footerDropbtn">
-                        <div>GALERÍAS ▼</div>
+                        <div>GALERÍAS +</div>
                     </button>
                     <div class="footerDropdown-content">
                         <a href="../index.html">GALERIA ARTISTICA</a>
@@ -199,13 +200,12 @@
                 </div>
             </li>
             <li>
-                <div class="simpleLinks"><a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA
-                            YESCA</button></a></div>
+                <div class="simpleLinks"><a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a></div>
             </li>
             <li>
                 <div class="footerDropdown">
                     <button class="footerDropbtn">
-                        <div>MEDIOS ▼</div>
+                        <div>MEDIOS +</div>
                     </button>
                     <div class="footerDropdown-content">
                         <a href="https://somican.com/biblioteca-micologia/">BIBLIOTECA</a>
@@ -253,4 +253,5 @@
     </div>
 </footer>
 
+</html>
 </html>
