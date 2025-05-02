@@ -8,6 +8,10 @@ if(isset($_SESSION["ERROR-LOGIN"])) {
     echo "<script>window.addEventListener('load', () => { document.getElementById('error-message').innerHTML = '".$_SESSION["ERROR-LOGIN"]."' });</script>";
     unset($_SESSION["ERROR-LOGIN"]);
 }
+
+if(isset($_SESSION["USER-NAME"])) {
+    header("location: ./galeriaCientifica.php");
+}
 ?>
 <head>
   <meta charset="UTF-8" />
