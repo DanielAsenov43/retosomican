@@ -70,7 +70,7 @@
                         <!-- Botón que al pinchar sobre él te redirige a nuestra Galería Artística -->
                         <a href="../index.php">GALERIA ARTÍSTICA</a>
                         <!-- Botón que al pinchar sobre él te redirige a nuestra Galeria Cientifica (será necesario acceder como socio para verla) -->
-                        <a href="">GALERIA CIENTIFICA</a>
+                        <a href="../Pages/galeriaCientifica.php">GALERIA CIENTIFICA</a>
                     </div>
                 </div>
             </li>
