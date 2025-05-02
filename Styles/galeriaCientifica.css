@@ -39,24 +39,24 @@ body {
     gap: 10px;
     margin-left: 50%;
     transform: translateX(-50%);
-    background-color: #78c4fc;
+    background-color: var(--color-principal);
     border: none;
     padding: 10px 15px 10px 10px;
     border-radius: 5px;
     width: min-content;
-  }
-  
-  .search-box input {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    width: 250px;
-  }
-  
-  .search-box img {
-    width: 20px;
-    height: 20px;
+
+    input {
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        width: 250px;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
   }
   
   /* Galería de setas */
@@ -69,9 +69,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     transform: translateY(-75px);
-    
-    /*border: red 2px solid;
-    * { border: lime 2px solid; }*/
   }
   
   #setas > div { /* selecciona en el elemento con id="setas" hijos directos que son <div> */
@@ -83,11 +80,12 @@ body {
     width: 250px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  #setas > div:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
   }
   
   #setas img {
@@ -95,6 +93,7 @@ body {
     height: auto;
     border-radius: 8px;
     margin-bottom: 10px;
+    user-select: none;
   }
   
   .nombreCientifico {
