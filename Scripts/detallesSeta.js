@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
 })
 
 // Función que es llamada al darle click a una seta
-function showInfoPanel(nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, olor, sabor, tipoSuelo, climatologia, observaciones) {
+function showInfoPanel(nombreLegado, nombreDeterminado, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, olor, sabor, tipoSuelo, climatologia, observaciones) {
     // Cambiar la variable "viewingDetail"
     viewingDetail = true;
     // Cambiar algunos estilos
@@ -16,6 +16,8 @@ function showInfoPanel(nombreCientifico, nombreComun, fechaRecogida, lugarRecogi
     infoPanel.style.opacity = "100%";
     infoPanel.style.transform = "translate(-50%, -50%) scale(100%)";
     // Actualizar la información de los elementos del panel informativo
+    showInfo("detail-nombre-legado", "Legado: ", titleCase(nombreLegado));
+    showInfo("detail-nombre-determinado", "Determinado: ", titleCase(nombreDeterminado));
     showInfo("detail-nombre-cientifico", "Nombre científico: ", nombreCientifico);
     showInfo("detail-nombre-comun", "Nombre común: ", nombreComun);
     showInfo("detail-fecha-recogida", "Fecha de recogida: ", fechaRecogida);
@@ -42,6 +44,14 @@ function hideInfoPanel() {
     infoPanel.style.opacity = "0%";
     infoPanel.style.transform = "translate(-50%, -50%) scale(0%)";
 }
+
+function titleCase(str) {
+    var splitString = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitString.length; i++) {
+        splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);     
+    }
+    return splitString.join(' '); 
+ }
 
 // Evento que evita moverse por la página con la rueda del ratón si has abierto el panel informativo
 window.addEventListener("wheel", () => {

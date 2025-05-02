@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "retosomican";
-// Create connection
+// Crear la conexión
 $connection = new mysqli($servername, $username, $password, $database);
 
 if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
@@ -29,6 +29,7 @@ $suelo = getPostInfo("suelo", true);
 $clima = getPostInfo("clima", true);
 $observaciones = getPostInfo("observaciones", true);
 
+// Consulta:
 $query = "
 INSERT INTO retosomican.setas
 (IDLegado, registrada, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, 
@@ -36,15 +37,19 @@ olor, sabor, tipoSuelo, climatologia, observaciones) VALUES
 (".$IDLegado.", TRUE, ".$nombreCientifico.", ".$nombreComun.", ".$fechaRecogida.", ".$lugarRecogida.", ".$habitat.", ".$alturaMar.", 
 ".$olor.", ".$sabor.", ".$suelo.", ".$clima.", ".$observaciones.")";
 
+// Ejecutar la consulta
 $connection -> query($query);
 $connection -> close();
 header("location: ../Pages/galeriaCientifica.php");
 
+// Funciones que facilitan obtener la información de los campos.
+// Si el campo es obligatorio y no se ha rellenado, volverá al formulario
 function getRequiredPostInfo($name, $isString) {
     if(!isset($_POST[$name])) header("location: ../Pages/subirSeta.php");
     return ($isString) ? "\"".$_POST[$name]."\"" : $_POST[$name];
 }
 
+// Si el campo es opcional y no se ha rellenado, devolverá "NULL"
 function getPostInfo($name, $isString) {
     if(!isset($_POST[$name])) return "NULL";
     return ($isString) ? "\"".$_POST[$name]."\"" : $_POST[$name];

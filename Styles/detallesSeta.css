@@ -10,14 +10,19 @@
     border-radius: 20px;
     padding: 50px 25px 10px 25px;
     background-color: white;
-    box-shadow: 0 0 500px black;
     transition-duration: 0.35s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    img {
-        max-width: 400px;
-        border-radius: 10px;
-        user-select: none;
+    #detail-image {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+
+        img {
+            max-width: 400px;
+            border-radius: 10px;
+            user-select: none;
+        }
     }
 
     #detail-close {
