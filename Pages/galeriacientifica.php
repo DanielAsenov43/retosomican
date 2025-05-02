@@ -8,32 +8,35 @@
     $nombreBBDD = "retosomican";
     // Iniciar la conexión
     $conexion = new mysqli($nombreHost, $usuario, $contrasenia, $nombreBBDD);
-
-    // Crear una sesión si no existe
-    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
-
-    if(!isset($_SESSION["USER-EMAIL"])){
-        header("location: ./accesoSocios.php");
-    }
-
-    echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
-    echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
-    //echo "Has iniciado sesión como: ".$_SESSION['username'];
 ?>
 
 <head>
+    <?php
+        // Crear una sesión si no existe
+        if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+
+        if(!isset($_SESSION["USER-EMAIL"])){
+            header("location: ./accesoSocios.php");
+        }
+
+        echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
+        echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
+        //echo "Has iniciado sesión como: ".$_SESSION['username'];
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería Científica - SOMICAN</title>
-    <link rel="stylesheet" href="../Styles/galeriaCientifica.css">
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/footer.css" />
+    <link rel="stylesheet" href="../Styles/galeriaCientifica.css">
+    <link rel="stylesheet" href="../Styles/detallesSeta.css">
     <!-- Fuente de google: Titillium Web -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <!-- Scripts -->
     <script src="../Scripts/galeriaCientifica.js"></script>
+    <script src="../Scripts/detallesSeta.js"></script>
 </head>
 
 <header>
@@ -110,20 +113,38 @@
 </header>
 
 <body>
-    <h1 class="titulo">Galería de Imágenes</h1>
+    <h1 class="titulo">Galería Científica</h1>
     <a class="subir-seta" href="./SubirSeta.php">SUBIR UNA SETA</a>
 
     <div class="search-box">
         <input type="text" id="caja-de-busqueda" placeholder="Buscar..." maxlength="50">
         <img src="../Images/search-icon.png" alt="Búsqueda">
     </div>
-
+    <div id="background-black-fade"></div>
+    <div id="detalles-seta">
+        <!-- SVG de la X para cerrar el panel, obtenido de la página antigua de somican -->
+        <svg viewBox="0 0 352 512" id="detail-close" onclick="hideInfoPanel()">
+            <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+        </svg>
+        <img src="../Images/seta.jpg"/>
+        <p id="detail-nombre-cientifico"></p>
+        <p id="detail-nombre-comun"></p>
+        <p id="detail-fecha-recogida"></p>
+        <p id="detail-lugar-recogida"></p>
+        <p id="detail-habitat"></p>
+        <p id="detail-altura-mar"></p>
+        <p id="detail-olor"></p>
+        <p id="detail-sabor"></p>
+        <p id="detail-tipo-suelo"></p>
+        <p id="detail-climatologia"></p>
+        <p id="detail-observaciones"></p>
+    </div>
     <div id="setas">
         <?php
-        $query = "SELECT * FROM retosomican.setas WHERE registrada = TRUE;";
+        $query = "SELECT * FROM retosomican.setas WHERE registrada = TRUE";
         $result = mysqli_query($conexion, $query);
         while ($row = mysqli_fetch_row($result)) {
-            echo "<div>";
+            echo "<div onclick=\"showInfoPanel('".$row[4]."', '".$row[5]."', '".$row[6]."', '".$row[7]."', '".$row[8]."', '".$row[9]."', '".$row[10]."', '".$row[11]."', '".$row[12]."', '".$row[13]."', '".$row[14]."')\">";
             echo "<img src='../Images/seta.jpg' alt='Icono' />  ";
             echo "<p class='nombreCientifico'>" . $row[4] . "</p>";
             echo "<p class='nombreComun'>" . $row[5] . "</p>";

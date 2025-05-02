@@ -128,10 +128,8 @@
 
                     <label>Altura nivel del mar<span>*</span></label>
                     <input type="number" name="altura" min="0" required>
-
                 </div>
                 <div class="col">
-
                     <label>Nombre común</label>
                     <input type="text" name="nombre-comun">
 
@@ -148,9 +146,8 @@
                     <input type="text" name="clima">
                 </div>
                 <div class="subirFoto">
-                    <label for="myfile">Sube la foto (artistica):</label>
+                    <label for="myfile">Subir foto:</label>
                     <input type="file" id="myfile" name="myfile" onchange="previewImage()">
-                    <!-- Contenedor para la imagen vista previa -->
                     <div id="imagePreview"></div>
                 </div>
                 <div class="observaciones">
