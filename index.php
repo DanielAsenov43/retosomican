@@ -80,6 +80,7 @@
             <li>
                 <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de la Revista Yesca -->
                 <a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a>
+            </li>
             <li>
                 <div class="header-dropdown">
                     <!-- Boton que se despliega al tener el cursor sobre él -->
