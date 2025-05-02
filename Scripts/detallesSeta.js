@@ -54,7 +54,7 @@ function titleCase(str) {
  }
 
 // Evento que evita moverse por la página con la rueda del ratón si has abierto el panel informativo
-window.addEventListener("scroll", () => {
+window.addEventListener("wheel", () => {
     document.body.style.overflow = (viewingDetail) ? "hidden" : "visible";
 });
 
