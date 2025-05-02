@@ -61,7 +61,7 @@
                     <button>GALERÍAS +</button>
                     <div class="header-dropdown-content">
                         <a href="../index.php">GALERIA ARTÍSTICA</a>
-                        <a href="">GALERIA CIENTIFICA</a>
+                        <a href="../Pages/galeriaCientifica.php">GALERIA CIENTIFICA</a>
                     </div>
                 </div>
             </li>
