@@ -115,35 +115,35 @@
             <div class="form-grid">
                 <div class="col">
                     <label>Nombre científico<span>*</span></label>
-                    <input type="text" name="nombre-cientifico" required>
+                    <input type="text" name="nombre-cientifico" maxlength="64" required>
 
                     <label>Fecha de recogida<span>*</span></label>
                     <input type="date" name="fecha" required>
 
                     <label>Lugar de recogida<span>*</span></label>
-                    <input type="text" name="lugar" required>
+                    <input type="text" name="lugar" maxlength="32" required>
 
                     <label>Hábitat<span>*</span></label>
-                    <input type="text" name="habitat" required>
+                    <input type="text" name="habitat" maxlength="32" required>
 
                     <label>Altura nivel del mar<span>*</span></label>
                     <input type="number" name="altura" min="0" required>
                 </div>
                 <div class="col">
                     <label>Nombre común</label>
-                    <input type="text" name="nombre-comun">
+                    <input type="text" name="nombre-comun" maxlength="64">
 
                     <label>Olor</label>
-                    <input type="text" name="olor">
+                    <input type="text" name="olor" maxlength="32">
 
                     <label>Sabor</label>
-                    <input type="text" name="sabor">
+                    <input type="text" name="sabor" maxlength="32">
 
                     <label>Tipo de suelo</label>
-                    <input type="text" name="suelo">
+                    <input type="text" name="suelo" maxlength="32">
 
                     <label>Climatología</label>
-                    <input type="text" name="clima">
+                    <input type="text" name="clima" maxlength="32">
                 </div>
                 <div class="subirFoto">
                     <label for="myfile">Subir foto:</label>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="observaciones">
                     <label>Observaciones</label>
-                    <textarea name="observaciones" rows="4"></textarea>
+                    <textarea name="observaciones" rows="4" maxlength="512"></textarea>
                 </div>
             </div>
             <div class="form-button">
