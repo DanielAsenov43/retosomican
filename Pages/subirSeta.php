@@ -37,9 +37,11 @@
 
 <header>
     <div class="header-top">
+        <!-- Imagen con el logo de Somican que al pinchar sobre él te lleva a la página principal de Somican -->
         <a href="https://somican.com/#">
             <img class="logo" src="../Images/Logo.png" alt="Logo Somican" />
         </a>
+        <!-- Botón para acceder como socio a la página web -->
         <a id="access-button" href="./accesoSocios.php">Acceso Socios</a>
         <p id="header-title">Sociedad Micológica Cántabra</p>
     </div>
@@ -48,41 +50,54 @@
         <ul>
             <li>
                 <div class="header-dropdown">
+                    <!-- Boton que se despliega al tener el cursor sobre él -->
                     <button>SOMICAN +</button>
                     <div class="header-dropdown-content">
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de sus noticias -->
                         <a href="https://somican.com/blog/">NOTICIAS</a>
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
                         <a href="https://somican.com/historia-la-sociedad-micologica-cantabra/">HISTORIA</a>
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican para consultar informacion respecto a los socios -->
                         <a href="https://somican.com/socios-la-sociedad-micologica-cantabra/">SOCIOS</a>
                     </div>
                 </div>
             </li>
             <li>
                 <div class="header-dropdown">
+                    <!-- Boton que se despliega al tener el cursor sobre él -->
                     <button>GALERÍAS +</button>
                     <div class="header-dropdown-content">
+                        <!-- Botón que al pinchar sobre él te redirige a nuestra Galería Artística -->
                         <a href="../index.php">GALERIA ARTÍSTICA</a>
+                        <!-- Botón que al pinchar sobre él te redirige a nuestra Galeria Cientifica (será necesario acceder como socio para verla) -->
                         <a href="">GALERIA CIENTIFICA</a>
                     </div>
                 </div>
             </li>
             <li>
+                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de la Revista Yesca -->
                 <a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a>
             <li>
                 <div class="header-dropdown">
+                    <!-- Boton que se despliega al tener el cursor sobre él -->
                     <button>MEDIOS +</button>
                     <div class="header-dropdown-content">
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su biblioteca -->
                         <a href="https://somican.com/biblioteca-micologia/">BIBLIOTECA</a>
+                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de sus enlaces de interés -->
                         <a href="https://somican.com/enlaces-interes-micologia/">ENLACES DE INTERÉS</a>
                     </div>
                 </div>
             </li>
             <li>
+                <!-- Botón que al pinchar sobre el te redirige a la página de contacto de Somican -->
                 <a href="https://somican.com/contacto/"><button>CONTACTO</button></a>
             </li>
         </ul>
     </nav>
 
     <div class="social-media">
+        <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->
         <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
             <!-- SVG's de facebook, youtube y email para no perder calidad -->
             <svg class="facebook" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
@@ -91,6 +106,7 @@
                 </path>
             </svg>
         </a>
+        <!-- Botón que al pinchar sobre el te redirige al canal de Youtube de Somican -->
         <a href="https://www.youtube.com/@SociedadMicologicaCantabra">
             <svg class="youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -98,6 +114,7 @@
                 </path>
             </svg>
         </a>
+        <!-- Botón que al pinchar sobre el te redirige a la pgina de contacto de Somican -->
         <a href="https://somican.com/contacto/">
             <svg class="email" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                 <path
