@@ -131,6 +131,7 @@
 </header>
 
 <body>
+    <!--img src="../Images/seta.jpg" id="background-image" alt=""/-->
     <h1 class="titulo">Galería Científica</h1>
     <a class="subir-seta" href="./SubirSeta.php">SUBIR UNA SETA</a>
 
@@ -144,7 +145,7 @@
         <svg viewBox="0 0 352 512" id="detail-close" onclick="hideInfoPanel()">
             <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
         </svg>
-        <div id="detail-image"><img src="../Images/seta.jpg"/></div>
+        <div id="detail-image-container"><img id="detail-image" src="../Images/seta.jpg"/></div>
         <p id="detail-nombre-legado"></p>
         <p id="detail-nombre-determinado"></p>
         <p id="detail-nombre-cientifico"></p>
@@ -168,8 +169,8 @@
             $datosLegado = mysqli_fetch_row(mysqli_query($conexion, $consultaLegado));
             $nombreLegado = $datosLegado[1] . " " . $datosLegado[2];
 
-            echo "<div onclick=\"showInfoPanel('$nombreLegado', '$row[3]', '$row[4]', '$row[5]', '$row[6]', '$row[7]', '$row[8]', '$row[9]', '$row[10]', '$row[11]', '$row[12]', '$row[13]', '$row[14]')\">";
-            echo "<img src='../Images/seta.jpg' alt='Icono' />";
+            echo "<div onclick=\"showInfoPanel($row[0], '$nombreLegado', '$row[3]', '$row[4]', '$row[5]', '$row[6]', '$row[7]', '$row[8]', '$row[9]', '$row[10]', '$row[11]', '$row[12]', '$row[13]', '$row[14]')\">";
+            echo "<img src='../GalleryImages/SETA_$row[0].png' alt='Icono' />";
             echo "<p class='nombreCientifico'>" . $row[4] . "</p>";
             echo "<p class='nombreComun'>" . $row[5] . "</p>";
             echo "<p class='fecha'>" . $row[6] . "</p>";

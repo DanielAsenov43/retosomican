@@ -129,7 +129,7 @@
 <body>
     <main class="registro-container">
         <h1>Registrar Seta Nueva</h1>
-        <form id="form-seta" method="POST" action="../PHPScripts/upload.php">
+        <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/upload.php">
             <div class="form-grid">
                 <div class="col">
                     <label>Nombre científico<span>*</span></label>
@@ -145,7 +145,7 @@
                     <input type="text" name="habitat" maxlength="32" required>
 
                     <label>Altura nivel del mar<span>*</span></label>
-                    <input type="number" name="altura" min="0" required>
+                    <input type="number" name="altura" min="0" max="8848" required>
                 </div>
                 <div class="col">
                     <label>Nombre común</label>
@@ -164,8 +164,8 @@
                     <input type="text" name="clima" maxlength="32">
                 </div>
                 <div class="subirFoto">
-                    <label for="myfile">Subir foto:</label>
-                    <input type="file" id="myfile" name="myfile" onchange="previewImage()">
+                    <label for="uploadedImage">Subir foto:</label>
+                    <input type="file" id="uploadedImage" name="uploadedImage" onchange="previewImage()" required>
                     <div id="imagePreview"></div>
                 </div>
                 <div class="observaciones">

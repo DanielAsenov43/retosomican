@@ -11,7 +11,7 @@ body {
   border-radius: 12px;
   text-align: center;
   
-  background-image: url(../Images/seta.jpg);
+  background-image: url("../Images/seta.png");
   background-color: rgba(49, 49, 49, 0.788); /* Fondo oscuro con 90% transparencia */
   background-size: cover;
   background-position: center;

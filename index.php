@@ -137,7 +137,7 @@
                 // Bucle que pasa por todas las filas devueltas y crea elementos que contienen las setas
                 while ($row = mysqli_fetch_row($resultado)) {
                     echo "<div>";
-                    echo "<a href='.'><img class='mushroom' src='./Images/seta.jpg' alt='Icono' /></a>";
+                    echo "<a href='.'><img class='mushroom' src='./Images/seta.png' alt='Icono' /></a>";
                     echo "<img class='user' src='./Images/user.webp' alt='Usuario' />";
                     echo "</div>";
                 }
@@ -259,4 +259,5 @@
     </div>
 </footer>
 
+</html>
 </html>

@@ -1,4 +1,6 @@
 <?php
+$GLOBALS["FILENAME"] = "SETA_{ID}.png";
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -13,6 +15,10 @@ if(!isset($_SESSION["USER-EMAIL"])){
     header('location: ../Pages/accesoSocios.php');
 }
 
+$IDQuery = "SELECT COUNT(ID) FROM retosomican.setas";
+$result = mysqli_fetch_row(mysqli_query($connection, $IDQuery));
+$ID = $result[0] + 1;
+
 $IDLegado = $_SESSION["USER-ID"];
 // Campos obligatorios
 $nombreCientifico = getRequiredPostInfo("nombre-cientifico", true);
@@ -20,6 +26,7 @@ $fechaRecogida = getRequiredPostInfo("fecha", true);
 $lugarRecogida = getRequiredPostInfo("lugar", true);
 $habitat = getRequiredPostInfo("habitat", true);
 $alturaMar = getRequiredPostInfo("altura", false);
+uploadImage("uploadedImage", "../GalleryImages/", $ID);
 
 // Campos opcionales
 $nombreComun = getPostInfo("nombre-comun", true);
@@ -53,5 +60,12 @@ function getRequiredPostInfo($name, $isString) {
 function getPostInfo($name, $isString) {
     if(!isset($_POST[$name])) return "NULL";
     return ($isString) ? "\"".$_POST[$name]."\"" : $_POST[$name];
+}
+
+// Función que sube una imagen a la carpeta 
+function uploadImage($formPathName, $filePath, $imageID) {
+    $image = $_FILES[$formPathName];
+    $imageName = str_replace("{ID}", $imageID, $GLOBALS["FILENAME"]);
+    move_uploaded_file($image["tmp_name"], $filePath . $imageName);
 }
 ?>
