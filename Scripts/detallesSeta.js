@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
     // Al cargar la página, inicializar los elementos
     background = document.getElementById("background-black-fade");
     infoPanel = document.getElementById("detalles-seta");
-})
+});
 
 // Función que es llamada al darle click a una seta
 function showInfoPanel(nombreLegado, nombreDeterminado, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, olor, sabor, tipoSuelo, climatologia, observaciones) {
@@ -54,7 +54,7 @@ function titleCase(str) {
  }
 
 // Evento que evita moverse por la página con la rueda del ratón si has abierto el panel informativo
-window.addEventListener("wheel", () => {
+window.addEventListener("scroll", () => {
     document.body.style.overflow = (viewingDetail) ? "hidden" : "visible";
 });
 

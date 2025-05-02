@@ -92,7 +92,7 @@
                     </div>
                 </div>
             </li>
-            <li>´
+            <li>
                 <!-- Botón que al pinchar sobre el te redirige al canal de Youtube de Somican -->
                 <a href="https://somican.com/contacto/"><button>CONTACTO</button></a>
             </li>
