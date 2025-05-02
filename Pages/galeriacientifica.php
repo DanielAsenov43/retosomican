@@ -149,8 +149,9 @@
             $consultaLegado = "SELECT * FROM retosomican.socios WHERE ID = $row[1]";
             $datosLegado = mysqli_fetch_row(mysqli_query($conexion, $consultaLegado));
             $nombreLegado = $datosLegado[1] . " " . $datosLegado[2];
+
             echo "<div onclick=\"showInfoPanel('$nombreLegado', '$row[3]', '$row[4]', '$row[5]', '$row[6]', '$row[7]', '$row[8]', '$row[9]', '$row[10]', '$row[11]', '$row[12]', '$row[13]', '$row[14]')\">";
-            echo "<img src='../Images/seta.jpg' alt='Icono' />  ";
+            echo "<img src='../Images/seta.jpg' alt='Icono' />";
             echo "<p class='nombreCientifico'>" . $row[4] . "</p>";
             echo "<p class='nombreComun'>" . $row[5] . "</p>";
             echo "<p class='fecha'>" . $row[6] . "</p>";
