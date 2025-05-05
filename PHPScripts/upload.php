@@ -49,7 +49,6 @@ olor, sabor, tipoSuelo, climatologia, observaciones) VALUES
 ".$olor.", ".$sabor.", ".$suelo.", ".$clima.", ".$observaciones.")";
 
 // Ejecutar la consulta
-$connection -> query($query);
 if ($connection -> query($query)) {
     $_SESSION["RESULT"] = "<span class='success'>".$RESULT_SUCCESS_MESSAGE."</span>";
 } else {
