@@ -125,7 +125,7 @@
 
 <body>
     <h1 class="title">Galería Artística</h1>
-    <a class="subir-seta" href="./Pages/SubirSeta.php">SUBIR UNA SETA</a>
+    <!--a class="subir-seta" href="./Pages/SubirSeta.php">SUBIR UNA SETA</a-->
 
 
     <div id="gallery-container">
@@ -137,7 +137,7 @@
                 // Bucle que pasa por todas las filas devueltas y crea elementos que contienen las setas
                 while ($row = mysqli_fetch_row($resultado)) {
                     echo "<div>";
-                    echo "<a href='.'><img class='mushroom' src='./Images/GaleriaArtistica/SETA_$row[0].png' alt='Icono' /></a>";
+                    echo "<img class='mushroom' src='./Images/GaleriaArtistica/SETA_$row[0].png' alt='Icono' />";
                     echo "<img class='user' src='./Images/user.webp' alt='Usuario' />";
                     echo "</div>";
                 }

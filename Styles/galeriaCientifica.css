@@ -85,7 +85,7 @@ body {
     transform: translateY(-75px);
 }
 
-#setas>div {
+#setas > div {
     /* selecciona en el elemento con id="setas" hijos directos que son <div> */
     background-color: #fff;
     border: 1px solid #ddd;
