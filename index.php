@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="./Styles/index.css">
     <link rel="stylesheet" href="./Styles/header.css" />
     <link rel="stylesheet" href="./Styles/footer.css" />
+    <link rel="stylesheet" href="./Styles/detallesSeta.css">
 
     <!-- Fuente de google: Titillium Web -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -133,7 +134,15 @@
         echo '<a class="subir-seta" href="./Pages/subirFotoArtistica.php">SUBIR UNA FOTO</a>';
     }
     ?>
-
+    <div id="background-black-fade"></div>
+    <div id="detalles-seta">
+        <!-- SVG de la X para cerrar el panel, obtenido de la página antigua de somican -->
+        <svg viewBox="0 0 352 512" id="detail-close" onclick="hideInfoPanel()">
+            <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+        </svg>
+        <div id="detail-image-container"><img id="detail-image" src="../Images/seta.jpg"/></div>
+        <p id="detail-comentario"></p>
+    </div>
 
     <div id="gallery-container">
         <div class="gallery">
