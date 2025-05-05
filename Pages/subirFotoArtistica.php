@@ -16,11 +16,14 @@
         header("location: ./accesoSocios.php");
     }
 
-    echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
-    echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
+
     //echo "Has iniciado sesión como: ".$_SESSION['username'];
 ?>
 <head>
+    <?php
+    echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
+    echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
+    ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subir Setas - SOMICAN</title>
@@ -128,17 +131,17 @@
 
 <body>
     <main class="registro-container">
-        <h1>Subir foto para la galeria artística</h1>
-        <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/upload.php">
+        <h1>Subir foto para la galería artística</h1>
+        <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/uploadArtistic.php">
             <div>
                 <div class="subirFoto">
-                    <label for="uploadedImage">Subir foto artìstica:</label>
+                    <label for="uploadedImage">Subir foto artística:</label>
                     <input type="file" id="uploadedImage" name="uploadedImage" onchange="previewImage()" required>
                     <div id="imagePreview"></div>
                 </div>
                 <div class="observaciones">
-                    <label>Observaciones</label>
-                    <textarea name="observaciones" rows="4" maxlength="512"></textarea>
+                    <label>Comentario (opcional):</label>
+                    <textarea name="comentario" rows="4" maxlength="512"></textarea>
                 </div>
             </div>
             <div class="form-button">
