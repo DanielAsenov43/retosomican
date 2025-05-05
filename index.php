@@ -47,6 +47,10 @@
             <a href="./Pages/accesoSocios.php" id="access-button">Acceso Socios</a>
         </div>
         <div class="right">
+            <a href="./Pages/profile.php" class="profile">
+                <img src="./Images/user.png"></img>
+                <span class="username">Username</span>
+            </a>
             <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->
             <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
                 <!-- SVG's de facebook, youtube y email para no perder calidad -->

@@ -11,6 +11,7 @@ body {
     margin: 0px;
     font-family: "Titillium web", sans-serif;
     justify-content: center;
+    background-color: var(--color-secundario-fondo);
 
     .title {
         user-select: none;

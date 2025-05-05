@@ -75,6 +75,41 @@ header {
             display: flex;
             justify-content: right;
 
+            .profile {
+                width: min-content;
+                margin: auto;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                transform: translateX(-25px);
+                background-color: var(--color-secundario-fondo);
+                padding: 22px;
+                text-decoration: none;
+                transform: 0.15s ease-out;
+
+                img {
+                    margin: auto;
+                    width: 80px;
+                    border-radius: 50%;
+                    aspect-ratio: 1;
+                }
+
+                .username {
+                    text-align: center;
+                    text-wrap: nowrap;
+                    transform: translateY(8px);
+                    color: rgb(70, 130, 227);
+                    font-weight: 700;
+                    user-select: none;
+                }
+
+                &:hover {
+                    filter: brightness(90%);
+                    cursor: pointer;
+                    * { scale: 105%; }
+                }
+            }
+
             a {
                 width: 100px;
                 height: 100px;
