@@ -1,5 +1,9 @@
 <?php
 $GLOBALS["FILENAME"] = "SETA_{ID}.png";
+$GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/";
+
+$RESULT_SUCCESS_MESSAGE = "La seta se ha subido con éxito</span>";
+$RESULT_ERROR_MESSAGE = "<span class='error'>Ha surgido un error al intentar subir la seta.</span>";
 
 $servername = "localhost";
 $username = "root";
@@ -26,7 +30,7 @@ $fechaRecogida = getRequiredPostInfo("fecha", true);
 $lugarRecogida = getRequiredPostInfo("lugar", true);
 $habitat = getRequiredPostInfo("habitat", true);
 $alturaMar = getRequiredPostInfo("altura", false);
-uploadImage("uploadedImage", "../GalleryImages/", $ID);
+uploadImage("uploadedImage", $GLOBALS["SCIENTIFIC-GALLERY-PATH"], $ID);
 
 // Campos opcionales
 $nombreComun = getPostInfo("nombre-comun", true);
@@ -46,8 +50,13 @@ olor, sabor, tipoSuelo, climatologia, observaciones) VALUES
 
 // Ejecutar la consulta
 $connection -> query($query);
+if ($connection -> query($query)) {
+    $_SESSION["RESULT"] = "<span class='success'>".$RESULT_SUCCESS_MESSAGE."</span>";
+} else {
+    $_SESSION["RESULT"] = "<span class='error'>".$RESULT_ERROR_MESSAGE."</span>";
+}
 $connection -> close();
-header("location: ../Pages/galeriaCientifica.php");
+header("location: ../Pages/resultadoSubirSeta.php");
 
 // Funciones que facilitan obtener la información de los campos.
 // Si el campo es obligatorio y no se ha rellenado, volverá al formulario

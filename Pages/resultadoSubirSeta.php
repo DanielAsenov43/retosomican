@@ -105,6 +105,12 @@
 
 <body>
     <main class="registro-container">
+        <?php
+        if(isset($_SESSION["RESULT"])) {
+            echo "<h1>".$_SESSION["RESULT"]."</h1>";
+        }
+
+        ?>
         <h1></h1>
         <div class="form-grid confirmacion">
             <p>Gracias por tu colaboración. La información ha sido enviada correctamente y será revisada por nuestro equipo.</p>

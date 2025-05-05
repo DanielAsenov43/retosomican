@@ -46,3 +46,11 @@ button:hover, .volver-btn:hover {
 .volver-btn {
     margin-top: 1rem;
 }
+
+.success {
+    color: rgb(97, 206, 112);
+}
+
+.error {
+    color: var(--color-acento);
+}
