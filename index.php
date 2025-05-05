@@ -132,12 +132,12 @@
         <div class="gallery">
             <?php
                 // Crear y ejecutar una consulta que devuelve todas las setas registradas.
-                $consulta = "SELECT * FROM retosomican.setas WHERE registrada = TRUE";
+                $consulta = "SELECT * FROM retosomican.fotosSetas WHERE registrada = TRUE";
                 $resultado = mysqli_query($conexion, $consulta);
                 // Bucle que pasa por todas las filas devueltas y crea elementos que contienen las setas
                 while ($row = mysqli_fetch_row($resultado)) {
                     echo "<div>";
-                    echo "<a href='.'><img class='mushroom' src='./Images/seta.png' alt='Icono' /></a>";
+                    echo "<a href='.'><img class='mushroom' src='./Images/GaleriaArtistica/SETA_$row[0].png' alt='Icono' /></a>";
                     echo "<img class='user' src='./Images/user.webp' alt='Usuario' />";
                     echo "</div>";
                 }
