@@ -157,7 +157,7 @@
                 while ($row = mysqli_fetch_row($resultado)) {
                     echo '<div onclick="showInfoPanel('.$row[0].', \''.$row[3].'\')">';
                     echo "<img class='mushroom' src='./Images/GaleriaArtistica/SETA_$row[0].png' alt='Icono' />";
-                    echo "<img class='user' src='./Images/user.webp' alt='Usuario' />";
+                    echo "<img class='user' src='./Images/FotosDePerfil/SOCIO_$row[1].png' alt='Usuario' />";
                     echo "</div>";
                 }
                 $conexion -> close();
