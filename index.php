@@ -38,6 +38,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    <script src="./Scripts/detallesFotoSeta.js"></script>
 </head>
 
 <header>
@@ -152,7 +155,7 @@
                 $resultado = mysqli_query($conexion, $consulta);
                 // Bucle que pasa por todas las filas devueltas y crea elementos que contienen las setas
                 while ($row = mysqli_fetch_row($resultado)) {
-                    echo "<div>";
+                    echo '<div onclick="showInfoPanel('.$row[0].', \''.$row[3].'\')">';
                     echo "<img class='mushroom' src='./Images/GaleriaArtistica/SETA_$row[0].png' alt='Icono' />";
                     echo "<img class='user' src='./Images/user.webp' alt='Usuario' />";
                     echo "</div>";
