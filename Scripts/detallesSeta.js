@@ -16,7 +16,7 @@ function showInfoPanel(IDSeta, nombreLegado, nombreDeterminado, nombreCientifico
     background.style.display = "block";
     infoPanel.style.opacity = "100%";
     infoPanel.style.transform = "translate(-50%, -50%) scale(100%)";
-    image.src = "../GalleryImages/SETA_" + IDSeta + ".png";
+    image.src = "../Images/GaleriaCientifica/SETA_" + IDSeta + ".png";
     // Actualizar la información de los elementos del panel informativo
     showInfo("detail-nombre-legado", "Legado: ", titleCase(nombreLegado));
     showInfo("detail-nombre-determinado", "Determinado: ", titleCase(nombreDeterminado));
