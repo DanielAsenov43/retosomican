@@ -1,11 +1,17 @@
 let viewingDetail = false; // Este valor será "true" si se está mostrando el panel informativo
 let background, infoPanel, image; // El elemento de fondo y el panel en sí
+let zoomedIn = false;
 
 window.addEventListener("load", () => {
     // Al cargar la página, inicializar los elementos
     background = document.getElementById("background-black-fade");
     infoPanel = document.getElementById("detalles-seta");
     image = document.getElementById("detail-image");
+
+    image.addEventListener("click", () => {
+        image.style.maxWidth = (zoomedIn) ? "50vw" : "25vw";
+        zoomedIn = !zoomedIn;
+    });
 });
 
 // Función que es llamada al darle click a una seta

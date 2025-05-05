@@ -17,6 +17,7 @@ function showInfoPanel(IDSeta, comentario) {
     infoPanel.style.opacity = "100%";
     infoPanel.style.transform = "translate(-50%, -50%) scale(100%)";
     image.src = "./Images/GaleriaArtistica/SETA_" + IDSeta + ".png";
+    image.style.maxWidth = "50vw";
     // Actualizar la información de los elementos del panel informativo
     showInfo("detail-comentario", "Comentario: ", comentario);
 }

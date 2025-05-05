@@ -19,9 +19,14 @@
         text-align: center;
 
         #detail-image {
-            max-width: 400px;
+            max-width: 25vw;
             border-radius: 10px;
             user-select: none;
+            transition: 0.35s ease-out;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
