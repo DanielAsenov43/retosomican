@@ -11,15 +11,16 @@
 
     // Crear la sesión
     if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
-
+?>
+<head>
+    <?php
     if(isset($_SESSION["USER-EMAIL"])) {
         // Creamos un elemento <meta> que contiene información de PHP para poder acceder desde JS
         echo '<meta name="username" content="'.$_SESSION['USER-NAME'].'"/>';
         // Creamos el script
         echo '<script src="./Scripts/changeLoginButton.js"></script>';
     }
-?>
-<head>
+    ?>
     <meta name="index" content="true"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -125,7 +126,13 @@
 
 <body>
     <h1 class="title">Galería Artística</h1>
-    <!--a class="subir-seta" href="./Pages/SubirSeta.php">SUBIR UNA SETA</a-->
+    <?php
+    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+
+    if(isset($_SESSION["USER-EMAIL"])){
+        echo '<a class="subir-seta" href="./Pages/subirFotoArtistica.php">SUBIR UNA FOTO</a>';
+    }
+    ?>
 
 
     <div id="gallery-container">

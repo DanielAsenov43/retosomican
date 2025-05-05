@@ -1,6 +1,8 @@
 /* Footer (ya existente) */
 .footer {
-    font-family: "Titillium Web", sans-serif; 
+    * {
+        font-family: "Titillium Web", sans-serif; 
+    }
     a { 
         text-decoration: none; 
     }

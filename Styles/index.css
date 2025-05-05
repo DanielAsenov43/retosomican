@@ -47,6 +47,9 @@ body {
     margin-top: 150px;
     position: relative;
 
+    * {
+        user-select: none;
+    }
     .gallery {
         display: flex;
         flex-wrap: wrap;
@@ -65,7 +68,7 @@ body {
             text-align: center;
             width: 250px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: 0.2s ease;
 
             .mushroom {
                 border-radius: 10px;
@@ -73,9 +76,9 @@ body {
                 aspect-ratio: auto;
             }
 
-            &:hover {
+            &:hover:not(.user) {
                 transition-duration: 0.05s;
-                filter: brightness(80%);
+                filter: brightness(90%);
                 scale: 1.02;
                 cursor: pointer;
             }

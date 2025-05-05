@@ -105,11 +105,17 @@
 
 <body>
     <main class="registro-container">
+        <?php
+        if(isset($_SESSION["RESULT"])) {
+            echo "<h1>".$_SESSION["RESULT"]."</h1>";
+        }
+
+        ?>
         <h1></h1>
-        <div class="form-grid confirmacion">
+        <div class="botones-container">
             <p>Gracias por tu colaboración. La información ha sido enviada correctamente y será revisada por nuestro equipo.</p>
             <a href="./subirSeta.php"><button>Registrar otra seta</button></a>
-            <a href="../index.php"><button>Volver a la galería</button></a> 
+            <a href="./galeriacientifica.php"><button>Volver a la galería</button></a> 
         </div>
     </main>
 </body>

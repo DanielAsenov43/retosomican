@@ -1,8 +1,8 @@
 <?php
 $GLOBALS["FILENAME"] = "SETA_{ID}.png";
-$GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/";
+$GLOBALS["ARTISTIC-GALLERY-PATH"] = "../Images/GaleriaArtistica/";
 
-$RESULT_SUCCESS_MESSAGE = "¡La seta se ha subido con éxito!";
+$RESULT_SUCCESS_MESSAGE = "¡La foto se ha subido con éxito!";
 $RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
 
 $servername = "localhost";
@@ -19,34 +19,23 @@ if(!isset($_SESSION["USER-EMAIL"])){
     header('location: ../Pages/accesoSocios.php');
 }
 
-$IDQuery = "SELECT COUNT(ID) FROM retosomican.setas";
+$IDQuery = "SELECT COUNT(IDSeta) FROM retosomican.fotosSetas";
 $result = mysqli_fetch_row(mysqli_query($connection, $IDQuery));
 $ID = $result[0] + 1;
 
 $IDLegado = $_SESSION["USER-ID"];
+
 // Campos obligatorios
-$nombreCientifico = getRequiredPostInfo("nombre-cientifico", true);
-$fechaRecogida = getRequiredPostInfo("fecha", true);
-$lugarRecogida = getRequiredPostInfo("lugar", true);
-$habitat = getRequiredPostInfo("habitat", true);
-$alturaMar = getRequiredPostInfo("altura", false);
-uploadImage("uploadedImage", $GLOBALS["SCIENTIFIC-GALLERY-PATH"], $ID);
+uploadImage("uploadedImage", $GLOBALS["ARTISTIC-GALLERY-PATH"], $ID);
 
 // Campos opcionales
-$nombreComun = getPostInfo("nombre-comun", true);
-$olor = getPostInfo("olor", true);
-$sabor = getPostInfo("sabor", true);
-$suelo = getPostInfo("suelo", true);
-$clima = getPostInfo("clima", true);
-$observaciones = getPostInfo("observaciones", true);
+$comentario = getPostInfo("observaciones", true);
 
 // Consulta:
 $query = "
-INSERT INTO retosomican.setas
-(IDLegado, registrada, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, 
-olor, sabor, tipoSuelo, climatologia, observaciones) VALUES
-(".$IDLegado.", TRUE, ".$nombreCientifico.", ".$nombreComun.", ".$fechaRecogida.", ".$lugarRecogida.", ".$habitat.", ".$alturaMar.", 
-".$olor.", ".$sabor.", ".$suelo.", ".$clima.", ".$observaciones.")";
+INSERT INTO retosomican.fotosSetas (IDSeta, IDSocio, registrada, comentario) VALUES
+($ID, $IDLegado, TRUE, $comentario)
+";
 
 // Ejecutar la consulta
 if ($connection -> query($query)) {
@@ -60,7 +49,7 @@ header("location: ../Pages/resultadoSubirSeta.php");
 // Funciones que facilitan obtener la información de los campos.
 // Si el campo es obligatorio y no se ha rellenado, volverá al formulario
 function getRequiredPostInfo($name, $isString) {
-    if(!isset($_POST[$name])) header("location: ../Pages/subirSeta.php");
+    if(!isset($_POST[$name])) header("location: ../Pages/subirFotoArtistica.php");
     return ($isString) ? "\"".$_POST[$name]."\"" : $_POST[$name];
 }
 
