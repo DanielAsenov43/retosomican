@@ -9,7 +9,9 @@
     ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seta Registrada - SOMICAN</title>
+    <title>Perfil - SOMICAN</title>
+
+    <link rel="shortcut icon" href="../Images/icono.ico" type="image/x-icon">
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/footer.css" />
     <link rel="stylesheet" href="../Styles/profile.css" />
@@ -27,9 +29,11 @@
         </div>
         <div class="middle">
             <h1>Sociedad Micológica Cántabra</h1>
-            <a href="./accesoSocios.php" id="access-button">Acceso Socios</a>
         </div>
         <div class="right">
+            <a href="" class="profile">
+                <?php include "../PHPScripts/headerProfile.php"; ?>
+            </a>
             <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->
             <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
                 <!-- SVG's de facebook, youtube y email para no perder calidad -->
@@ -65,7 +69,7 @@
             <h2>Galerías +</h2>
             <div class="dropdown-content">
                 <a href="../index.php">Galería Artística</a>
-                <a href="./galeriaCientifica">Galería Científica</a>
+                <a href="./galeriaCientifica.php">Galería Científica</a>
             </div>
         </div>
         <div class="button">
@@ -85,13 +89,13 @@
 </header>
 
 <body>
-    <div>
+    <div id="container">
 
     </div>
 </body>
 
 <footer class="footer">
-    <nav>
+    <nav class="footerArriba">
         <ul>
             <li>
                 <div class="footer-dropdown">
@@ -115,7 +119,7 @@
                         <!-- Botón que al pinchar sobre él te redirige a nuestro Galería Artística -->
                         <a href="">GALERIA ARTÍSTICA</a>
                         <!-- Botón que al pinchar sobre él te redirige a nuestra Galeria Cientifica (será necesario acceder como socio para verla) -->
-                        <a href="./Pages/galeriacientifica.php">GALERIA CIENTÍFICA</a>
+                        <a href="./galeriaCientifica.php">GALERIA CIENTÍFICA</a>
                     </div>
                 </div>
             </li>
@@ -142,59 +146,48 @@
         </ul>
     </nav>
 
-    <div class="footerContenedor">
+    <div class="footerCentro">
         <div class="footerIzquierda">
+            <div class="enlaces">
+                <a class="simpleLinks" href="https://somican.com/aviso-legal/">LEGAL</a>
+                <a class="simpleLinks" href="https://somican.com/politica-de-privacidad/">POLÍTCA DE PRIVACIDAD</a>
+                <a class="simpleLinks" href="https://somican.com/cookies/">POLÍTICA DE COOKIES</a>
+            </div>
+            <div class="iconos">
+                <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
+                    <svg class="facebook" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@SociedadMicologicaCantabra">
+                    <svg class="youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>    
+        
+        <div class="footerMedio">
             <h2>SOMICAN</h2>
             <h3>Sociedad Micológica Cántabra</h3>
             <br>
             <p>Desde 1986 compartiendo la pasión por la micología en </p>
             <p>Cantabria.</p>
-            <div class="iconos">
-                <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
-                    <svg class="facebook" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
-                        </path>
-                    </svg>
-                </a>
-                <a href="https://www.youtube.com/@SociedadMicologicaCantabra">
-                    <svg class="youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
-                        </path>
-                    </svg>
-                </a>
+            <img src="../Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
+        </div>
+
+        <div class="footerDerecha">
+            <h3>
+                <div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTA CON NOSOTROS</button></a></div>
+            </h3>
+            <p><strong>SOMICAN</strong></p>
+            <p>Sociedad Micológica Cántabra</p>
+            <p>Plaza Mª Blanchard 7-2 bajo</p>
+            <p>39600 Maliaño. CANTABRIA</p>
+            <div class="mapa">
+                <p>MAPA</p>
             </div>
         </div>
-    </div>
-
-    <div class="footerPolitica">
-        <ul>
-            <li>
-                <div class="simpleLinks"><a href="https://somican.com/aviso-legal/"><button>LEGAL</button></a></div>
-            </li>
-            <li>
-                <div class="simpleLinks"><a href="https://somican.com/politica-de-privacidad/"><button>POLÍTICA DE
-                            PRIVACIDAD</button></a></div>
-            </li>
-            <li>
-                <div class="simpleLinks"><a href="https://somican.com/cookies/"><button>POLÍTICA DE COOKIES</button></a>
-                </div>
-            </li>
-        </ul>
-        <img src="../Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
-    </div>
-
-    <div class="footerContacto">
-        <h3>
-            <div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTA CON NOSOTROS</button></a>
-            </div>
-        </h3>
-        <p><strong>SOMICAN</strong></p>
-        <p>Sociedad Micológica Cántabra</p>
-        <p>Plaza Mª Blanchard 7-2 bajo</p>
-        <p>39600 Maliaño. CANTABRIA</p>
-    </div>
     </div>
 
     <div class="footerAbajo">
