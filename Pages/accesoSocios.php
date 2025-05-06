@@ -29,7 +29,7 @@ if(isset($_SESSION["USER-NAME"])) {
 <header>
     <div class="header-top">
         <div class="left">
-            <a href="">
+            <a href="../index.php">
                 <img src="../Images/Logo.png" alt="Logo Somican"/>
             </a>
         </div>

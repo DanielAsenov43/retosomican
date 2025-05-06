@@ -32,7 +32,6 @@
         </div>
         <div class="middle">
             <h1>Sociedad Micológica Cántabra</h1>
-            <a href="./accesoSocios.php" id="access-button">Acceso Socios</a>
         </div>
         <div class="right">
             <a href="./profile.php" class="profile">
