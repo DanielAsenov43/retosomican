@@ -1,43 +1,25 @@
 let viewingDetail = false; // Este valor será "true" si se está mostrando el panel informativo
 let background, infoPanel, image; // El elemento de fondo y el panel en sí
-let zoomedIn = false;
 
 window.addEventListener("load", () => {
     // Al cargar la página, inicializar los elementos
     background = document.getElementById("background-black-fade");
     infoPanel = document.getElementById("detalles-seta");
     image = document.getElementById("detail-image");
-
-    image.addEventListener("click", () => {
-        image.style.maxWidth = (zoomedIn) ? "50vw" : "25vw";
-        zoomedIn = !zoomedIn;
-    });
 });
 
 // Función que es llamada al darle click a una seta
-function showInfoPanel(IDSeta, nombreLegado, nombreDeterminado, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, olor, sabor, tipoSuelo, climatologia, observaciones) {
+function showInfoPanel(IDSeta, comentario) {
     // Cambiar la variable "viewingDetail"
     viewingDetail = true;
     // Cambiar algunos estilos
     background.style.display = "block";
     infoPanel.style.opacity = "100%";
     infoPanel.style.transform = "translate(-50%, -50%) scale(100%)";
-    image.src = "../Images/GaleriaCientifica/SETA_" + IDSeta + ".png";
+    image.src = "./Images/GaleriaArtistica/SETA_" + IDSeta + ".png";
+    image.style.maxWidth = "50vw";
     // Actualizar la información de los elementos del panel informativo
-    showInfo("detail-nombre-legado", "Legado: ", titleCase(nombreLegado));
-    showInfo("detail-nombre-determinado", "Determinado: ", titleCase(nombreDeterminado));
-    showInfo("detail-nombre-cientifico", "Nombre científico: ", nombreCientifico);
-    showInfo("detail-nombre-comun", "Nombre común: ", nombreComun);
-    showInfo("detail-fecha-recogida", "Fecha de recogida: ", fechaRecogida);
-    showInfo("detail-lugar-recogida", "Lugar de recogida: ", lugarRecogida);
-    showInfo("detail-habitat", "Hábitat: ", habitat);
-    let textoMetros = (alturaMar == "1") ? " metro" : " metros";
-    showInfo("detail-altura-mar", "Altura sobre el nivel del mar: ", alturaMar + textoMetros);
-    showInfo("detail-olor", "Olor: ", olor);
-    showInfo("detail-sabor", "Sabor: ", sabor);
-    showInfo("detail-tipo-suelo", "Tipo de suelo: ", tipoSuelo);
-    showInfo("detail-climatologia", "Climatología: ", climatologia);
-    showInfo("detail-observaciones", "Observaciones: ", observaciones);
+    showInfo("detail-comentario", "Comentario: ", comentario);
 }
 
 // Función que cambia la información de cada elemento del panel, diferenciando entre el título (detail-name) y el contenido (detail-content)

@@ -11,6 +11,7 @@ body {
     margin: 0px;
     font-family: "Titillium web", sans-serif;
     justify-content: center;
+    background-color: var(--color-secundario-fondo);
 
     .title {
         user-select: none;
@@ -44,7 +45,7 @@ body {
 
 #gallery-container {
     width: 100%;
-    margin-top: 150px;
+    margin-top: 170px;
     position: relative;
 
     * {
@@ -67,6 +68,7 @@ body {
             border-radius: 10px;
             text-align: center;
             width: 250px;
+            height: 190px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             transition: 0.2s ease;
 
@@ -76,7 +78,7 @@ body {
                 aspect-ratio: auto;
             }
 
-            &:hover:not(.user) {
+            &:hover {
                 transition-duration: 0.05s;
                 filter: brightness(90%);
                 scale: 1.02;
@@ -85,9 +87,11 @@ body {
 
             .user {
                 position: absolute;
-                width: 125px;
-                transform: translate(-275px, 160px);
+                width: 60px;
+                transform: translate(-250px, 160px);
                 z-index: 1;
+                border-radius: 50%;
+                box-shadow: 0 0 5px black;
             }
         }
     }

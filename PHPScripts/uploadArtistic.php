@@ -29,7 +29,7 @@ $IDLegado = $_SESSION["USER-ID"];
 uploadImage("uploadedImage", $GLOBALS["ARTISTIC-GALLERY-PATH"], $ID);
 
 // Campos opcionales
-$comentario = getPostInfo("observaciones", true);
+$comentario = getPostInfo("comentario", true);
 
 // Consulta:
 $query = "
@@ -55,7 +55,7 @@ function getRequiredPostInfo($name, $isString) {
 
 // Si el campo es opcional y no se ha rellenado, devolverá "NULL"
 function getPostInfo($name, $isString) {
-    if(!isset($_POST[$name])) return "NULL";
+    if(!isset($_POST[$name])) return "\"\"";
     return ($isString) ? "\"".$_POST[$name]."\"" : $_POST[$name];
 }
 
