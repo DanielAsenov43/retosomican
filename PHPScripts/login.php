@@ -24,6 +24,7 @@ if(mysqli_num_rows($result) > 0) { // Existe un usuario registrado con ese corre
     if($userPassword == $row[4]) {
         $_SESSION["USER-ID"] = $row[0];
         $_SESSION["USER-NAME"] = $row[1];
+        $_SESSION["USER-SURNAME"] = $row[2];
         $_SESSION["USER-EMAIL"] = $userEmail;
         echo "<script>console.log('a');</script>";
         header("location: ../Pages/galeriaCientifica.php");

@@ -11,6 +11,7 @@
     <title>Galería Artística - SOMICAN</title>
 
     <!-- Hojas de estilos -->
+    <link rel="shortcut icon" href="./Images/icono.ico" type="image/x-icon">
     <link rel="stylesheet" href="./Styles/index.css">
     <link rel="stylesheet" href="./Styles/header.css" />
     <link rel="stylesheet" href="./Styles/footer.css" />

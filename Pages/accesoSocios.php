@@ -16,6 +16,8 @@ if(isset($_SESSION["USER-NAME"])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Acceso a Socios - SOMICAN</title>
+
+  <link rel="shortcut icon" href="../Images/icono.ico" type="image/x-icon">
   <link rel="stylesheet" href="../Styles/header.css" />
   <link rel="stylesheet" href="../Styles/footer.css" />
   <link rel="stylesheet" href="../Styles/accesoSocios.css">
