@@ -159,64 +159,62 @@
 </body>
 
 <footer class="footer">
-    <nav class="footerArriba">
-        <ul>
-            <li>
-                <div class="footer-dropdown">
-                    <!-- Boton que se despliega al tener el cursor sobre él -->
-                    <button>SOMICAN +</button>
-                    <div class="footer-dropdown-content">
-                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de sus noticias -->
-                        <a href="https://somican.com/blog/">NOTICIAS</a>
-                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
-                        <a href="https://somican.com/historia-la-sociedad-micologica-cantabra/">HISTORIA</a>
-                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican para consultar informacion respecto a los socios -->
-                        <a href="https://somican.com/socios-la-sociedad-micologica-cantabra/">SOCIOS</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="footer-dropdown">
-                    <!-- Boton que se despliega al tener el cursor sobre él -->
-                    <button>GALERÍAS +</button>
-                    <div class="footer-dropdown-content">
-                        <!-- Botón que al pinchar sobre él te redirige a nuestro Galería Artística -->
-                        <a href="">GALERIA ARTÍSTICA</a>
-                        <!-- Botón que al pinchar sobre él te redirige a nuestra Galeria Cientifica (será necesario acceder como socio para verla) -->
-                        <a href="./galeriaCientifica.php">GALERIA CIENTÍFICA</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de la Revista Yesca -->
-                <a href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a>
-            </li>
-            <li>
-                <div class="footer-dropdown">
-                    <!-- Boton que se despliega al tener el cursor sobre él -->
-                    <button>MEDIOS +</button>
-                    <div class="footer-dropdown-content">
-                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su biblioteca -->
-                        <a href="https://somican.com/biblioteca-micologia/">BIBLIOTECA</a>
-                        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
-                        <a href="https://somican.com/enlaces-interes-micologia/">ENLACES DE INTERÉS</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <!-- Botón que al pinchar sobre el te redirige al canal de Youtube de Somican -->
-                <a href="https://somican.com/contacto/"><button>CONTACTO</button></a>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="footerCentro">
-        <div class="footerIzquierda">
-            <div class="enlaces">
-                <a class="simpleLinks" href="https://somican.com/aviso-legal/">LEGAL</a>
-                <a class="simpleLinks" href="https://somican.com/politica-de-privacidad/">POLÍTCA DE PRIVACIDAD</a>
-                <a class="simpleLinks" href="https://somican.com/cookies/">POLÍTICA DE COOKIES</a>
+    <div class="footer-top">
+        <div class="dropdown">
+            <!-- Boton que se despliega al tener el cursor sobre él -->
+            <h2>SOMICAN +</h2>
+            <div class="dropdown-content">
+                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de sus noticias -->
+                <a href="https://somican.com/blog/">NOTICIAS</a>
+                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
+                <a href="https://somican.com/historia-la-sociedad-micologica-cantabra/">HISTORIA</a>
+                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican para consultar informacion respecto a los socios -->
+                <a href="https://somican.com/socios-la-sociedad-micologica-cantabra/">SOCIOS</a>
             </div>
+        </div>
+    
+        <div class="dropdown">
+            <!-- Boton que se despliega al tener el cursor sobre él -->
+            <h2>GALERÍAS +</h2>
+            <div class="dropdown-content">
+                <!-- Botón que al pinchar sobre él te redirige a nuestro Galería Artística -->
+                <a href="">GALERIA ARTÍSTICA</a>
+                <!-- Botón que al pinchar sobre él te redirige a nuestra Galeria Cientifica (será necesario acceder como socio para verla) -->
+                <a href="./Pages/galeriacientifica.php">GALERIA CIENTÍFICA</a>
+            </div>
+        </div>
+    
+        <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de la Revista Yesca -->
+        <div class="button">
+            <a href="https://somican.com/revista-micologia-yesca/">REVISTA YESCA</a>
+        </div>
+        
+    
+        <div class="dropdown">
+            <!-- Boton que se despliega al tener el cursor sobre él -->
+            <h2>MEDIOS +</h2>
+            <div class="dropdown-content">
+                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su biblioteca -->
+                <a href="https://somican.com/biblioteca-micologia/">BIBLIOTECA</a>
+                <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
+                <a href="https://somican.com/enlaces-interes-micologia/">ENLACES DE INTERÉS</a>
+            </div>
+        </div>
+        
+        <!-- Botón que al pinchar sobre el te redirige al canal de Youtube de Somican -->
+        <div class="button">
+            <a href="https://somican.com/contacto/">CONTACTO</a>
+        </div>
+        </div>
+
+    <div class="footer-center">
+        <div class="footer-left">
+            <div class="enlaces">
+                <a class="button" href="https://somican.com/aviso-legal/">LEGAL</a>
+                <a class="button" href="https://somican.com/politica-de-privacidad/">POLÍTCA DE PRIVACIDAD</a>
+                <a class="button" href="https://somican.com/cookies/">POLÍTICA DE COOKIES</a>
+            </div>
+
             <div class="iconos">
                 <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
                     <svg class="facebook" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
@@ -231,31 +229,36 @@
             </div>
         </div>    
         
-        <div class="footerMedio">
-            <h2>SOMICAN</h2>
-            <h3>Sociedad Micológica Cántabra</h3>
-            <br>
-            <p>Desde 1986 compartiendo la pasión por la micología en </p>
-            <p>Cantabria.</p>
-            <img src="../Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
+        <div class="footer-middle">
+            <div class="text">
+                <div class="name"><strong>SOMICAN</strong></div>
+                <div><strong>Sociedad Micológica Cántabra</strong></div>
+                <br>
+                <div>Desde 1986 compartiendo la pasión por la micología en </div>
+                <div>Cantabria.</div>
+            </div>
         </div>
 
-        <div class="footerDerecha">
-            <h3>
-                <div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTA CON NOSOTROS</button></a></div>
-            </h3>
-            <p><strong>SOMICAN</strong></p>
-            <p>Sociedad Micológica Cántabra</p>
-            <p>Plaza Mª Blanchard 7-2 bajo</p>
-            <p>39600 Maliaño. CANTABRIA</p>
-            <div class="mapa">
-                <p>MAPA</p>
+        <div class="footer-right">
+            <div class="image">
+                <img src="../Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
+            </div>
+            <div class="text">
+                <h2>
+                    <div class="button">
+                        <a href="https://somican.com/contacto/">CONTACTA CON NOSOTROS</a>
+                    </div>
+                </h2>
+                <div><strong>Sociedad Micológica de Cantabria</strong></div>
+                <div>Plaza Mª Blanchard 7-2 bajo</div>
+                <div>39600 Maliaño. CANTABRIA</div>
             </div>
         </div>
     </div>
 
-    <div class="footerAbajo">
-        <p>©2023. Bóxer Publicidad. Todos los derechos reservados.</p>
+    <div class="footer-bottom">
+        <div>©2023. Bóxer Publicidad. Todos los derechos reservados.</div>
     </div>
 </footer>
+
 </html>

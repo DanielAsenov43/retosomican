@@ -199,10 +199,11 @@
     <div class="footer-center">
         <div class="footer-left">
             <div class="enlaces">
-                <a class="simpleLinks" href="https://somican.com/aviso-legal/">LEGAL</a>
-                <a class="simpleLinks" href="https://somican.com/politica-de-privacidad/">POLÍTCA DE PRIVACIDAD</a>
-                <a class="simpleLinks" href="https://somican.com/cookies/">POLÍTICA DE COOKIES</a>
+                <a class="button" href="https://somican.com/aviso-legal/">LEGAL</a>
+                <a class="button" href="https://somican.com/politica-de-privacidad/">POLÍTCA DE PRIVACIDAD</a>
+                <a class="button" href="https://somican.com/cookies/">POLÍTICA DE COOKIES</a>
             </div>
+
             <div class="iconos">
                 <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
                     <svg class="facebook" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
@@ -218,29 +219,33 @@
         </div>    
         
         <div class="footer-middle">
-            <h2>SOMICAN</h2>
-            <h3>Sociedad Micológica Cántabra</h3>
-            <br>
-            <div>Desde 1986 compartiendo la pasión por la micología en </div>
-            <div>Cantabria.</div>
-            <img src="./Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
+            <div class="text">
+                <div class="name"><strong>SOMICAN</strong></div>
+                <div><strong>Sociedad Micológica Cántabra</strong></div>
+                <br>
+                <div>Desde 1986 compartiendo la pasión por la micología en </div>
+                <div>Cantabria.</div>
+            </div>
         </div>
 
         <div class="footer-right">
-            <h3>
-                <div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTA CON NOSOTROS</button></a></div>
-            </h3>
-            <div><strong>SOMICAN</strong></div>
-            <div>Sociedad Micológica Cántabra</div>
-            <div>Plaza Mª Blanchard 7-2 bajo</div>
-            <div>39600 Maliaño. CANTABRIA</div>
-            <div class="mapa">
-                <p>MAPA</p>
+            <div class="image">
+                <img src="./Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
+            </div>
+            <div class="text">
+                <h2>
+                    <div class="button">
+                        <a href="https://somican.com/contacto/">CONTACTA CON NOSOTROS</a>
+                    </div>
+                </h2>
+                <div><strong>Sociedad Micológica de Cantabria</strong></div>
+                <div>Plaza Mª Blanchard 7-2 bajo</div>
+                <div>39600 Maliaño. CANTABRIA</div>
             </div>
         </div>
     </div>
 
-    <div class="footer-bootom">
+    <div class="footer-bottom">
         <div>©2023. Bóxer Publicidad. Todos los derechos reservados.</div>
     </div>
 </footer>
