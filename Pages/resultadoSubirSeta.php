@@ -1,23 +1,12 @@
 <!DOCTYPE html>
+<?php include "../PHPScripts/connection.php"; ?>
 <html lang="es">
-<?php
-    // Inicializar la conexión a la BBDD
-    $nombreHost = "localhost";
-    $usuario = "root";
-    $contrasenia = "";
-    $nombreBBDD = "retosomican";
-    $conexion = new mysqli($nombreHost, $usuario, $contrasenia, $nombreBBDD);
-
-    // Comprobar la sesión
-    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
-    if(!isset($_SESSION["USER-EMAIL"])){
-        header("location: ./accesoSocios.php");
-    }
-
-    echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
-    echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
-?>
 <head>
+    <?php
+        if(!isset($_SESSION["USER-EMAIL"])) header("location: ./accesoSocios.php");
+        
+        echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
+    ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seta Registrada - SOMICAN</title>
@@ -32,7 +21,7 @@
 <header>
     <div class="header-top">
         <div class="left">
-            <a href="">
+            <a href="../index.php">
                 <img src="../Images/Logo.png" alt="Logo Somican"/>
             </a>
         </div>
@@ -41,6 +30,9 @@
             <a href="./accesoSocios.php" id="access-button">Acceso Socios</a>
         </div>
         <div class="right">
+            <a href="./profile.php" class="profile">
+                <?php include "../PHPScripts/headerProfile.php"; ?>
+            </a>
             <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->
             <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
                 <!-- SVG's de facebook, youtube y email para no perder calidad -->

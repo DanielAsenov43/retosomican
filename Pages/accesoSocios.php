@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-// Crear una sesión si no existe
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+if(!session_id()) session_start();
 
 if(isset($_SESSION["ERROR-LOGIN"])) {
     echo "<script>window.addEventListener('load', () => { document.getElementById('error-message').innerHTML = '".$_SESSION["ERROR-LOGIN"]."' });</script>";
@@ -30,13 +29,12 @@ if(isset($_SESSION["USER-NAME"])) {
 <header>
     <div class="header-top">
         <div class="left">
-            <a href="">
+            <a href="../index.php">
                 <img src="../Images/Logo.png" alt="Logo Somican"/>
             </a>
         </div>
         <div class="middle">
             <h1>Sociedad Micológica Cántabra</h1>
-            <!--a href="" id="access-button">Acceso Socios</a-->
         </div>
         <div class="right">
             <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->
