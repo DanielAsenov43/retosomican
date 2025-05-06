@@ -95,7 +95,7 @@
                 <img src="../Images/logo.png" draggable="false" alt="Logo Somican"/>
             </div>
             <form id="change-email-form" action="../PHPScripts/changeEmail.php" method="POST"> <!-- Cambiar display block/none -->
-                <label for="email-old">Correo antiguo: </label>
+                <label for="email-old">Correo actual: </label>
                 <input type="email" name="email-old" maxlength="32" required>
 
                 <label for="email-new">Correo nuevo: </label>
@@ -134,15 +134,15 @@
                 <h1>Información</h1>
                 <div class="profile-info">
                     <div class="name">
-                        <span class="title">Nombre: </span>
+                        <span class="title">Nombre:</span>
                         <?php echo "<span class='data'>".$_SESSION["USER-NAME"]."</span>"; ?>
                     </div>
                     <div class="surname">
-                        <span class="title">Apellidos: </span>
+                        <span class="title">Apellidos:</span>
                         <?php echo "<span class='data'>".$_SESSION["USER-SURNAME"]."</span>"; ?>
                     </div>
                     <div class="email">
-                        <span class="title">Correo: </span>
+                        <span class="title">Correo:</span>
                         <?php echo "<span class='data'>".$_SESSION["USER-EMAIL"]."</span>"; ?>
                     </div>
                     <div class="actions">
@@ -150,7 +150,12 @@
                         <button id="change-password-button">Cambiar contraseña</button>
                     </div>
                 </div>
-                <span id="error-message"></span>
+                <?php
+                    if(isset($_SESSION["CHANGE-RESULT"])) {
+                        echo "<div id='error-message'>".$_SESSION["CHANGE-RESULT"]."</div>";
+                        unset($_SESSION["CHANGE-RESULT"]);
+                    }
+                ?>
             </div>
         </div>
         <div class="logout">

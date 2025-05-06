@@ -5,6 +5,7 @@ html {
     --color-acento: rgb(224, 58, 58);
     --color-principal-fondo: white;
     --color-secundario-fondo: aliceblue;
+    --color-titulo: rgb(97, 206, 112);
 }
 
 header {
@@ -48,7 +49,7 @@ header {
             h1 {
                 text-transform: uppercase;
                 text-align: center;
-                color: rgb(97, 206, 112);
+                color: var(--color-titulo);
                 text-wrap: nowrap;
             }
 
