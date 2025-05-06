@@ -4,8 +4,6 @@
 <head>
     <?php
         if(!isset($_SESSION["USER-EMAIL"])) header("location: ./accesoSocios.php");
-
-        echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
     ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

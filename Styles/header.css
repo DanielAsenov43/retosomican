@@ -64,6 +64,12 @@ header {
                     background-color: var(--color-acento);
                 }
             }
+
+            @media (max-width: 1500px) {
+                h1 {
+                    visibility: hidden;
+                }
+            }
             
         }
 
@@ -82,10 +88,8 @@ header {
                 display: flex;
                 flex-direction: column;
                 transform: translateX(-25px);
-                background-color: var(--color-secundario-fondo);
                 padding: 22px;
                 text-decoration: none;
-                transform: 0.15s ease-out;
 
                 img {
                     margin: auto;
@@ -105,6 +109,8 @@ header {
                 }
 
                 &:hover {
+                    transform: 0.1s ease-out;
+                    background-color: var(--color-secundario-fondo);
                     filter: brightness(90%);
                     cursor: pointer;
                     * { scale: 102%; }
@@ -117,15 +123,18 @@ header {
                 margin: 20px 10px;
 
                 svg {
-                    width: 90px;
-                    height: 90px;
+                    width: 80px;
+                    height: 80px;
                     aspect-ratio: 1;
                     color: var(--color-secundario);
                 }
 
                 &:hover {
-                    filter: brightness(90%);
                     scale: 105%;
+                    transition: 0.15s ease-in;
+                    svg {
+                        color: var(--color-acento);
+                    }
                 }
             }
         }
