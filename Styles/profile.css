@@ -4,17 +4,15 @@ html {
 
 body {
     margin: 0;
-    font-family: "Titillium web", sans-serif;
     justify-content: center;
     background-color: var(--color-secundario-fondo);
+    * { font-family: "Titillium web", sans-serif; }
 }
 
 #container {
     height: 600px;
     display: flex;
     flex-direction: column;
-
-    * { transition: 0.15s ease-out; }
 
     .page-title {
         text-align: center;
@@ -51,6 +49,7 @@ body {
                 padding: 8px 90px;
 
                 &:hover {
+                    transition: 0.1s ease-out;
                     background-color: var(--color-acento);
                 }
             }
@@ -95,6 +94,7 @@ body {
                 margin-right: auto;
                 display: flex;
                 gap: 20px;
+                user-select: none;
 
                 a {
                     background-color: var(--color-terciario);
@@ -104,6 +104,7 @@ body {
                     font-weight: bold;
 
                     &:hover {
+                        transition: 0.1s ease-out;
                         background-color: var(--color-acento);
                     }
                 }
@@ -128,5 +129,94 @@ body {
                 filter: brightness(90%);
             }
         }
+    }
+}
+
+#change-profile-info {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 40%);
+
+    .container {
+        width: 500px;
+        height: 400px;
+        background-color: var(--color-secundario-fondo);
+        opacity: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 20px;
+
+        .logo-container {
+            user-select: none;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 20px;
+
+            img {
+                width: 50%;
+            }
+        }
+    }
+
+    #change-email-form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            user-select: none;
+        }
+
+        &:has(input[type="email"]:focus) {
+            input[type="email"]:focus {
+                outline: none;
+                border: none;
+                color: white;
+                font-weight: bold;
+                font-size: 1.5rem;
+                background-color: var(--color-terciario);
+            }
+
+            button[type="submit"] { /* Esto hace que el botón no se mueva al hacer click en un campo */
+                margin-top: -2px;
+            }
+        }
+        
+        input[type="email"] {
+            padding: 5px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: var(--color-secundario) 2px solid;
+        }
+
+        button[type="submit"] {
+            padding: 10px;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            background-color: var(--color-acento);
+            border: 0px;
+            color: white;
+            font-weight: bold;
+            scale: 110%;
+
+            &:hover {
+                background-color: #b11b1b;
+                cursor: pointer;
+            }
+        }
+
+        
+    }
+
+    #change-password-form {
+        display: none;
     }
 }

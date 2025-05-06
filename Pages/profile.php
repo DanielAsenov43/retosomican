@@ -87,6 +87,37 @@
 </header>
 
 <body>
+    <div id="change-profile-info">
+        <div class="container">
+            <div class="logo-container">
+                <img src="../Images/logo.png" draggable="false" alt="Logo Somican"/>
+            </div>
+            <form id="change-email-form" action="" method="POST"> <!-- Cambiar display block/none -->
+                <label for="email-old">Correo antiguo: </label>
+                <input type="email" name="email-old" maxlength="32" required>
+
+                <label for="email-old">Correo nuevo: </label>
+                <input type="email" name="email-new" maxlength="32" required>
+
+                <label for="email-old">Confirmar correo nuevo: </label>
+                <input type="email" name="email-new-2" maxlength="32" required>
+
+                <button type="submit">Cambiar correo</button>
+            </form>
+            <form id="change-password-form" action="" method="POST">
+                <label for="password-old">Contraseña antigua: </label>
+                <input type="password" name="password-old" maxlength="24" required>
+
+                <label for="password-old">Contraseña nueva: </label>
+                <input type="password" name="password-new" maxlength="24" required>
+
+                <label for="password-old">Confirmar contraseña nueva: </label>
+                <input type="password" name="password-new-2" maxlength="24" required>
+
+                <button type="submit">Cambiar contraseña</button>
+            </form>
+        </div>
+    </div>
     <div id="container">
         <h1 class="page-title">Perfil de Socio</h1>
 
