@@ -1,3 +1,7 @@
+html {
+    --color-terciario: rgb(100, 160, 212);
+}
+
 body {
     margin: 0;
     font-family: "Titillium web", sans-serif;
@@ -6,5 +10,123 @@ body {
 }
 
 #container {
-    height: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+
+    * { transition: 0.15s ease-out; }
+
+    .page-title {
+        text-align: center;
+        color: var(--color-acento);
+    }
+
+    .profile-container {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 50px;
+        margin-top: 25px;
+
+        .profile-picture-container {
+            user-select: none;
+            text-align: center;
+            justify-content: center;
+
+            .profile-picture {
+                background-color: var(--color-secundario);
+                padding: 10px;
+                width: 250px;
+
+                img {
+                    width: 250px;
+                }
+            }
+
+            .profile-picture-button {
+                background-color: var(--color-terciario);
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                padding: 8px 90px;
+
+                &:hover {
+                    background-color: var(--color-acento);
+                }
+            }
+        }
+    }
+
+    .profile-info-container {
+        display: flex;
+        flex-direction: column;
+        transform: translateY(-20px);
+
+        h1 {
+            color: var(--color-terciario);
+        }
+
+        .profile-info {
+            width: 400px;
+            height: 235px;
+            background-color: var(--color-secundario);
+            display: flex;
+            flex-direction: column;
+
+            div:not(.actions) {
+                margin: 20px 20px 10px 20px;
+
+                .title {
+                    color: white;
+                    user-select: none;
+                }
+                .data {
+                    font-weight: bold; 
+                    background-color: var(--color-terciario);
+                    padding: 5px 10px;
+                    margin-left: 10px;
+                    border-radius: 5px;
+                }
+            }
+
+            .actions {
+                margin-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                gap: 20px;
+
+                a {
+                    background-color: var(--color-terciario);
+                    padding: 10px 30px;
+                    text-decoration: none;
+                    color: white;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: var(--color-acento);
+                    }
+                }
+            }
+        }
+    }
+
+    .logout {
+        width: 100vw;
+        text-align: center;
+        margin-top: 60px;
+        user-select: none;
+
+        a {
+            color: white;
+            background-color: var(--color-acento);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 15px 60px;
+
+            &:hover {
+                filter: brightness(90%);
+            }
+        }
+    }
 }
