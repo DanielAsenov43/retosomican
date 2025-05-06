@@ -128,7 +128,7 @@
                 </div>
                 <div class="subirFoto">
                     <label for="uploadedImage">Subir foto:</label>
-                    <input type="file" id="uploadedImage" name="uploadedImage" onchange="previewImage()" required>
+                    <input type="file" id="uploadedImage" name="uploadedImage" accept="image/*" required>
                     <div id="imagePreview"></div>
                 </div>
                 <div class="observaciones">
