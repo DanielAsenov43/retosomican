@@ -148,11 +148,11 @@
 </body>
 
 <footer class="footer">
-    <nav class="footerArriba">
-        <div class="footer-dropdown">
+    <div class="footer-top">
+        <div class="dropdown">
             <!-- Boton que se despliega al tener el cursor sobre él -->
-            <button>SOMICAN +</button>
-            <div class="footer-dropdown-content">
+            <h2>SOMICAN +</h2>
+            <div class="dropdown-content">
                 <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de sus noticias -->
                 <a href="https://somican.com/blog/">NOTICIAS</a>
                 <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
@@ -162,10 +162,10 @@
             </div>
         </div>
     
-        <div class="footer-dropdown">
+        <div class="dropdown">
             <!-- Boton que se despliega al tener el cursor sobre él -->
-            <button>GALERÍAS +</button>
-            <div class="footer-dropdown-content">
+            <h2>GALERÍAS +</h2>
+            <div class="dropdown-content">
                 <!-- Botón que al pinchar sobre él te redirige a nuestro Galería Artística -->
                 <a href="">GALERIA ARTÍSTICA</a>
                 <!-- Botón que al pinchar sobre él te redirige a nuestra Galeria Cientifica (será necesario acceder como socio para verla) -->
@@ -174,12 +174,15 @@
         </div>
     
         <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de la Revista Yesca -->
-        <a class="simpleLinks" href="https://somican.com/revista-micologia-yesca/"><button>REVISTA YESCA</button></a>
+        <div class="button">
+            <a href="https://somican.com/revista-micologia-yesca/">REVISTA YESCA</a>
+        </div>
+        
     
-        <div class="footer-dropdown">
+        <div class="dropdown">
             <!-- Boton que se despliega al tener el cursor sobre él -->
-            <button>MEDIOS +</button>
-            <div class="footer-dropdown-content">
+            <h2>MEDIOS +</h2>
+            <div class="dropdown-content">
                 <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su biblioteca -->
                 <a href="https://somican.com/biblioteca-micologia/">BIBLIOTECA</a>
                 <!-- Botón que al pinchar sobre él te redirige a la pagina de Somican de su historia -->
@@ -188,11 +191,13 @@
         </div>
         
         <!-- Botón que al pinchar sobre el te redirige al canal de Youtube de Somican -->
-        <a class="simpleLinks" href="https://somican.com/contacto/"><button>CONTACTO</button></a>
-    </nav>
+        <div class="button">
+            <a href="https://somican.com/contacto/">CONTACTO</a>
+        </div>
+        </div>
 
-    <div class="footerCentro">
-        <div class="footerIzquierda">
+    <div class="footer-center">
+        <div class="footer-left">
             <div class="enlaces">
                 <a class="simpleLinks" href="https://somican.com/aviso-legal/">LEGAL</a>
                 <a class="simpleLinks" href="https://somican.com/politica-de-privacidad/">POLÍTCA DE PRIVACIDAD</a>
@@ -212,7 +217,7 @@
             </div>
         </div>    
         
-        <div class="footerMedio">
+        <div class="footer-middle">
             <h2>SOMICAN</h2>
             <h3>Sociedad Micológica Cántabra</h3>
             <br>
@@ -221,7 +226,7 @@
             <img src="./Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
         </div>
 
-        <div class="footerDerecha">
+        <div class="footer-right">
             <h3>
                 <div class="simpleLinks"><a href="https://somican.com/contacto/"><button>CONTACTA CON NOSOTROS</button></a></div>
             </h3>
@@ -235,7 +240,7 @@
         </div>
     </div>
 
-    <div class="footerAbajo">
+    <div class="footer-bootom">
         <div>©2023. Bóxer Publicidad. Todos los derechos reservados.</div>
     </div>
 </footer>
