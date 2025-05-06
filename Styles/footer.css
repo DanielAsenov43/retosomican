@@ -15,7 +15,7 @@ footer {
         transform: translateY(2vh);
         display: flex;
 
-        ul {
+        .footer-dropdown {
             background-color: var(--color-secundario);
             height: 50px;
             display: flex;
@@ -38,6 +38,26 @@ footer {
                     font-weight: bold;
                     background-color: var(--color-acento);
                 }
+            }
+        }
+
+        .simpleLinks {
+            background-color: var(--color-secundario);
+            height: 50px;
+            display: flex;
+            list-style: none;
+            width: 100%;
+            justify-content: center;
+
+            button {
+                background-color: var(--color-secundario);
+                height: 50px;
+                display: flex;
+                list-style: none;
+                width: 100%;
+                justify-content: center;
+                color: white;
+                text-align: center;
             }
         }
     }
@@ -80,6 +100,11 @@ footer {
         .footerMedio {
             margin-left: auto;
             margin-right: auto;
+
+            .logoCamargo {
+                width: 6vw;
+                filter: drop-shadow(0 0 10px black);
+            }
         }
 
         .footerDerecha {
@@ -89,7 +114,9 @@ footer {
     }
 
     .footerAbajo {
-        justify-content: center;
+        text-align: center;
+        background-color: black;
+        color: white;
     }
         
 }
