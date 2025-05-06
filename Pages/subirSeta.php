@@ -226,7 +226,7 @@
 
         <div class="footer-right">
             <div class="image">
-                <img src="./Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
+                <img src="../Images/ayuntamiento-logo.png" alt="Ayuntamiento de Camargo" class="logoCamargo">
             </div>
             <div class="text">
                 <h2>
