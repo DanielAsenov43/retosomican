@@ -98,7 +98,7 @@ header {
                     text-align: center;
                     text-wrap: nowrap;
                     transform: translateY(8px);
-                    color: rgb(70, 130, 227);
+                    color: rgb(112, 159, 201);
                     font-weight: 700;
                     user-select: none;
                 }
@@ -106,7 +106,7 @@ header {
                 &:hover {
                     filter: brightness(90%);
                     cursor: pointer;
-                    * { scale: 105%; }
+                    * { scale: 102%; }
                 }
             }
 

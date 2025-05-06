@@ -1,28 +1,11 @@
 <!DOCTYPE html>
+<?php include "../PHPScripts/connection.php"; ?>
 <html lang="es">
-<?php
-    // Inicializar las variables para la conexión a la BBDD
-    $nombreHost = "localhost";
-    $usuario = "root";
-    $contrasenia = "";
-    $nombreBBDD = "retosomican";
-    // Iniciar la conexión
-    $conexion = new mysqli($nombreHost, $usuario, $contrasenia, $nombreBBDD);
-
-    // Crear una sesión si no existe
-    if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
-
-    if(!isset($_SESSION["USER-EMAIL"])){
-        header("location: ./accesoSocios.php");
-    }
-
-
-    //echo "Has iniciado sesión como: ".$_SESSION['username'];
-?>
 <head>
     <?php
-    echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
-    echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
+        if(!isset($_SESSION["USER-EMAIL"])) header("location: ./accesoSocios.php");
+        
+        echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
     ?>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-// Crear una sesión si no existe
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+if(!session_id()) session_start();
 
 if(isset($_SESSION["ERROR-LOGIN"])) {
     echo "<script>window.addEventListener('load', () => { document.getElementById('error-message').innerHTML = '".$_SESSION["ERROR-LOGIN"]."' });</script>";

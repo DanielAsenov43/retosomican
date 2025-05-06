@@ -1,27 +1,11 @@
 <!DOCTYPE html>
+<?php include "../PHPScripts/connection.php"; ?>
 <html lang="es">
-<?php
-    // Inicializar las variables para la conexión a la BBDD
-    $nombreHost = "localhost";
-    $usuario = "root";
-    $contrasenia = "";
-    $nombreBBDD = "retosomican";
-    // Iniciar la conexión
-    $conexion = new mysqli($nombreHost, $usuario, $contrasenia, $nombreBBDD);
-?>
-
 <head>
     <?php
-        // Crear una sesión si no existe
-        if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
+        if(!isset($_SESSION["USER-EMAIL"])) header("location: ./accesoSocios.php");
 
-        if(!isset($_SESSION["USER-EMAIL"])){
-            header("location: ./accesoSocios.php");
-        }
-
-        echo '<meta name="username" content="'.$_SESSION["USER-NAME"].'"/>';
         echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
-        //echo "Has iniciado sesión como: ".$_SESSION['username'];
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,10 +122,10 @@
     <div id="setas">
         <?php
         $consultaSeta = "SELECT * FROM retosomican.setas WHERE registrada = TRUE";
-        $result = mysqli_query($conexion, $consultaSeta);
+        $result = mysqli_query($_SESSION["SQL"], $consultaSeta);
         while ($row = mysqli_fetch_row($result)) {
             $consultaLegado = "SELECT * FROM retosomican.socios WHERE ID = $row[1]";
-            $datosLegado = mysqli_fetch_row(mysqli_query($conexion, $consultaLegado));
+            $datosLegado = mysqli_fetch_row(mysqli_query($_SESSION["SQL"], $consultaLegado));
             $nombreLegado = $datosLegado[1] . " " . $datosLegado[2];
 
             echo "<div onclick=\"showInfoPanel($row[0], '$nombreLegado', '$row[3]', '$row[4]', '$row[5]', '$row[6]', '$row[7]', '$row[8]', '$row[9]', '$row[10]', '$row[11]', '$row[12]', '$row[13]', '$row[14]')\">";
@@ -151,7 +135,6 @@
             echo "<p class='fecha'>" . $row[6] . "</p>";
             echo "</div>";
         }
-        $conexion -> close();
         ?>
     </div>
     <span id="sin-resultados"></span>
