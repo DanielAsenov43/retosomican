@@ -25,7 +25,7 @@
     <div class="header-top">
         <div class="left">
             <a href="../index.php">
-                <img src="../Images/Logo.png" alt="Logo Somican"/>
+                <img src="../Images/Logo.png" draggable="false" alt="Logo Somican"/>
             </a>
         </div>
         <div class="middle">

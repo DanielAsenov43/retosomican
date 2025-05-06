@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet" />
 
+    <script src="https://unpkg.com/cropperjs"></script>
     <script src="../Scripts/changeProfileInfo.js"></script>
 </head>
 
@@ -24,7 +25,7 @@
     <div class="header-top">
         <div class="left">
             <a href="../index.php">
-                <img src="../Images/Logo.png" alt="Logo Somican"/>
+                <img src="../Images/Logo.png" draggable="false" alt="Logo Somican"/>
             </a>
         </div>
         <div class="middle">
@@ -106,18 +107,19 @@
 
                 <button type="submit">Cambiar correo</button>
             </form>
-            <form id="change-password-form" action="" method="POST">
-                <label for="password-old">Contraseña antigua: </label>
+            <form id="change-password-form" action="../PHPScripts/changePassword.php" method="POST">
+                <label for="password-old">Contraseña actual: </label>
                 <input type="password" name="password-old" maxlength="24" required>
 
                 <label for="password-old">Contraseña nueva: </label>
                 <input type="password" name="password-new" maxlength="24" required>
 
                 <label for="password-old">Confirmar contraseña nueva: </label>
-                <input type="password" name="password-new-2" maxlength="24" required>
+                <input type="password" name="password-new-confirm" maxlength="24" required>
 
                 <button type="submit">Cambiar contraseña</button>
             </form>
+
         </div>
     </div>
     <div id="container">
@@ -126,7 +128,7 @@
         <div class="profile-container">
             <div class="profile-picture-container">
                 <div class="profile-picture">
-                    <?php echo "<img src='../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png' draggable='false'>"; ?>
+                    <?php echo "<img id='profile-picture-image' src='../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png' draggable='false'>"; ?>
                 </div>
                 <a href="" class="profile-picture-button">Cambiar Foto</a>
             </div>

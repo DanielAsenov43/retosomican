@@ -176,27 +176,12 @@ body {
         }
     }
 
-    #change-email-form {
+    #change-email-form, #change-password-form {
         display: none;
         flex-direction: column;
 
         label {
             user-select: none;
-        }
-
-        &:has(input:focus) {
-            input[type="email"]:focus {
-                outline: none;
-                border: none;
-                color: white;
-                font-weight: bold;
-                font-size: 1.5rem;
-                background-color: var(--color-terciario);
-            }
-
-            button[type="submit"] { /* Esto hace que el botón no se mueva al hacer click en un campo */
-                margin-top: -2px;
-            }
         }
         
         input {
@@ -224,11 +209,5 @@ body {
                 cursor: pointer;
             }
         }
-
-        
-    }
-
-    #change-password-form {
-        display: none;
     }
 }
