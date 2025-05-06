@@ -35,7 +35,6 @@ if(isset($_SESSION["USER-NAME"])) {
         </div>
         <div class="middle">
             <h1>Sociedad Micológica Cántabra</h1>
-            <!--a href="" id="access-button">Acceso Socios</a-->
         </div>
         <div class="right">
             <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->

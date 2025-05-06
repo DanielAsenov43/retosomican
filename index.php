@@ -36,12 +36,18 @@
         </div>
         <div class="middle">
             <h1>Sociedad Micológica Cántabra</h1>
-            <a href="./Pages/accesoSocios.php" id="access-button">Acceso Socios</a>
         </div>
         <div class="right">
             <a href="./Pages/profile.php" class="profile">
-                <img src="./Images/user.png"></img>
-                <span class="username">Username</span>
+                <?php
+                    if (isset($_SESSION["USER-ID"])) {
+                        echo "<img src='./Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png'></img>";
+                        echo "<span class='username'>".$_SESSION["USER-NAME"]."</span>";
+                    } else {
+                        echo "<img src='./Images/user-default.png'></img>";
+                        echo "<span class='username'>Iniciar Sesión</span>";
+                    }
+                ?>
             </a>
             <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->
             <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">

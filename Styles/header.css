@@ -92,6 +92,7 @@ header {
                     width: 80px;
                     border-radius: 50%;
                     aspect-ratio: 1;
+                    border: var(--color-secundario) 5px solid;
                 }
 
                 .username {

@@ -4,7 +4,7 @@
 <head>
     <?php
         if(!isset($_SESSION["USER-EMAIL"])) header("location: ./accesoSocios.php");
-        
+
         echo '<script src="../Scripts/changeLoginButton.js" defer></script>';
     ?>
     <meta charset="UTF-8" />
@@ -21,7 +21,7 @@
 <header>
     <div class="header-top">
         <div class="left">
-            <a href="">
+            <a href="../index.php">
                 <img src="../Images/Logo.png" alt="Logo Somican"/>
             </a>
         </div>
