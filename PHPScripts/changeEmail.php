@@ -27,6 +27,7 @@ function compare($string1, $string2) {
 
 function throwError($errormMessage) {
     $_SESSION["CHANGE-ERROR-MESSAGE"] = $errormMessage;
-    header("location: ../Pages/profile.php");
+    echo $_SESSION["CHANGE-ERROR-MESSAGE"];
+    //header("location: ../Pages/profile.php");
 }
 ?>
