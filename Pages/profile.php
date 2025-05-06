@@ -150,6 +150,7 @@
                         <button id="change-password-button">Cambiar contraseña</button>
                     </div>
                 </div>
+                <span id="error-message"></span>
             </div>
         </div>
         <div class="logout">
