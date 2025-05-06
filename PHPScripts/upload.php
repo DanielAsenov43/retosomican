@@ -1,18 +1,13 @@
 <?php
+
+include "./connection.php";
+$connection = $_SESSION["SQL"];
+
 $GLOBALS["FILENAME"] = "SETA_{ID}.png";
 $GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/";
 
 $RESULT_SUCCESS_MESSAGE = "¡La seta se ha subido con éxito!";
 $RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "retosomican";
-// Crear la conexión
-$connection = new mysqli($servername, $username, $password, $database);
-
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
 
 if(!isset($_SESSION["USER-EMAIL"])){
     // Si el usuario no está registrado

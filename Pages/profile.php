@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <script src="../Scripts/changeProfileInfo.js"></script>
 </head>
 
 <header>
@@ -92,15 +94,15 @@
             <div class="logo-container">
                 <img src="../Images/logo.png" draggable="false" alt="Logo Somican"/>
             </div>
-            <form id="change-email-form" action="" method="POST"> <!-- Cambiar display block/none -->
+            <form id="change-email-form" action="../PHPScripts/changeEmail.php" method="POST"> <!-- Cambiar display block/none -->
                 <label for="email-old">Correo antiguo: </label>
                 <input type="email" name="email-old" maxlength="32" required>
 
-                <label for="email-old">Correo nuevo: </label>
+                <label for="email-new">Correo nuevo: </label>
                 <input type="email" name="email-new" maxlength="32" required>
 
-                <label for="email-old">Confirmar correo nuevo: </label>
-                <input type="email" name="email-new-2" maxlength="32" required>
+                <label for="password">Contraseña: </label>
+                <input type="password" name="email-password" maxlength="32" required>
 
                 <button type="submit">Cambiar correo</button>
             </form>
@@ -144,8 +146,8 @@
                         <?php echo "<span class='data'>".$_SESSION["USER-EMAIL"]."</span>"; ?>
                     </div>
                     <div class="actions">
-                        <a href="" class="change-email">Cambiar correo</a>
-                        <a href="" class="change-password">Cambiar contraseña</a>
+                        <button id="change-email-button">Cambiar correo</button>
+                        <button id="change-password-button">Cambiar contraseña</button>
                     </div>
                 </div>
             </div>
