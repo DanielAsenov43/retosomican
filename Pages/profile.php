@@ -87,8 +87,72 @@
 </header>
 
 <body>
-    <div id="container">
+    <div id="change-profile-info">
+        <div class="container">
+            <div class="logo-container">
+                <img src="../Images/logo.png" draggable="false" alt="Logo Somican"/>
+            </div>
+            <form id="change-email-form" action="" method="POST"> <!-- Cambiar display block/none -->
+                <label for="email-old">Correo antiguo: </label>
+                <input type="email" name="email-old" maxlength="32" required>
 
+                <label for="email-old">Correo nuevo: </label>
+                <input type="email" name="email-new" maxlength="32" required>
+
+                <label for="email-old">Confirmar correo nuevo: </label>
+                <input type="email" name="email-new-2" maxlength="32" required>
+
+                <button type="submit">Cambiar correo</button>
+            </form>
+            <form id="change-password-form" action="" method="POST">
+                <label for="password-old">Contraseña antigua: </label>
+                <input type="password" name="password-old" maxlength="24" required>
+
+                <label for="password-old">Contraseña nueva: </label>
+                <input type="password" name="password-new" maxlength="24" required>
+
+                <label for="password-old">Confirmar contraseña nueva: </label>
+                <input type="password" name="password-new-2" maxlength="24" required>
+
+                <button type="submit">Cambiar contraseña</button>
+            </form>
+        </div>
+    </div>
+    <div id="container">
+        <h1 class="page-title">Perfil de Socio</h1>
+
+        <div class="profile-container">
+            <div class="profile-picture-container">
+                <div class="profile-picture">
+                    <?php echo "<img src='../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png' draggable='false'>"; ?>
+                </div>
+                <a href="" class="profile-picture-button">Cambiar Foto</a>
+            </div>
+            <div class="profile-info-container">
+                <h1>Información</h1>
+                <div class="profile-info">
+                    <div class="name">
+                        <span class="title">Nombre: </span>
+                        <?php echo "<span class='data'>".$_SESSION["USER-NAME"]."</span>"; ?>
+                    </div>
+                    <div class="surname">
+                        <span class="title">Apellidos: </span>
+                        <?php echo "<span class='data'>".$_SESSION["USER-SURNAME"]."</span>"; ?>
+                    </div>
+                    <div class="email">
+                        <span class="title">Correo: </span>
+                        <?php echo "<span class='data'>".$_SESSION["USER-EMAIL"]."</span>"; ?>
+                    </div>
+                    <div class="actions">
+                        <a href="" class="change-email">Cambiar correo</a>
+                        <a href="" class="change-password">Cambiar contraseña</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logout">
+            <a href="../PHPScripts/logout.php">Cerrar Sesión</a>
+        </div>
     </div>
 </body>
 
