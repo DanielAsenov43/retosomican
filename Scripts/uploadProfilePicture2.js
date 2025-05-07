@@ -1,3 +1,5 @@
+
+
 let result, img_result, img_w, img_h, options, save, cropped, dwn, upload, cropper;
 
 window.addEventListener("load", () => {
@@ -50,6 +52,7 @@ window.addEventListener("load", () => {
         img_result.classList.remove('hide');
         // show image cropped
         cropped.src = imgSrc;
+        console.log(imgSrc);
         dwn.classList.remove('hide');
         dwn.download = 'imagename.png';
         dwn.setAttribute('href', imgSrc);

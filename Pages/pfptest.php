@@ -9,15 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil - SOMICAN</title>
 
-    <link rel="shortcut icon" href="../Images/icono.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../Images/icono.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/profile.css" />
+    <link rel="stylesheet" href="../Styles/pfptest.css" />
+    <link rel="stylesheet" href="../cropperjs/cropper.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet" />
 
-    <script src="https://unpkg.com/cropperjs"></script>
+    <script src="../cropperjs/cropper.js"></script>
     <script src="../Scripts/uploadProfilePicture2.js"></script>
 </head>
 
@@ -90,6 +92,9 @@
 </header>
 
 <body>
+    <form action="../PHPScripts/changeProfilePicture.php" method="post">
+        <button type="submit">Submit</button>
+    </form>
     <main class="page">
         <h2>Upload ,Crop and save.</h2>
         <!-- input file -->
@@ -103,7 +108,7 @@
         <!--rightbox-->
         <div class="box-2 img-result hide">
             <!-- result of crop -->
-            <img class="cropped" src="" alt="">
+            <img class="cropped" id="image" src="" alt="">
         </div>
         <!-- input file -->
         <div class="box">
