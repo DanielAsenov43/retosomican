@@ -14,7 +14,7 @@ $connection = new mysqli($servername, $username, $password, $database);
 
 if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) session_start();
 
-if(!isset($_SESSION["USER-EMAIL"])){
+if(!isset($_SESSION["LOGGED-IN"])){
     // Si el usuario no está registrado
     header('location: ../Pages/accesoSocios.php');
 }

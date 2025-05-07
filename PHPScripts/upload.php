@@ -9,7 +9,7 @@ $GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/";
 $RESULT_SUCCESS_MESSAGE = "¡La seta se ha subido con éxito!";
 $RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
 
-if(!isset($_SESSION["USER-EMAIL"])){
+if(!isset($_SESSION["LOGGED-IN"])){
     // Si el usuario no está registrado
     header('location: ../Pages/accesoSocios.php');
 }

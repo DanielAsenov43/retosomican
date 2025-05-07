@@ -8,7 +8,7 @@ if(isset($_SESSION["ERROR-LOGIN"])) {
     unset($_SESSION["ERROR-LOGIN"]);
 }
 
-if(isset($_SESSION["USER-NAME"])) {
+if(isset($_SESSION["LOGGED-IN"])) {
     header("location: ./galeriaCientifica.php");
 }
 ?>

@@ -39,7 +39,7 @@
         <div class="right">
             <a href="./Pages/profile.php" class="profile">
                 <?php
-                    if (isset($_SESSION["USER-ID"])) {
+                    if (isset($_SESSION["LOGGED-IN"])) {
                         echo "<img src='./Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png'></img>";
                         echo "<span class='username'>".$_SESSION["USER-NAME"]."</span>";
                     } else {
@@ -111,7 +111,7 @@
 <body>
     <h1 class="title">Galería Artística</h1>
     <?php
-        if (isset($_SESSION["USER-EMAIL"])) echo '<a class="subir-seta" href="./Pages/subirFotoArtistica.php">SUBIR UNA FOTO</a>';
+        if (isset($_SESSION["LOGGED-IN"])) echo '<a class="subir-seta" href="./Pages/subirFotoArtistica.php">SUBIR UNA FOTO</a>';
     ?>
     <div id="background-black-fade"></div>
     <div id="detalles-seta">

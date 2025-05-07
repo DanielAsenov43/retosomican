@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
     <?php
-        if(!isset($_SESSION["USER-EMAIL"])) header("location: ./accesoSocios.php");
+        if(!isset($_SESSION["LOGGED-IN"])) header("location: ./accesoSocios.php");
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,6 +125,7 @@
         <?php
         $consultaSeta = "SELECT * FROM retosomican.setas WHERE registrada = TRUE";
         $result = mysqli_query($_SESSION["SQL"], $consultaSeta);
+
         while ($row = mysqli_fetch_row($result)) {
             $consultaLegado = "SELECT * FROM retosomican.socios WHERE ID = $row[1]";
             $datosLegado = mysqli_fetch_row(mysqli_query($_SESSION["SQL"], $consultaLegado));
