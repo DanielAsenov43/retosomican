@@ -14,14 +14,11 @@
     <link rel="stylesheet" href="../Styles/footer.css" />
     <link rel="stylesheet" href="../Styles/profile.css" />
     <link rel="stylesheet" href="../Styles/cropper.css" />
-    <link rel="stylesheet" href="../node_modules/cropperjs/dist/cropper.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet" />
 
-    <!--script src="../node_modules/cropperjs/dist/cropper.min.js"></script-->
-    <script src="https://unpkg.com/cropperjs@2.0.0/dist/cropper.js"></script>
     <script src="../Scripts/changeProfileInfo.js"></script>
     <script src="../Scripts/uploadProfilePicture.js"></script>
 </head>
@@ -124,7 +121,6 @@
 
                 <button type="submit">Cambiar contraseña</button>
             </form>
-
         </div>
     </div>
     <div id="container">
@@ -135,21 +131,7 @@
                 <div class="profile-picture">
                     <?php echo "<img id='profile-picture-image' src='../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png' draggable='false'>"; ?>
                 </div>
-                <button id="crop-button" onclick="crop()">Crop</button>
-                <div>
-                    <img src="../Images/user-default.png" id="image" />
-                </div>
-                <input type="file" accept="image/*" id="upload-pfp"></input>
-                <!--cropper-canvas background id="cropper-main">
-                    <cropper-image alt="Picture" src="" rotatable scalable skewable translatable id="cropper-image"></cropper-image>
-                    <cropper-shade hidden></cropper-shade>
-                    <cropper-selection initial-coverage="1" movable resizable>
-                        <cropper-grid role="grid" covered></cropper-grid>
-                        <cropper-crosshair centered></cropper-crosshair>
-                        <cropper-handle action="move" theme-color="rgba(141, 204, 255, 0.15)"></cropper-handle>
-                    </cropper-selection>
-                </cropper-canvas-->
-                <a href="" class="profile-picture-button">Cambiar Foto</a>
+                <button href="" class="profile-picture-button">Cambiar Foto</button>
             </div>
             <div class="profile-info-container">
                 <h1>Información</h1>

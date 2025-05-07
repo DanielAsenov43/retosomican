@@ -1,0 +1,35 @@
+body {
+    height: 1000px;
+}
+
+footer {
+    position: relative;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+
+    * { border: red 1px solid; }
+
+    .footer-top {
+        height: 50px;
+    }
+
+    .footer-center {
+        height: 150px;
+    }
+
+    .footer-bottom {
+        height: 50px;
+    }
+}
+
+@media only screen and (min-width: 2500px) {
+
+    footer {
+        position: absolute;
+        bottom: 0;
+
+    }
+  
+  }
