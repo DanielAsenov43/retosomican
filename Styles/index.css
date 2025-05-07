@@ -37,6 +37,7 @@ body {
     color: white;
     border: none;
     user-select: none;
+    text-decoration: none;
 
     &:hover {
         background-color: var(--color-acento);
@@ -91,7 +92,7 @@ body {
                 transform: translate(-250px, 160px);
                 z-index: 1;
                 border-radius: 50%;
-                box-shadow: 0 0 5px black;
+                border: var(--color-secundario) 5px solid;
             }
         }
     }
