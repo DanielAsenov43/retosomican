@@ -19,7 +19,7 @@
         text-align: center;
 
         #detail-image {
-            max-width: 25vw;
+            max-width: 15vw;
             border-radius: 10px;
             user-select: none;
             transition: 0.35s ease-out;
@@ -53,6 +53,38 @@
 
     .detail-content {
         font-weight: bold;
+    }
+
+    .detail-comment-container {
+        display: flex;
+        user-select: none;
+
+        #detail-profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: var(--color-secundario) 5px solid;
+            margin: 20px;
+        }
+
+        #detail-comment {
+            color: var(--color-secundario);
+            font-weight: bold;
+            width: 100%;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+
+            .detail-content {
+                background-color: var(--color-secundario-fondo);
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 10px;
+                color: black;
+                font-weight: normal;
+                user-select: text;
+            }
+        }
     }
 }
 

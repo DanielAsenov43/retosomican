@@ -2,8 +2,6 @@
 <html lang="es">
 <?php include "./PHPScripts/connection.php"; ?>
 <head>
-    <?php if (isset($_SESSION["USER-NAME"])) echo '<script src="./Scripts/changeLoginButton.js"></script>'; ?>
-    <meta name="index" content="true" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -32,7 +30,7 @@
     <div class="header-top">
         <div class="left">
             <a href="">
-                <img src="./Images/Logo.png" alt="Logo Somican" />
+                <img src="./Images/Logo.png" draggable="false" alt="Logo Somican" />
             </a>
         </div>
         <div class="middle">
@@ -123,8 +121,13 @@
                 d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z">
             </path>
         </svg>
-        <div id="detail-image-container"><img id="detail-image" draggable="false" alt="Seta" /></div>
-        <p id="detail-comentario"></p>
+        <div id="detail-image-container">
+            <img id="detail-image" draggable="false" alt="Seta" />
+        </div>
+        <div class="detail-comment-container">
+            <img src="./Images/user-default.png" id="detail-profile-picture" draggable="false" alt="Foto de Perfil">
+            <span id="detail-comment"></span>
+        </div>
     </div>
 
     <div id="gallery-container">
@@ -133,11 +136,11 @@
             if (!session_id())
                 session_start();
             // Crear y ejecutar una consulta que devuelve todas las setas registradas.
-            $consulta = "SELECT * FROM retosomican.fotosSetas WHERE registrada = TRUE";
-            $resultado = mysqli_query($_SESSION["SQL"], $consulta);
+            $query = "SELECT * FROM retosomican.fotosSetas WHERE registrada = TRUE";
+            $result = mysqli_query($_SESSION["SQL"], $query);
             // Bucle que pasa por todas las filas devueltas y crea elementos que contienen las setas
-            while ($row = mysqli_fetch_row($resultado)) {
-                echo '<div onclick="showInfoPanel(' . $row[0] . ', \'' . $row[3] . '\')">';
+            while ($row = mysqli_fetch_row($result)) {
+                echo '<div onclick="showInfoPanel('.$row[0].', '.$row[1].', \''.$row[3].'\')">';
                 echo "<img class='mushroom' src='./Images/GaleriaArtistica/SETA_$row[0].png' draggable='false' alt='Icono' />";
                 echo "<img class='user' src='./Images/FotosDePerfil/SOCIO_$row[1].png' alt='Usuario' />";
                 echo "</div>";
@@ -242,6 +245,9 @@
                 <div>Plaza Mª Blanchard 7-2 bajo</div>
                 <div>39600 Maliaño. CANTABRIA</div>
             </div>
+            <!--div style="width: 100%">
+                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Plaza%20Mar%C3%ADa%20Blanchard%207-2%20Bajo+(Sociedad%20Micol%C3%B3gica%20C%C3%A1ntabra)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            </div-->
         </div>
     </div>
 

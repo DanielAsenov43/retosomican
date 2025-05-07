@@ -22,7 +22,7 @@ if(compare($oldEmail, $newEmail)) {
     setResult($ERROR_SAME_EMAIL, true);
     return;
 }
-if(!compare($password, $_SESSION["USER-PASSWORD"])) {
+if(!password_verify($password, $_SESSION["USER-PASSWORD"])) {
     setResult($ERROR_PASSWORD_DOES_NOT_MATCH, true);
     return;
 }
@@ -35,7 +35,7 @@ if(mysqli_num_rows($result) > 0) {
 }
 
 $changeEmailQuery = "UPDATE retosomican.socios SET email = '$newEmail' WHERE ID = " . $_SESSION["USER-ID"];
-if($connection -> query( $changeEmailQuery )) {
+if($connection -> query($changeEmailQuery)) {
     setResult($CHANGE_SUCCESS, false);
     $_SESSION["USER-EMAIL"] = $newEmail;
 }

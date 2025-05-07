@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
     image = document.getElementById("detail-image");
 
     image.addEventListener("click", () => {
-        image.style.maxWidth = (zoomedIn) ? "50vw" : "25vw";
+        image.style.maxWidth = (zoomedIn) ? "50vw" : "15vw";
         zoomedIn = !zoomedIn;
     });
 });

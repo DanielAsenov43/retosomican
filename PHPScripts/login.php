@@ -21,7 +21,7 @@ $result = mysqli_query($connection, $emailQuery);
 
 if(mysqli_num_rows($result) > 0) { // Existe un usuario registrado con ese correo
     $row = mysqli_fetch_array($result);
-    if($userPassword == $row[4]) {
+    if(password_verify($userPassword, $row[4])) {
         $_SESSION["USER-ID"] = $row[0];
         $_SESSION["USER-NAME"] = $row[1];
         $_SESSION["USER-SURNAME"] = $row[2];
