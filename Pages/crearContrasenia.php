@@ -7,10 +7,6 @@ if(isset($_SESSION["ERROR-LOGIN"])) {
     echo "<script>window.addEventListener('load', () => { document.getElementById('error-message').innerHTML = '".$_SESSION["ERROR-LOGIN"]."' });</script>";
     unset($_SESSION["ERROR-LOGIN"]);
 }
-
-if(isset($_SESSION["USER-NAME"])) {
-    header("location: ./galeriaCientifica.php");
-}
 ?>
 <head>
   <meta charset="UTF-8" />
@@ -95,16 +91,16 @@ if(isset($_SESSION["USER-NAME"])) {
 
 <body>
     <div class="login-container">
-        <h1>Cambiar Contraseña</h1>
-        <p class="subtitulo">Somican nunca dara tu contraseña</p>
-        <form method="POST" action="../PHPScripts/login.php">
-          <label for="password">CREAR CONTRASEÑA</label>
-          <input type="password" id="password" name="password" placeholder="********" required />
+        <h1>Crear contraseña</h1>
+        <p class="subtitulo">Somican nunca dará tu contraseña</p>
+        <form method="POST" action="../PHPScripts/createPassword.php">
+          <label for="password">Contraseña nueva:</label>
+          <input type="password" name="password" placeholder="********" autocomplete="new-password" minlength="8" maxlength="16" required />
     
-          <label for="password">CONFIRMA LA CONTRASEÑA</label>
-          <input type="password" id="password" name="password" placeholder="********" required />
+          <label for="password-confirm">Confirmar contraseña nueva:</label>
+          <input type="password" name="password-confirm" placeholder="********" autocomplete="new-password" minlength="8" maxlength="16" required />
     
-          <button type="submit">ACCEDER</button>
+          <button type="submit">Crear contraseña</button>
         </form>
       </div>
       <span id="error-message"></span>

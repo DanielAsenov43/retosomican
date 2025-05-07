@@ -49,5 +49,5 @@ function setResult($message, $isError) {
     if($isError) $_SESSION["CHANGE-RESULT"] = "<span class='error'>$message</span>";
     else $_SESSION["CHANGE-RESULT"] = "<span class='success'>$message</span>";
     header("location: ../Pages/profile.php");
-}¡
+}
 ?>

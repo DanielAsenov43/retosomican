@@ -18,11 +18,21 @@ if(!password_verify($oldPassword, $_SESSION["USER-PASSWORD"])) {
     setResult($ERROR_OLD_PASSWORD_DOES_NOT_MATCH, true);
     return;
 }
-if(compare($oldPassword, $newPassword)) {
+if($oldPassword == $newPassword) {
     setResult($ERROR_SAME_PASSWORD, true);
     return;
 }
-if(!compare($newPassword, $newPasswordConfirm)) {
+
+if(str_contains($newPassword, " ")) {
+    setResult("¡La contraseña no debe contener espacios!", true);
+    return;
+}
+if($newPassword == strtolower($newPassword)) {
+    setResult("¡La contraseña debe contener al menos una letra mayúscula!", true);
+    return;
+}
+
+if($newPassword != $newPasswordConfirm) {
     setResult($ERROR_PASSWORD_DOES_NOT_MATCH, true);
     return;
 }
@@ -34,10 +44,6 @@ if($connection -> query($changePasswordQuery)) {
     $_SESSION["USER-PASSWORD"] = $newPassword;
 }
 else setResult($ERROR_DDBB_CONNECTION, true);
-
-function compare($string1, $string2) {
-    return strtolower($string1) == strtolower($string2);
-}
 
 function setResult($message, $isError) { 
     if($isError) $_SESSION["CHANGE-RESULT"] = "<span class='error'>$message</span>";

@@ -32,7 +32,7 @@ if($row[6] == null || $row[6] == "") { // El usuario ya tiene contraseña (se ha
 } else {
     if(intval($userPassword) == $row[6]) {
         setSessionInfo($row[0], $row[1], $row[2], $row[3], false);
-        echo "Crear contraseña";
+        header("location: ../Pages/crearContrasenia.php");
 
     } else wrongPassword();
 }

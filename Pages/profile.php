@@ -111,13 +111,13 @@
             </form>
             <form id="change-password-form" action="../PHPScripts/changePassword.php" method="POST">
                 <label for="password-old">Contraseña actual: </label>
-                <input type="password" name="password-old" maxlength="24" required>
+                <input type="password" name="password-old" minlength="8" maxlength="16" required>
 
                 <label for="password-old">Contraseña nueva: </label>
-                <input type="password" name="password-new" maxlength="24" required>
+                <input type="password" name="password-new" minlength="8" maxlength="16" required>
 
                 <label for="password-old">Confirmar contraseña nueva: </label>
-                <input type="password" name="password-new-confirm" maxlength="24" required>
+                <input type="password" name="password-new-confirm" minlength="8" maxlength="16" required>
 
                 <button type="submit">Cambiar contraseña</button>
             </form>
