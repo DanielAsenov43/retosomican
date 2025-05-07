@@ -1,11 +1,12 @@
 <?php
     if(!session_id()) session_start();
 
-    if (isset($_SESSION["LOGGED-IN"])) {
-        echo "<img src='../Images/FotosDePerfil/SOCIO_" . $_SESSION["USER-ID"] . ".png'></img>";
-        echo "<span class='username'>" . $_SESSION["USER-NAME"] . "</span>";
-    } else {
-        echo "<img src='../Images/user-default.png'></img>";
-        echo "<span class='username'>Iniciar Sesión</span>";
-    }
+    $loggedIn = isset($_SESSION["LOGGED-IN"]);
+    $imageSource = ($loggedIn) ? "../Images/FotosDePerfil/SOCIO_" . $_SESSION["USER-ID"] . ".png" : "../Images/user-default.png";
+    $username = ($loggedIn) ? $_SESSION["USER-NAME"] : "Iniciar Sesión";
+
+    echo "<div class='profile-image-container'>";
+    echo "<img src='$imageSource'></img>";
+    echo "</div>";
+    echo "<span class='username'>$username</span>";
 ?>

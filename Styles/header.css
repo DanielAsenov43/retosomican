@@ -89,25 +89,29 @@ header {
                 justify-content: center;
                 display: flex;
                 flex-direction: column;
-                transform: translateX(-25px);
-                padding: 22px;
+                padding: 23px;
                 text-decoration: none;
 
-                img {
-                    margin: auto;
-                    width: 80px;
-                    border-radius: 50%;
-                    aspect-ratio: 1;
-                    border: var(--color-secundario) 5px solid;
+                .profile-image-container {
+                    width: max-content;
+                    justify-content: center;
+                    text-align: center;
+
+                    img {
+                        width: 80px;
+                        border-radius: 50%;
+                        border: var(--color-secundario) 5px solid;
+                    }
                 }
 
                 .username {
                     text-align: center;
                     text-wrap: nowrap;
-                    transform: translateY(8px);
+                    margin: auto;
                     color: rgb(112, 159, 201);
                     font-weight: 700;
                     user-select: none;
+                    font-size: 1.2rem;
                 }
 
                 &:hover {

@@ -13,14 +13,13 @@
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/profile.css" />
     <link rel="stylesheet" href="../Styles/pfptest.css" />
-    <link rel="stylesheet" href="../cropperjs/cropper.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet" />
 
     <script src="../cropperjs/cropper.js"></script>
-    <script src="../Scripts/uploadProfilePicture2.js"></script>
+    <script src="../Scripts/uploadImage.js"></script>
 </head>
 
 <header>
@@ -92,36 +91,19 @@
 </header>
 
 <body>
-    <form action="../PHPScripts/changeProfilePicture.php" method="post">
-        <button type="submit">Submit</button>
-    </form>
     <main class="page">
+        <!--
         <h2>Upload ,Crop and save.</h2>
-        <!-- input file -->
         <div class="box">
-            <input type="file" id="file-input">
+            <input type="file" id="file-input" accept="image/*">
         </div>
-        <!-- leftbox -->
-        <div class="box-2">
-            <div class="result"></div>
-        </div>
-        <!--rightbox-->
-        <div class="box-2 img-result hide">
-            <!-- result of crop -->
-            <img class="cropped" id="image" src="" alt="">
-        </div>
-        <!-- input file -->
         <div class="box">
-            <div class="options hide">
-                <label> Width</label>
-                <input type="number" class="img-w" value="300" min="100" max="1200" />
-            </div>
-            <!-- save btn -->
-            <button class="btn save hide">Save</button>
-            <!-- download btn -->
-            <a href="" class="btn download hide">Download</a>
+            <button id="save-image-button">Save</button>
         </div>
+        -->
+        <input type="file" accept="image/*" title="" id="crop" aspectRatio="16/9"/>
     </main>
+
 </body>
 
 </html>
