@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet" />
 
-    <script src="../cropperjs/cropper.js"></script>
     <script src="../Scripts/uploadImage.js"></script>
 </head>
 

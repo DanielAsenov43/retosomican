@@ -6,23 +6,24 @@ let head, uploadImageElement, popupContainer;
 const INPUT_ID = "crop";
 const POPUP_CONTAINER_ID = "crop-popup-container";
 
-// Init
+// Evento principal
 window.addEventListener("load", init);
 
 
 
 function init() {
+    // Inicializar elementos
     head = document.getElementsByTagName("head")[0];
-    newElement(head, "script", { "src": "../cropperjs/cropper.js" });
-    newElement(head, "link", { "rel": "stylesheet", "href": "../Styles/uploadImage.css" });
     uploadImageElement = document.getElementById("crop");
+    // Crear elementos
+    newElement(head, "script", { "src": "../cropperjs/cropper.js" });
+    newElement(head, "link", { "rel": "stylesheet", "href": "../cropperjs/cropper.css" });
+    newElement(head, "link", { "rel": "stylesheet", "href": "../Styles/uploadImage.css" });
+    // Otras operaciones
     aspectRatio = (uploadImageElement.hasAttribute("aspectRatio")) ? eval(uploadImageElement.getAttribute("aspectRatio")) : 1;
-    console.log(aspectRatio);
+    
     setupListeners();
 }
-
-
-
 
 function setupListeners() {
     uploadImageElement.addEventListener('change', (event) => {
@@ -31,14 +32,14 @@ function setupListeners() {
         reader.onload = (event) => {
             if (event.target.result) {
                 createImageUploadPopup();
-                /*let img = document.createElement('img');
+                let img = document.createElement('img');
                 img.src = event.target.result;
                 document.body.appendChild(img);
 
                 cropper = new Cropper(img, {
                     aspectRatio: 1,
                     zoomable: false
-                });*/
+                });
             }
         };
         reader.readAsDataURL(event.target.files[0]);
