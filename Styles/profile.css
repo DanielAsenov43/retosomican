@@ -46,11 +46,15 @@ body {
                 text-decoration: none;
                 color: white;
                 font-weight: bold;
-                padding: 8px 90px;
+                padding: 8px 89px;
+                border: none;
+                font-size: 1rem;
+                margin-top: -5px;
 
                 &:hover {
                     transition: 0.1s ease-out;
                     background-color: var(--color-acento);
+                    cursor: pointer;
                 }
             }
         }
