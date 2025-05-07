@@ -1,4 +1,18 @@
+function crop() {
+    const file = document.querySelector("input[type=file]").files[0];
+    const reader = new FileReader();
 
+    reader.addEventListener( "load", () => {
+        cropImage(reader.result, "test.png", 10, 100, 200, 200);
+        console.log(reader.result);
+        document.getElementById("mybox").style.visibility = "visible";
+    }, false, );
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+  
 
 function cropImage(imagePath, downloadName, newX, newY, newWidth, newHeight) {
     let originalImage = new Image();
@@ -15,7 +29,7 @@ function cropImage(imagePath, downloadName, newX, newY, newWidth, newHeight) {
         canvas.width = newWidth;
         canvas.height = newHeight;
         ctx.drawImage(originalImage, newX, newY, newWidth, newHeight, 0, 0, newWidth, newHeight);
-        downloadImage(canvas, downloadName);
+        //downloadImage(canvas, downloadName);
     });
 
 }

@@ -245,9 +245,9 @@
                 <div>Plaza Mª Blanchard 7-2 bajo</div>
                 <div>39600 Maliaño. CANTABRIA</div>
             </div>
-            <!--div style="width: 100%">
+            <div style="width: 100%">
                 <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Plaza%20Mar%C3%ADa%20Blanchard%207-2%20Bajo+(Sociedad%20Micol%C3%B3gica%20C%C3%A1ntabra)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-            </div-->
+            </div>
         </div>
     </div>
 

@@ -89,7 +89,6 @@ body {
 
                 .title {
                     color: white;
-                    user-select: none;
                 }
                 .data {
                     font-weight: bold; 
