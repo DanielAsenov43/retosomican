@@ -95,13 +95,13 @@ if(isset($_SESSION["USER-NAME"])) {
 
 <body>
     <div class="login-container">
-        <h1>INICIAR SESIÓN</h1>
-        <p class="subtitulo">Acceso a SOMICAN como Socio</p>
+        <h1>Cambiar Contraseña</h1>
+        <p class="subtitulo">Somican nunca dara tu contraseña</p>
         <form method="POST" action="../PHPScripts/login.php">
-          <label for="email">CORREO ELECTRÓNICO</label>
-          <input type="email" id="email" name="email" placeholder="socio01@gmail.com" required />
+          <label for="password">CREAR CONTRASEÑA</label>
+          <input type="password" id="password" name="password" placeholder="********" required />
     
-          <label for="password">CONTRASEÑA</label>
+          <label for="password">CONFIRMA LA CONTRASEÑA</label>
           <input type="password" id="password" name="password" placeholder="********" required />
     
           <button type="submit">ACCEDER</button>
