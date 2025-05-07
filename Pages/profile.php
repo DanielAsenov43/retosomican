@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/footer.css" />
     <link rel="stylesheet" href="../Styles/profile.css" />
-    <link rel="stylesheet" href="../Styles/cropper.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -16,6 +16,7 @@ header {
 
     * {
         font: "Titillium Web", sans-serif;
+        user-select: none;
     }
 
     .header-top {
@@ -197,7 +198,6 @@ header {
             height: 49px;
             line-height: 50px;
             background-color: var(--color-secundario);
-            user-select: none;
             font-weight: 400;
             font-size: 1rem;
             text-wrap: nowrap;
