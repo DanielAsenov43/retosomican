@@ -93,11 +93,12 @@ header {
                 text-decoration: none;
 
                 .profile-image-container {
-                    width: 100%;
+                    width: max-content;
                     justify-content: center;
                     text-align: center;
 
                     img {
+                        max-width: 100%;
                         width: 80px;
                         border-radius: 50%;
                         border: var(--color-secundario) 5px solid;
@@ -109,7 +110,7 @@ header {
                     text-wrap: nowrap;
                     margin: auto;
                     color: rgb(112, 159, 201);
-                    font-weight: 700;
+                    font-weight: bold;
                     user-select: none;
                     font-size: 1.2rem;
                 }

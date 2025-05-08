@@ -89,7 +89,7 @@ body {
             .user {
                 position: absolute;
                 width: 60px;
-                transform: translate(-250px, 140px);
+                transform: translate(-250px, 120px);
                 z-index: 1;
                 border-radius: 50%;
                 border: var(--color-secundario) 5px solid;

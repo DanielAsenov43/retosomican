@@ -97,7 +97,7 @@
         <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/uploadArtistic.php">
             <div>
                 <div class="subirFoto">
-                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadArtistic.php" sourceTag="ARTISTIC-PICTURE-SRC"/>
+                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadArtisticImage.php" sourceTag="ARTISTIC-PICTURE-SRC"/>
                     <div id="imagePreview"></div>
                 </div>
                 <div class="observaciones">
