@@ -37,7 +37,7 @@ function setupListeners() {
                 document.body.appendChild(img);
 
                 cropper = new Cropper(img, {
-                    aspectRatio: 1,
+                    aspectRatio: aspectRatio,
                     zoomable: false
                 });
             }

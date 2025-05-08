@@ -93,7 +93,7 @@ header {
                 text-decoration: none;
 
                 .profile-image-container {
-                    width: max-content;
+                    width: 100%;
                     justify-content: center;
                     text-align: center;
 
