@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
     <!-- Scripts -->
-    <script src="../Scripts/subirSeta.js"></script>
     <script src="../Scripts/uploadImage.js"></script>
 </head>
 
@@ -93,7 +92,7 @@
 <body>
     <main class="registro-container">
         <h1>Registrar Seta Nueva</h1>
-        <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/upload.php">
+        <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/uploadScientific.php">
             <div class="form-grid">
                 <div class="col">
                     <label>Nombre científico<span>*</span></label>
@@ -128,9 +127,8 @@
                     <input type="text" name="clima" maxlength="32">
                 </div>
                 <div class="subirFoto">
-                    <label for="uploadedImage">Subir foto:</label>
-                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="SCIENTIFIC-PICTURE-SRC"/>
-                    <div id="imagePreview"></div>
+                    <img id="preview-image" alt="" draggable="false">
+                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="SCIENTIFIC-PICTURE-SRC" preview="preview-image" required/>
                 </div>
                 <div class="observaciones">
                     <label>Observaciones</label>

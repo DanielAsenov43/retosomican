@@ -24,6 +24,7 @@ $fechaRecogida = getRequiredPostInfo("fecha", true);
 $lugarRecogida = getRequiredPostInfo("lugar", true);
 $habitat = getRequiredPostInfo("habitat", true);
 $alturaMar = getRequiredPostInfo("altura", false);
+
 $imageData = $_SESSION["SCIENTIFIC-PICTURE-SRC"];
 unset($_SESSION["SCIENTIFIC-PICTURE-SRC"]);
 uploadImage($GLOBALS["SCIENTIFIC-GALLERY-PATH"], str_replace("{ID}", $ID, $GLOBALS["FILENAME"]), $imageData);
@@ -45,12 +46,9 @@ olor, sabor, tipoSuelo, climatologia, observaciones) VALUES
 ".$olor.", ".$sabor.", ".$suelo.", ".$clima.", ".$observaciones.")";
 
 // Ejecutar la consulta
-if ($connection -> query($query)) {
-    $_SESSION["RESULT"] = "<span class='success'>".$RESULT_SUCCESS_MESSAGE."</span>";
-} else {
-    $_SESSION["RESULT"] = "<span class='error'>".$RESULT_ERROR_MESSAGE."</span>";
-}
-$connection -> close();
+if ($connection -> query($query)) $_SESSION["RESULT"] = "<span class='success'>".$RESULT_SUCCESS_MESSAGE."</span>";
+else $_SESSION["RESULT"] = "<span class='error'>".$RESULT_ERROR_MESSAGE."</span>";
+
 header("location: ../Pages/resultadoSubirSeta.php");
 
 // Funciones que facilitan obtener la información de los campos.

@@ -94,7 +94,7 @@
 <body>
     <!--img src="../Images/seta.jpg" id="background-image" alt=""/-->
     <h1 class="titulo">Galería Científica</h1>
-    <a class="subir-seta" href="./subirSeta.php">SUBIR UNA SETA</a>
+    <a class="subir-seta" href="./subirSetaCientifica.php">SUBIR UNA SETA</a>
 
     <div class="search-box">
         <input type="text" id="caja-de-busqueda" placeholder="Buscar..." maxlength="50">

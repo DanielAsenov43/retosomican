@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
     <!-- Scripts -->
     <script src="../Scripts/uploadImage.js"></script>
-    <script src="../Scripts/subirFotoSeta.js"></script>
 </head>
 
 <header>
@@ -91,24 +90,6 @@
 </header>
 
 <body>
-    <!--main class="registro-container">
-        <h1>Subir foto para la galería artística</h1>
-        <form id="form-seta" method="POST" action="../PHPScripts/uploadArtistic.php">
-            <div>
-                <div class="subirFoto">
-                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="ARTISTIC-PICTURE-SRC"/>
-                    <div id="imagePreview"></div>
-                </div>
-                <div class="observaciones">
-                    <label>Comentario (opcional):</label>
-                    <textarea name="comentario" rows="4" maxlength="512"></textarea>
-                </div>
-            </div>
-            <div class="form-button">
-                <button type="submit">SUBIR</button>
-            </div>
-        </form>
-    </main-->
     <div id="container">
         <h1>Subir una foto artística</h1>
         <form action="../PHPScripts/uploadArtistic.php" method="POST">
