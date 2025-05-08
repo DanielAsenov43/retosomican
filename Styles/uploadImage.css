@@ -1,10 +1,68 @@
-#crop-popup-container {
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#crop {
+    display: none;
+}
+
+#crop-label {
+    background-color: rgb(100, 160, 212);
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: var(--color-acento);
+        cursor: pointer;
+    }
+}
+
+#crop-popup-background {
     position: fixed;
     z-index: 2;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: black;
-    opacity: 40%;
+    background-color: rgba(0, 0, 0, 40%);
+    * {
+        font-family: "Titillium Web", sans-serif;
+    }
+
+    #crop-popup-container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--color-secundario-fondo);
+        min-width: 500px;
+        width: min-content;
+        height: min-content;
+        padding: 25px;
+        border-radius: 20px;
+        opacity: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        
+        #crop-popup-button {
+            padding: 20px 10px;
+            border: none;
+            margin-top: 20px;
+            background-color: rgb(100, 160, 212);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+
+            &:hover {
+                cursor: pointer;
+                background-color: var(--color-acento);
+            }
+        }
+    }
 }

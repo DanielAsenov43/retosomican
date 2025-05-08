@@ -69,7 +69,7 @@ body {
             border-radius: 10px;
             text-align: center;
             width: 250px;
-            height: 190px;
+            height: min-content;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             transition: 0.2s ease;
 
@@ -89,7 +89,7 @@ body {
             .user {
                 position: absolute;
                 width: 60px;
-                transform: translate(-250px, 160px);
+                transform: translate(-250px, 140px);
                 z-index: 1;
                 border-radius: 50%;
                 border: var(--color-secundario) 5px solid;

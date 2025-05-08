@@ -1,15 +1,19 @@
 let cropper;
-let aspectRatio;
+let aspectRatio, PHPScript, sourceTag;
+let popupActive = false;
 // Elementos HTML
-let head, uploadImageElement, popupContainer;
+let head, uploadImageElement, label;
+let popupBackground, popupContainer, cropContainer;
 // Constantes
 const INPUT_ID = "crop";
+const LABEL_ID = "crop-label";
+const POPUP_BACKGROUND_ID = "crop-popup-background";
 const POPUP_CONTAINER_ID = "crop-popup-container";
+const POPUP_CROP_CONTAINER_ID = "crop-popup-cropper-container";
+const POPUP_CROP_BUTTON_ID = "crop-popup-button";
 
 // Evento principal
 window.addEventListener("load", init);
-
-
 
 function init() {
     // Inicializar elementos
@@ -19,46 +23,73 @@ function init() {
     newElement(head, "script", { "src": "../cropperjs/cropper.js" });
     newElement(head, "link", { "rel": "stylesheet", "href": "../cropperjs/cropper.css" });
     newElement(head, "link", { "rel": "stylesheet", "href": "../Styles/uploadImage.css" });
+    label = newElement(uploadImageElement.parentElement, "label", { for: INPUT_ID, id: LABEL_ID });
+    label.innerHTML = "Subir Imagen";
     // Otras operaciones
     aspectRatio = (uploadImageElement.hasAttribute("aspectRatio")) ? eval(uploadImageElement.getAttribute("aspectRatio")) : 1;
     
+    PHPScript = getUploadAttribute("phpScript", "El elemento <input> necesita tener un atributo \"phpScript\" con su ruta!");
+    sourceTag = getUploadAttribute("sourceTag", "El elemento <input> necesita tener un atributo \"sourceTag\" con su nombre!");
     setupListeners();
+}
+
+function getUploadAttribute(attributeName, errorMessage) {
+    if(!uploadImageElement.hasAttribute(attributeName)) throw new Error(errorMessage);
+    else return uploadImageElement.getAttribute(attributeName);
 }
 
 function setupListeners() {
     uploadImageElement.addEventListener('change', (event) => {
         if (!event.target.files.length) return;
         const reader = new FileReader();
-        reader.onload = (event) => {
-            if (event.target.result) {
-                createImageUploadPopup();
-                let img = document.createElement('img');
-                img.src = event.target.result;
-                document.body.appendChild(img);
-
-                cropper = new Cropper(img, {
-                    aspectRatio: aspectRatio,
-                    zoomable: false
-                });
-            }
-        };
+        reader.onload = (event) => { if (event.target.result) createImageUploadPopup(event); };
         reader.readAsDataURL(event.target.files[0]);
     });
-
-    // save on click
-    /*save.addEventListener('click', (event) => {
-        event.preventDefault();
-        let imageSource = cropper.getCroppedCanvas().toDataURL();
-        sendVariableToPHP("PFP-SRC", imageSource);
-    });*/
 }
 
-function createImageUploadPopup() {
-    popupContainer = newElement(uploadImageElement.parentElement, "div", { "id": POPUP_CONTAINER_ID });
-
+function createImageUploadPopup(event) {
+    popupActive = true;
+    popupBackground = newElement(uploadImageElement.parentElement, "div", { id: POPUP_BACKGROUND_ID });
+    popupContainer = newElement(popupBackground, "div", { id: POPUP_CONTAINER_ID });
+    cropContainer = newElement(popupContainer, "img", { id: POPUP_CROP_CONTAINER_ID, src: event.target.result });
+    cropper = new Cropper(cropContainer, {
+        aspectRatio: aspectRatio,
+        zoomable: false,
+        responsive: false,
+        viewMode: 1,
+        autoCropArea: 1
+    });
+    cropButton = newElement(popupContainer, "button", { id: POPUP_CROP_BUTTON_ID });
+    cropButton.addEventListener("click", crop);
+    cropButton.innerHTML = "Subir imagen";
 }
 
+function crop() {
+    let imageSource = cropper.getCroppedCanvas().toDataURL();
+    sendVariableToPHP(PHPScript, sourceTag, imageSource);
+    hidePopup();
+}
 
+function hidePopup() {
+    popupActive = false;
+    popupBackground.parentElement.removeChild(popupBackground);
+}
+
+// Eventos
+window.addEventListener("wheel", () => {
+    document.body.style.overflow = (popupActive) ? "hidden" : "visible";
+});
+
+// Evento que quita el panel al darle a la tecla de escape
+window.addEventListener("keydown", (event) => {
+    if(popupActive && (event.key.toUpperCase() == "ESCAPE" || event.key.toUpperCase() == "ESC")) hidePopup();
+});
+
+// Evento que quita el panel informativo al hacer click fuera de éste
+/*window.addEventListener("click", (event) => {
+    if(popupActive && event.target.id == popupBackground.id) hidePopup();
+});*/
+// Otras funciones
 function newElement(parent, elementType, attributes={}) {
     let element = document.createElement(elementType);
     for (let [key, value] of Object.entries(attributes)) {
@@ -68,10 +99,10 @@ function newElement(parent, elementType, attributes={}) {
     return element;
 }
 
-function sendVariableToPHP(scriptFileName, variableName, variableValue) {
+function sendVariableToPHP(scriptPath, variableName, variableValue) {
     var dataToSend = variableName + "=" + encodeURIComponent(variableValue);
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "../PHPScripts/" + scriptFileName, true);
+    xhr.open("POST", scriptPath, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(dataToSend);
 }

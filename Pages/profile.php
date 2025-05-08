@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet" />
 
     <script src="../Scripts/changeProfileInfo.js"></script>
-    <script src="../Scripts/uploadProfilePicture.js"></script>
+    <script src="../Scripts/uploadImage.js"></script>
 </head>
 
 <header>
@@ -128,9 +128,9 @@
         <div class="profile-container">
             <div class="profile-picture-container">
                 <div class="profile-picture">
-                    <?php echo "<img id='profile-picture-image' src='../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png' draggable='false'>"; ?>
+                    <?php echo "<img id='profile-picture-image' src='../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png' draggable='false'/>"; ?>
                 </div>
-                <button href="" class="profile-picture-button">Cambiar Foto</button>
+                <input type="file" accept="image/*" id="crop" aspectRatio="1" phpScript="../PHPScripts/changeProfilePicture.php" sourceTag="PROFILE-PICTURE-SRC"/>
             </div>
             <div class="profile-info-container">
                 <h1>Información</h1>
