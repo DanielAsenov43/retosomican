@@ -1,16 +1,14 @@
 body {
   font-family: 'Titillium Web', sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f3f3f3;
-  color: #333;
+  background-color: var(--color-secundario-fondo);
 }
 
 .registro-container {
   max-width: 800px;
   margin: 60px auto;
   padding: 40px;
-  background-color: #fff;
+  background-color: var(--color-principal-fondo);
   border-radius: 16px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 
@@ -57,6 +55,8 @@ body {
     min-height: 100px;
     max-height: 200px;
     width: 100%;
+    border: var(--color-secundario) 3px solid;
+    border-radius: 5px;
   }
 
   .form-grid .col label span {

@@ -1,0 +1,112 @@
+body {
+    * { font-family: 'Titillium Web', sans-serif };
+    margin: 0;
+    background-color: var(--color-secundario-fondo);
+    
+}
+
+#container {
+    width: 500px;
+    height: auto;
+    background-color: var(--color-principal-fondo);
+    margin: 100px auto; /* TOP, RIGHT, BOTTOM, LEFT */
+    box-shadow: 0 0 10px var(--color-secundario);
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+
+    h1 {
+        transform: translateY(-20px);
+    }
+
+    form {
+        #upload-image-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            margin-top: -20px;
+            text-align: center;
+            display: flex;
+            
+            #crop-label {
+                z-index: 2;
+                display: grid;
+                align-items: center;
+                user-select: none;
+                border: var(--color-terciario) 5px dashed;
+                background-color: var(--color-secundario-fondo);
+                color: var(--color-terciario);
+                aspect-ratio: 16/9;
+                width: 100%;
+                padding: 0;
+                font-size: 1.5rem;
+                border-radius: 20px 20px 0 0;
+    
+                &:hover {
+                    border-color: var(--color-acento);
+                    color: var(--color-acento);
+                    background-color: var(--color-acento-suave);
+                }
+            }
+
+            #preview-image {
+                display: none;
+                width: 100%;
+                aspect-ratio: 16/9;
+                border: var(--color-terciario) 5px dashed;
+            }
+        }
+
+        .comment-container {
+            width: 100%;
+            height: 100px;
+            display: flex;
+
+            textarea {
+                resize: none;
+                width: 100%;
+                height: 100%;
+                border: var(--color-terciario) 5px dashed;
+                margin-top: -5px;
+                z-index: 1;
+                border-radius: 0 0 20px 20px;
+                font-size: 1.2rem;
+
+                &::placeholder {
+                    text-align: center;
+                    line-height: 100px;
+                }
+
+                &:focus {
+                    border-color: var(--color-acento);
+                    outline: none;
+                    z-index: 3;
+
+                    &::placeholder {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+
+        .button-container {
+            width: 100%;
+            margin-top: 40px;
+            
+            button {
+                padding: 10px 30px;
+                background-color: var(--color-terciario);
+                color: white;
+                font-weight: bold;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                border: none;
+
+                &:hover {
+                    background-color: var(--color-acento);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

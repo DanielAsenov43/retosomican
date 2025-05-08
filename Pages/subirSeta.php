@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
     <!-- Scripts -->
     <script src="../Scripts/subirSeta.js"></script>
+    <script src="../Scripts/uploadImage.js"></script>
 </head>
 
 <header>
@@ -128,7 +129,7 @@
                 </div>
                 <div class="subirFoto">
                     <label for="uploadedImage">Subir foto:</label>
-                    <input type="file" id="uploadedImage" name="uploadedImage" accept="image/*" required>
+                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="SCIENTIFIC-PICTURE-SRC"/>
                     <div id="imagePreview"></div>
                 </div>
                 <div class="observaciones">

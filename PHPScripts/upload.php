@@ -1,5 +1,4 @@
 <?php
-
 include "./connection.php";
 $connection = $_SESSION["SQL"];
 
@@ -25,7 +24,9 @@ $fechaRecogida = getRequiredPostInfo("fecha", true);
 $lugarRecogida = getRequiredPostInfo("lugar", true);
 $habitat = getRequiredPostInfo("habitat", true);
 $alturaMar = getRequiredPostInfo("altura", false);
-uploadImage("uploadedImage", $GLOBALS["SCIENTIFIC-GALLERY-PATH"], $ID);
+$imageData = $_SESSION["SCIENTIFIC-PICTURE-SRC"];
+unset($_SESSION["SCIENTIFIC-PICTURE-SRC"]);
+uploadImage($GLOBALS["SCIENTIFIC-GALLERY-PATH"], str_replace("{ID}", $ID, $GLOBALS["FILENAME"]), $imageData);
 
 // Campos opcionales
 $nombreComun = getPostInfo("nombre-comun", true);
@@ -66,9 +67,7 @@ function getPostInfo($name, $isString) {
 }
 
 // Función que sube una imagen a la carpeta 
-function uploadImage($formPathName, $filePath, $imageID) {
-    $image = $_FILES[$formPathName];
-    $imageName = str_replace("{ID}", $imageID, $GLOBALS["FILENAME"]);
-    move_uploaded_file($image["tmp_name"], $filePath . $imageName);
+function uploadImage($filePath, $fileName, $imageData) {
+    file_put_contents($filePath . $fileName, $imageData);
 }
 ?>

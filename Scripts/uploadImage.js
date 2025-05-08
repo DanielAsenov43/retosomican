@@ -4,6 +4,7 @@ let popupActive = false;
 // Elementos HTML
 let head, uploadImageElement, label;
 let popupBackground, popupContainer, cropContainer;
+let previewImage, cropButton;
 // Constantes
 const INPUT_ID = "crop";
 const LABEL_ID = "crop-label";
@@ -22,7 +23,7 @@ function init() {
     // Crear elementos
     newElement(head, "script", { "src": "../cropperjs/cropper.js" });
     newElement(head, "link", { "rel": "stylesheet", "href": "../cropperjs/cropper.css" });
-    newElement(head, "link", { "rel": "stylesheet", "href": "../Styles/uploadImage.css" });
+    newElement(head, "link", { "rel": "stylesheet", "href": "../Styles/uploadImage.css" }, true);
     label = newElement(uploadImageElement.parentElement, "label", { for: INPUT_ID, id: LABEL_ID });
     label.innerHTML = "Subir Imagen";
     // Otras operaciones
@@ -30,12 +31,14 @@ function init() {
     
     PHPScript = getUploadAttribute("phpScript", "El elemento <input> necesita tener un atributo \"phpScript\" con su ruta!");
     sourceTag = getUploadAttribute("sourceTag", "El elemento <input> necesita tener un atributo \"sourceTag\" con su nombre!");
+    previewImage = document.getElementById(getUploadAttribute("preview"));
     setupListeners();
 }
 
-function getUploadAttribute(attributeName, errorMessage) {
-    if(!uploadImageElement.hasAttribute(attributeName)) throw new Error(errorMessage);
-    else return uploadImageElement.getAttribute(attributeName);
+function getUploadAttribute(attributeName, errorMessage=null) {
+    if(uploadImageElement.hasAttribute(attributeName)) return uploadImageElement.getAttribute(attributeName);
+    if(errorMessage != null) throw new Error(errorMessage);
+    return null;
 }
 
 function setupListeners() {
@@ -59,7 +62,7 @@ function createImageUploadPopup(event) {
         viewMode: 1,
         autoCropArea: 1
     });
-    cropButton = newElement(popupContainer, "button", { id: POPUP_CROP_BUTTON_ID });
+    cropButton = newElement(popupContainer, "button", { class: POPUP_CROP_BUTTON_ID, id: POPUP_CROP_BUTTON_ID });
     cropButton.addEventListener("click", crop);
     cropButton.innerHTML = "Subir imagen";
 }
@@ -67,6 +70,11 @@ function createImageUploadPopup(event) {
 function crop() {
     let imageSource = cropper.getCroppedCanvas().toDataURL();
     sendVariableToPHP(PHPScript, sourceTag, imageSource);
+    if(previewImage) {
+        previewImage.src = imageSource;
+        previewImage.style.display = "block";
+        label.style.display = "none";
+    }
     hidePopup();
 }
 
@@ -90,16 +98,17 @@ window.addEventListener("keydown", (event) => {
     if(popupActive && event.target.id == popupBackground.id) hidePopup();
 });*/
 // Otras funciones
-function newElement(parent, elementType, attributes={}) {
+function newElement(parent, elementType, attributes={}, firstChild=false) {
     let element = document.createElement(elementType);
     for (let [key, value] of Object.entries(attributes)) {
         element.setAttribute(key, value);
     }
-    parent.appendChild(element);
+    if(firstChild) parent.prepend(element); else parent.appendChild(element);
     return element;
 }
 
 function sendVariableToPHP(scriptPath, variableName, variableValue) {
+    // https://www.geeksforgeeks.org/how-to-pass-javascript-variables-to-php/
     var dataToSend = variableName + "=" + encodeURIComponent(variableValue);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", scriptPath, true);

@@ -12,14 +12,14 @@
     <link rel="shortcut icon" href="../Images/icono.ico" type="image/x-icon">
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/footer.css" />
-    <link rel="stylesheet" href="../Styles/subirSeta.css" />
+    <link rel="stylesheet" href="../Styles/subirSetaArtistica.css" />
     <!-- Fuente de google: Titillium Web -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet" />
     <!-- Scripts -->
-    <script src="../Scripts/subirSeta.js"></script>
     <script src="../Scripts/uploadImage.js"></script>
+    <script src="../Scripts/subirFotoSeta.js"></script>
 </head>
 
 <header>
@@ -31,7 +31,6 @@
         </div>
         <div class="middle">
             <h1>Sociedad Micológica Cántabra</h1>
-            <a href="./accesoSocios.php" id="access-button">Acceso Socios</a>
         </div>
         <div class="right">
             <a href="./profile.php" class="profile">
@@ -92,12 +91,12 @@
 </header>
 
 <body>
-    <main class="registro-container">
+    <!--main class="registro-container">
         <h1>Subir foto para la galería artística</h1>
-        <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/uploadArtistic.php">
+        <form id="form-seta" method="POST" action="../PHPScripts/uploadArtistic.php">
             <div>
                 <div class="subirFoto">
-                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadArtisticImage.php" sourceTag="ARTISTIC-PICTURE-SRC"/>
+                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="ARTISTIC-PICTURE-SRC"/>
                     <div id="imagePreview"></div>
                 </div>
                 <div class="observaciones">
@@ -109,7 +108,22 @@
                 <button type="submit">SUBIR</button>
             </div>
         </form>
-    </main>
+    </main-->
+    <div id="container">
+        <h1>Subir una foto artística</h1>
+        <form action="../PHPScripts/uploadArtistic.php" method="POST">
+            <div id="upload-image-container">
+                <img id="preview-image" alt="" draggable="false">
+                <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="ARTISTIC-PICTURE-SRC" preview="preview-image" required/>
+            </div>
+            <div class="comment-container">
+                <textarea name="comentario" rows="4" maxlength="512" placeholder="Comentario (opcional)"></textarea>
+            </div>
+            <div class="button-container">
+                <button type="submit" id="upload-button">Subir Foto</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 <footer class="footer">

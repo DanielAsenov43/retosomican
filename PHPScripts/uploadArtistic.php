@@ -7,12 +7,8 @@ $GLOBALS["ARTISTIC-GALLERY-PATH"] = "../Images/GaleriaArtistica/";
 $RESULT_SUCCESS_MESSAGE = "¡La foto se ha subido con éxito!";
 $RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
 
-
-
-if(!isset($_SESSION["LOGGED-IN"])){
-    // Si el usuario no está registrado
-    header('location: ../Pages/accesoSocios.php');
-}
+// Si el usuario no está registrad
+if(!isset($_SESSION["LOGGED-IN"])) header('location: ../Pages/accesoSocios.php');
 
 $IDQuery = "SELECT COUNT(IDSeta) FROM retosomican.fotosSetas";
 $result = mysqli_fetch_row(mysqli_query($_SESSION["SQL"], $IDQuery));
