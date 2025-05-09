@@ -88,16 +88,19 @@ header {
             .profile {
                 width: min-content;
                 margin: auto;
-                justify-content: center;
                 display: flex;
                 flex-direction: column;
                 padding: 23px;
                 text-decoration: none;
+                justify-content: center;
+                text-align: center;
 
                 .profile-image-container {
+                    display: inline-block;
                     width: max-content;
                     justify-content: center;
                     text-align: center;
+                    margin: auto;
 
                     img {
                         max-width: 100%;
