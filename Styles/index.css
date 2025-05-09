@@ -1,21 +1,13 @@
-html {
-    /* Colores */
-    --color-principal: rgb(121, 199, 255);
-    --color-secundario: rgb(151, 187, 219);
-    --color-acento: rgb(224, 58, 58);
-    --color-principal-fondo: white;
-    --color-secundario-fondo: aliceblue;
-}
-
 body {
-    margin: 0px;
-    font-family: "Titillium web", sans-serif;
+    margin: 0;
+    min-height: 100%;
+    font-family: var(--font);
     justify-content: center;
     background-color: var(--color-secundario-fondo);
 
-    .title {
+    #page-title {
+        transform: translateY(200px);
         user-select: none;
-        z-index: -1;
         width: 100%;
         text-align: center;
         color: var(--color-acento);
@@ -28,7 +20,7 @@ body {
     z-index: 2;
     position: absolute;
     right: 55px;
-    transform: translateY(40px);
+    transform: translateY(240px);
     padding: 20px 30px;
     font-weight: bold;
     font-size: 1rem;

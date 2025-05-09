@@ -1,13 +1,15 @@
 html {
     /* Colores */
     --color-principal: rgb(121, 199, 255);
-    --color-secundario: rgb(151, 187, 219);
+    --color-secundario: rgb(140, 181, 217);
     --color-acento: rgb(224, 58, 58);
     --color-acento-suave: rgb(255, 230, 230);
     --color-principal-fondo: white;
-    --color-secundario-fondo: aliceblue;
+    --color-secundario-fondo: rgb(235, 246, 255);
     --color-titulo: rgb(97, 206, 112);
     --color-terciario: rgb(100, 160, 212);
+    /* Fuente */
+    --font: "Titillium Web", sans-serif;
 }
 
 header {
@@ -17,7 +19,7 @@ header {
     overflow-x: hidden;
 
     * {
-        font: "Titillium Web", sans-serif;
+        font-family: var(--font);
         user-select: none;
     }
 
@@ -154,78 +156,82 @@ header {
 
     .header-bottom {
         position: absolute;
-        width: 100%;
-        top: 150px;
-        z-index: 1;
-        height: 50px;
-        background-color: var(--color-secundario);
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
+    }
+}
 
-        .dropdown {
-            .dropdown-content {
-                visibility: hidden;
-                display: flex;
-                flex-direction: column;
-                box-shadow: 0 0 5px rgba(0, 0, 0, 50%);
-                transform: translateY(-26px);
+.navigation-bar {
+    width: 100%;
+    top: 150px;
+    z-index: 1;
+    height: 50px;
+    background-color: var(--color-secundario);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
 
-                a {
-                    background-color: var(--color-principal-fondo);
-                    text-decoration: none;
-                    text-align: center;
-                    width: 10vw;
-                    height: 50px;
-                    line-height: 50px;
-                    color: #1967ab;
+    .dropdown {
+        .dropdown-content {
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 50%);
+            transform: translateY(-26px);
+            text-wrap: nowrap;
 
-                    &:hover {
-                        background-color: #eee;
-                        color: var(--color-acento);
-                    }
-                }
+            a {
+                background-color: var(--color-principal-fondo);
+                text-decoration: none;
+                text-align: center;
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                color: #1967ab;
 
                 &:hover {
-                    visibility: visible;
+                    background-color: #eee;
+                    color: var(--color-acento);
                 }
             }
 
-            &:has(.dropdown-content a:hover) h2 {
-                background-color: var(--color-acento);
-            }
-
-            &:has(h2:hover) .dropdown-content {
+            &:hover {
                 visibility: visible;
             }
         }
 
-        .dropdown h2, .button {
-            transform: translateY(-13px);
-            color: white;
-            text-align: center;
-            width: 10vw;
-            height: 49px;
-            line-height: 50px;
-            background-color: var(--color-secundario);
-            font-weight: 400;
-            font-size: 1rem;
-            text-wrap: nowrap;
-
-            &:hover {
-                background-color: var(--color-acento);
-                cursor: pointer;
-            }
+        &:has(.dropdown-content a:hover) h2 {
+            background-color: var(--color-acento);
         }
 
-        .button {
-            transform: translateY(0px);
-            height: 50px;
+        &:has(h2:hover) .dropdown-content {
+            visibility: visible;
+        }
+    }
 
-            a {
-                text-decoration: none;
-                color: white;
-            }
+    .dropdown h2, .button {
+        transform: translateY(-13px);
+        color: white;
+        text-align: center;
+        width: 12vw;
+        height: 49px;
+        line-height: 50px;
+        background-color: var(--color-secundario);
+        font-weight: 400;
+        font-size: 1rem;
+        text-wrap: nowrap;
+
+        &:hover {
+            background-color: var(--color-acento);
+            cursor: pointer;
+        }
+    }
+
+    .button {
+        transform: translateY(0px);
+        height: 50px;
+
+        a {
+            text-decoration: none;
+            color: white;
         }
     }
 }
