@@ -32,7 +32,7 @@
             <h1>Sociedad Micológica Cántabra</h1>
         </div>
         <div class="right">
-            <a href="./profile.php" class="profile">
+            <a href="./perfil.php" class="profile">
                 <?php include "../PHPScripts/headerProfile.php"; ?>
             </a>
             <!-- Botón que al pinchar sobre el te redirige al Facebook de Somican -->

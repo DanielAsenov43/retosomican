@@ -35,15 +35,13 @@
             <h1>Sociedad Micológica Cántabra</h1>
         </div>
         <div class="right">
-            <a href="./Pages/profile.php" class="profile">
+            <a href="./Pages/perfil.php" class="profile">
                 <?php
                     $loggedIn = isset($_SESSION["LOGGED-IN"]);
                     $imageSource = ($loggedIn) ? "./Images/FotosDePerfil/SOCIO_" . $_SESSION["USER-ID"] . ".png" : "./Images/user-default.png";
                     $username = ($loggedIn) ? $_SESSION["USER-NAME"] : "Iniciar Sesión";
                 
-                    echo "<div class='profile-image-container'>";
-                    echo "<img src='$imageSource'></img>";
-                    echo "</div>";
+                    echo "<div class='profile-image-container'><img src='$imageSource' /></div>";
                     echo "<span class='username'>$username</span>";
                 ?>
             </a>
@@ -88,7 +86,7 @@
             <h2>Galerías +</h2>
             <div class="dropdown-content">
                 <a href="">Galería Artística</a>
-                <a href="./Pages/galeriacientifica.php">Galería Científica</a>
+                <a href="./Pages/galeriaCientifica.php">Galería Científica</a>
             </div>
         </div>
         <div class="button">

@@ -52,7 +52,7 @@ function setupListeners() {
 
 function createImageUploadPopup(event) {
     popupActive = true;
-    popupBackground = newElement(uploadImageElement.parentElement, "div", { id: POPUP_BACKGROUND_ID });
+    popupBackground = newElement(document.body, "div", { id: POPUP_BACKGROUND_ID });
     popupContainer = newElement(popupBackground, "div", { id: POPUP_CONTAINER_ID });
     cropContainer = newElement(popupContainer, "img", { id: POPUP_CROP_CONTAINER_ID, src: event.target.result });
     cropper = new Cropper(cropContainer, {
