@@ -28,7 +28,7 @@ if(isset($_SESSION["ERROR-LOGIN"])) {
 <header>
     <div class="header-top">
         <div class="left">
-            <a href="">
+            <a href="https://www.somican.com">
                 <img src="../Images/Logo.png" draggable="false" alt="Logo Somican" />
             </a>
         </div>

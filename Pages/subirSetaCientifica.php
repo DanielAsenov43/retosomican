@@ -27,7 +27,7 @@
 <header>
     <div class="header-top">
         <div class="left">
-            <a href="">
+            <a href="https://www.somican.com">
                 <img src="../Images/Logo.png" draggable="false" alt="Logo Somican" />
             </a>
         </div>
@@ -89,104 +89,57 @@
 </header>
 
 <body>
-    <!--
-    <main class="registro-container">
-        <h1>Registrar Seta Nueva</h1>
-        <form id="form-seta" method="POST" enctype="multipart/form-data" action="../PHPScripts/uploadScientific.php">
-            <div class="form-grid">
-                <div class="col">
-                    <label>Nombre científico<span>*</span></label>
-                    <input type="text" name="nombre-cientifico" maxlength="64" required>
+    <div id="container">
+        <h1>Registrar una seta nueva</h1>
+        <form action="../PHPScripts/uploadScientific.php" method="POST">
+            <div class="row">
+                <div class="column">
+                    <div class="hint">*obligatorio</div>
 
-                    <label>Fecha de recogida<span>*</span></label>
-                    <input type="date" name="fecha" required>
+                    <label for="nombre-cientifico">Nombre científico<span>*</span></label>
+                    <input type="text" name="nombre-cientifico" maxlength="64" required placeholder='Ej. "Agaricus benesii"' />
 
-                    <label>Lugar de recogida<span>*</span></label>
-                    <input type="text" name="lugar" maxlength="32" required>
+                    <label for="fecha">Fecha de recogida<span>*</span></label>
+                    <input type="date" name="fecha" required />
 
-                    <label>Hábitat<span>*</span></label>
-                    <input type="text" name="habitat" maxlength="32" required>
+                    <label for="lugar">Lugar de recogida<span>*</span></label>
+                    <input type="text" name="lugar" maxlength="32" required placeholder='Ej. "Santander"' />
 
-                    <label>Altura nivel del mar<span>*</span></label>
-                    <input type="number" name="altura" min="0" max="8848" required>
+                    <label for="habitat">Hábitat<span>*</span></label>
+                    <input type="text" name="habitat" maxlength="32" required placeholder='Ej. "Pinar"'/>
+
+                    <label for="altura">Altura sobre el nivel del mar<span>*</span></label>
+                    <input type="number" name="altura" min="0" max="8848" required placeholder='(metros)' />
+                
+                    <div class="upload-image">
+                        <img id="preview-image" alt="" draggable="false">
+                        <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="SCIENTIFIC-PICTURE-SRC" preview="preview-image" required/>
+                    </div>
                 </div>
-                <div class="col">
-                    <label>Nombre común</label>
-                    <input type="text" name="nombre-comun" maxlength="64">
+                <div class="column">
+                    <label for="nombre-comun">Nombre común</label>
+                    <input type="text" name="nombre-comun" maxlength="64" placeholder='Ej. "Champiñón de escamas"' />
 
-                    <label>Olor</label>
-                    <input type="text" name="olor" maxlength="32">
+                    <label for="olor">Olor</label>
+                    <input type="text" name="olor" maxlength="32" placeholder='Ej. "Lavanda"' />
 
-                    <label>Sabor</label>
-                    <input type="text" name="sabor" maxlength="32">
+                    <label for="sabor">Sabor</label>
+                    <input type="text" name="sabor" maxlength="32" placeholder='Ej. "Harina"' />
 
-                    <label>Tipo de suelo</label>
-                    <input type="text" name="suelo" maxlength="32">
+                    <label for="suelo">Tipo de suelo</label>
+                    <input type="text" name="suelo" maxlength="32" placeholder='Ej. "Suelo herboso"' />
 
-                    <label>Climatología</label>
-                    <input type="text" name="clima" maxlength="32">
-                </div>
-                <div class="subirFoto">
-                    <img id="preview-image" alt="" draggable="false">
-                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="SCIENTIFIC-PICTURE-SRC" preview="preview-image" required/>
-                </div>
-                <div class="observaciones">
-                    <label>Observaciones</label>
-                    <textarea name="observaciones" rows="4" maxlength="512"></textarea>
+                    <label for="clima">Climatología</label>
+                    <input type="text" name="clima" maxlength="32" placeholder='Ej. "Templado"' />
+
+                    <div class="observaciones">
+                        <label>Observaciones</label>
+                        <textarea name="observaciones" rows="4" maxlength="512"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="form-button">
                 <button type="submit">SUBIR</button>
-            </div>
-        </form>
-    </main>
--->
-    <div id="container">
-        <h1>Registrar una seta nueva</h1>
-        <form action="../PHPScripts/uploadScientific.php" method="POST">
-            <div class="column">
-                <div class="hint">*obligatorio</div>
-
-                <label for="nombre-cientifico">Nombre científico<span>*</span></label>
-                <input type="text" name="nombre-cientifico" maxlength="64" required placeholder='Ej. "Agaricus benesii"' />
-
-                <label for="fecha">Fecha de recogida<span>*</span></label>
-                <input type="date" name="fecha" required />
-
-                <label for="lugar">Lugar de recogida<span>*</span></label>
-                <input type="text" name="lugar" maxlength="32" required placeholder='Ej. "Santander"' />
-
-                <label for="habitat">Hábitat<span>*</span></label>
-                <input type="text" name="habitat" maxlength="32" required placeholder='Ej. "Pinar"'/>
-
-                <label for="altura">Altura sobre el nivel del mar<span>*</span></label>
-                <input type="number" name="altura" min="0" max="8848" required placeholder='(metros)' />
-            
-                <div class="upload-image">
-                    <img id="preview-image" alt="" draggable="false">
-                    <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="SCIENTIFIC-PICTURE-SRC" preview="preview-image" required/>
-                </div>
-            </div>
-            <div class="column">
-                <label for="nombre-comun">Nombre común</label>
-                <input type="text" name="nombre-comun" maxlength="64" placeholder='Ej. "Champiñón de escamas"' />
-
-                <label for="olor">Olor</label>
-                <input type="text" name="olor" maxlength="32" placeholder='Ej. "Lavanda"' />
-
-                <label for="sabor">Sabor</label>
-                <input type="text" name="sabor" maxlength="32" placeholder='Ej. "Harina"' />
-
-                <label for="suelo">Tipo de suelo</label>
-                <input type="text" name="suelo" maxlength="32" placeholder='Ej. "Suelo herboso"' />
-
-                <label for="clima">Climatología</label>
-                <input type="text" name="clima" maxlength="32" placeholder='Ej. "Templado"' />
-
-                <div class="observaciones">
-                    <label>Observaciones</label>
-                    <textarea name="observaciones" rows="4" maxlength="512"></textarea>
-                </div>
             </div>
         </form>
     </div>

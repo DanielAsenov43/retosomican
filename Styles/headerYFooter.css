@@ -1,220 +1,213 @@
-html {
+:root {
     /* Colores */
     --color-principal: rgb(121, 199, 255);
     --color-secundario: rgb(140, 181, 217);
+    --color-terciario: rgb(86, 145, 197);
+    --color-titulo: rgb(97, 206, 112);
     --color-acento: rgb(224, 58, 58);
-    --color-acento-suave: rgb(255, 230, 230);
+    --color-acento-secundario: rgb(255, 230, 230);
     --color-principal-fondo: white;
     --color-secundario-fondo: rgb(235, 246, 255);
-    --color-titulo: rgb(97, 206, 112);
-    --color-terciario: rgb(100, 160, 212);
     /* Fuente */
     --font: "Titillium Web", sans-serif;
 }
 
-header {
-    height: 200px;
+body { /* https://matthewjamestaylor.com/bottom-footer */
+    /* Estos estilos son necesarios para ajustar la posición del footer */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    min-height: 100vh; /* "Viewport Height" para que ocupe toda la parte visible de la página */
+    min-height: 100svh; /* "Small Viewport Height" para buscadores modernos */
+}
+
+header { /* El header se divide en 2 mitades: header-top y header-bottom, una encima de otra */
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
+    height: 200px;
 
-    * {
+    * { /* Todos los elementos del header tendrán la misma fuente y no serán seleccionables */
         font-family: var(--font);
         user-select: none;
     }
 
-    .header-top {
+    .header-top { /* La parte superior del header tendrá 3 partes: left, middle y right */
+        display: flex;
+        flex-direction: row;
         height: 150px;
         background-color: var(--color-secundario-fondo);
-        display: flex;
 
-        * {
-            transition: 0.25s ease-out;
-        }
+        * { transition: 0.25s ease-out; }
 
-        .left {
+        .left { /* La parte izquierda contiene el logo de SOMICAN */
             left: 0%;
             height: 100%;
             
             a img {
                 width: 350px;
-                transition: 0.25s ease-out;
 
                 &:hover { transform: translateX(10px); }
             }
         }
 
-        .middle {
+        .middle { /* El centro contiene el título */
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            justify-content: center;
             text-align: center;
 
             h1 {
-                text-transform: uppercase;
-                text-align: center;
                 color: var(--color-titulo);
+                text-transform: uppercase;
                 text-wrap: nowrap;
             }
 
-            a {
-                left: 50%;
-                padding: 15px 100px;
-                font-size: 1.2rem;
-                text-decoration: none;
-                color: white;
-                background-color: var(--color-secundario);
-
-                &:hover {
-                    background-color: var(--color-acento);
-                }
-            }
-
-            @media (max-width: 1500px) {
-                h1 {
-                    visibility: hidden;
-                }
+            @media (max-width: 1500px) { /* Si la página se estrecha demasiado, ocultar el título */
+                h1 { visibility: hidden; }
             }
             
         }
 
-        .right {
+        .right { /* La parte derecha contiene el perfil y las redes sociales */
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
             margin-left: auto;
             margin-right: 0;
-            padding-right: 20px;
             width: 350px;
-            display: flex;
-            justify-content: right;
+            padding-right: 20px;
+            z-index: 1;
 
-            .profile {
-                width: min-content;
-                margin: auto;
+            .profile { /* El perfil contiene la foto (arriba) y el nombre (debajo) */
                 display: flex;
                 flex-direction: column;
+                margin: auto;
+                width: min-content;
                 padding: 23px;
                 text-decoration: none;
                 justify-content: center;
                 text-align: center;
 
-                .profile-image-container {
+                .profile-image-container { /* La imagen necesita un contenedor para poder centrarla correctamente */
                     display: inline-block;
+                    margin: auto;
                     width: max-content;
                     justify-content: center;
                     text-align: center;
-                    margin: auto;
 
-                    img {
-                        max-width: 100%;
+                    img { /* La imagen en sí */
                         width: 80px;
+                        max-width: 100%;
                         border-radius: 50%;
                         border: var(--color-secundario) 5px solid;
                     }
                 }
 
-                .username {
+                .username { /* El nombre de usuario debajo de la foto */
+                    margin: auto;
+                    color: var(--color-terciario);
                     text-align: center;
                     text-wrap: nowrap;
-                    margin: auto;
-                    color: rgb(112, 159, 201);
                     font-weight: bold;
-                    user-select: none;
                     font-size: 1.2rem;
                 }
 
-                &:hover {
-                    transform: 0.1s ease-out;
+                &:hover { /* Agrandar todo al pasar el ratón por encima del perfil (todo el div) */
+                    transition: 0.1s ease-out;
                     background-color: var(--color-secundario-fondo);
                     filter: brightness(90%);
                     cursor: pointer;
+
                     * { scale: 102%; }
                 }
             }
 
-            a {
-                width: 100px;
-                height: 100px;
-                margin: 20px 10px;
+            .social-media {
+                display: flex;
+                flex-direction: row;
+                width: min-content;
 
-                svg {
-                    width: 80px;
-                    height: 80px;
-                    aspect-ratio: 1;
-                    color: var(--color-secundario);
-                }
-
-                &:hover {
-                    scale: 105%;
-                    transition: 0.15s ease-in;
-                    svg {
-                        color: var(--color-acento);
+                a { /* Estilo de las redes sociales */
+                    margin: 20px 5px;
+                    width: 100px;
+                    height: 100px;
+    
+                    svg { /* Los SVG's deberán ser cuadrados y del mismo tamaño */
+                        width: 80px;
+                        height: 80px;
+                        aspect-ratio: 1;
+                        color: var(--color-secundario);
+                    }
+    
+                    &:hover { /* Cambiar el color y tamaño al pasar el ratón por encima de una de las redes */
+                        scale: 105%;
+    
+                        svg { color: var(--color-acento); }
                     }
                 }
             }
         }
     }
 
-    .header-bottom {
+    .header-bottom { /* La mitad inferior del header (barra de navegación) */
         position: absolute;
     }
 }
 
-.navigation-bar {
-    width: 100%;
-    top: 150px;
-    z-index: 1;
-    height: 50px;
-    background-color: var(--color-secundario);
-    text-transform: uppercase;
+.navigation-bar { /* Todos los elementos con la clase .navigation-bar será tratada como una barra de navegación (header y footer) */
     display: flex;
     justify-content: center;
+    top: 150px;
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-secundario);
+    z-index: 1;
+    text-transform: uppercase;
 
-    .dropdown {
-        .dropdown-content {
+    * { user-select: none; }
+
+    .dropdown { /* La barra contiene dropdowns (desplegables) y botones. Los dropdowns contienen varios enlaces. */
+        .dropdown-content { /* El contenido del dropdown será invisible al principio */
             visibility: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 50%);
             transform: translateY(-26px);
-            text-wrap: nowrap;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 50%);
 
-            a {
+            a { /* Cada enlace individual del dropdown */
                 background-color: var(--color-principal-fondo);
                 text-decoration: none;
                 text-align: center;
                 width: 100%;
                 height: 50px;
+                color: var(--color-terciario);
                 line-height: 50px;
-                color: #1967ab;
 
-                &:hover {
-                    background-color: #eee;
+                &:hover { /* Al pasar el ratón por uno de los enlaces del dropdown */
                     color: var(--color-acento);
+                    background-color: var(--color-secundario-fondo);
+                    filter: brightness(95%);
+                    font-weight: bold;
                 }
             }
 
-            &:hover {
-                visibility: visible;
-            }
+            &:hover { visibility: visible; } /* Mostrar el contenido al pasar el ratón por encima del botón superior */
         }
 
-        &:has(.dropdown-content a:hover) h2 {
-            background-color: var(--color-acento);
-        }
-
-        &:has(h2:hover) .dropdown-content {
-            visibility: visible;
-        }
+        /* Mantener el color del botón del dropdown al pasar el ratón por el contenido */
+        &:has(.dropdown-content a:hover) h2 { background-color: var(--color-acento); }
+        /* Mantener el contenido visible al pasar el ratón por encima del contenido */
+        &:has(h2:hover) .dropdown-content { visibility: visible; }
     }
 
-    .dropdown h2, .button {
+    .dropdown h2, .button { /* Los botones con dropdown y los botones sin él tendrán el mismo estilo */
         transform: translateY(-13px);
-        color: white;
-        text-align: center;
         width: 12vw;
         height: 49px;
-        line-height: 50px;
+        color: var(--color-principal-fondo);
         background-color: var(--color-secundario);
+        text-align: center;
+        line-height: 50px;
         font-weight: 400;
         font-size: 1rem;
         text-wrap: nowrap;
@@ -225,62 +218,51 @@ header {
         }
     }
 
-    .button {
+    .button { /* Los botones necesitan un estilo un poco distinto al de los dropdowns */
         transform: translateY(0px);
         height: 50px;
 
         a {
             text-decoration: none;
-            color: white;
+            color: var(--color-principal-fondo);
         }
     }
 }
 
-body {
-    /* https://matthewjamestaylor.com/bottom-footer */
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 100%;
-    min-height: 100vh; /* fallback height */
-    min-height: 100svh; /* new small viewport height for modern browsers */
-}
-
-footer {
-    width: 100%;
+footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
     display: flex;
     flex-direction: column;
+    width: 100%;
     color: var(--color-secundario);
 
-    .top {
-        user-select: none;
-    }
+    /* La parte superior es la barra de navegación, explicada anteriormente */
 
-    .middle {
-        height: 150px;
+    .middle { /* La parte central del footer está dividida en 3 partes: left, center y right. */
         display: flex;
         flex-direction: row;
+        height: 150px;
 
-        .left {
+        .left { /* Parte izquierda del footer, contiene los enlaces de privacidad y las redes sociales */
             position: relative;
             display: flex;
             flex-direction: row;
             gap: 5px;
             user-select: none;
 
-            .privacy {
+            .privacy { /* Este div contiene los 3 enlaces de política de privacidad */
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
 
-                a {
+                a { /* Estilo de cada enlace */
                     position: relative;
+                    padding: 5px 10px;
+                    margin: 0px 10px;
+                    color: var(--color-principal-fondo);
+                    background-color: var(--color-secundario);
                     text-wrap: nowrap;
                     text-decoration: none;
                     text-align: center;
-                    padding: 5px 10px;
-                    margin: 0px 10px;
-                    background-color: var(--color-secundario);
-                    color: white;
                     font-weight: bold;
                     transition: 0.1s ease-out;
 
@@ -290,12 +272,12 @@ footer {
                 }
             }
 
-            .social-media {
+            .social-media { /* Contenedor de las redes sociales */
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
 
-                a {
+                a { /* Estilo de cada red social */
                     position: relative;
                     height: 40px;
                     padding: 10px;
@@ -305,12 +287,12 @@ footer {
                     border-radius: 10px;
                     transition: 0.1s ease-out;
 
-                    svg {
+                    svg { /* Esto es importante ya que limita el tamaño del SVG */
                         width: 100%;
                         height: 100%;
                     }
 
-                    &:hover {
+                    &:hover { /* Al pasar por encima, girar 360º y cambiar a una forma circular */
                         border-radius: 50%;
                         transition: 0.4s ease-in-out;
                         transform: rotateZ(360deg);
@@ -322,28 +304,34 @@ footer {
             }
         }
 
-        .center {
+        .center { /* La parte central del footer, contiene el título y texto debajo */
             position: absolute;
+            display: flex;
+            flex-direction: column;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
-            display: flex;
-            flex-direction: column;
 
             .title { font-size: 3rem; }
 
             .subtitle { margin: -15px 0 15px 0; }
 
             .description { margin-top: -5px; }
+
+            @media (max-width: 1400px) { /* Ocultar esta parte si la página se estrecha demasiado */
+                .title, .subtitle, .description {
+                    visibility: hidden;
+                }
+            }
         }
 
-        .right {
+        .right { /* La parte de la derecha contiene el logo del ayuntamiento, información de contacto y el mapa */
             position: absolute;
-            right: 0;
             display: flex;
             flex-direction: row;
+            right: 0;
 
-            .logo {
+            .logo { /* Estilo del logo del ayuntamiento, mayoritariamente para centrarlo. */
                 position: relative;
                 padding: 25px;
                 height: 100px;
@@ -355,25 +343,24 @@ footer {
                 }
             }
 
-            .contact-info {
+            .contact-info { /* Texto de la información de contacto */
+                margin: auto 20px auto auto; /* 20px a la derecha */
                 line-height: 5px;
-                margin: auto;
-                margin-right: 20px;
 
                 .title { font-weight: bold; }
             }
 
-            .map {
+            .map { /* Estilo del mapa. Como es un <iframe>, es complicado alterarlo. */
                 border: var(--color-secundario) 5px dashed;
                 user-select: none;
             }
         }
     }
 
-    .bottom {
+    .bottom { /* Parte inferior del footer, contiene el copyright */
         height: 50px;
         background-color: var(--color-secundario);
-        color: white;
+        color: var(--color-principal-fondo);
         text-align: center;
         line-height: 50px;
         font-weight: bold;
