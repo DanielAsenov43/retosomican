@@ -1,4 +1,8 @@
-:root {
+:root { /* Variables que heredan todas las páginas que utilicen esta hoja de estilos. */
+
+    /* Fuente */
+    --font: "Titillium Web", sans-serif;
+    
     /* Colores */
     --color-principal: rgb(121, 199, 255);
     --color-secundario: rgb(140, 181, 217);
@@ -8,12 +12,11 @@
     --color-acento-secundario: rgb(255, 230, 230);
     --color-principal-fondo: white;
     --color-secundario-fondo: rgb(235, 246, 255);
-    /* Fuente */
-    --font: "Titillium Web", sans-serif;
 }
 
 body { /* https://matthewjamestaylor.com/bottom-footer */
     /* Estos estilos son necesarios para ajustar la posición del footer */
+    margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
@@ -94,6 +97,7 @@ header { /* El header se divide en 2 mitades: header-top y header-bottom, una en
                     width: max-content;
                     justify-content: center;
                     text-align: center;
+                    transform: translateY(-10px);
 
                     img { /* La imagen en sí */
                         width: 80px;
@@ -110,6 +114,7 @@ header { /* El header se divide en 2 mitades: header-top y header-bottom, una en
                     text-wrap: nowrap;
                     font-weight: bold;
                     font-size: 1.2rem;
+                    transform: translateY(-10px);
                 }
 
                 &:hover { /* Agrandar todo al pasar el ratón por encima del perfil (todo el div) */

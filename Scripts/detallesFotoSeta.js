@@ -1,14 +1,16 @@
-let viewingDetail = false; // Este valor será "true" si se está mostrando el panel informativo
-let background, infoPanel, image; // El elemento de fondo y el panel en sí
-let profilePicture, commentContainer;
+let viewingDetail = false; // Este valor será "true" si se está mostrando el panel informativo y "false" al cerrarlo
+let backgroundElement, infoPanelElement, imageElement; // El elemento de fondo, el panel y la imagen dentro del mismo.
+let profilePictureElement, commentContainer; // Elementos de la parte de abajo del panel
 
 window.addEventListener("load", () => {
     // Al cargar la página, inicializar los elementos
-    background = document.getElementById("background-black-fade");
-    infoPanel = document.getElementById("detalles-seta");
-    image = document.getElementById("detail-image");
-    profilePicture = document.getElementById("detail-profile-picture");
+    backgroundElement = document.getElementById("background-black-fade");
+    infoPanelElement = document.getElementById("mushroom-details");
+    imageElement = document.getElementById("detail-image");
+    profilePictureElement = document.getElementById("detail-profile-picture");
     commentContainer = document.getElementById("detail-comment-container");
+    // Añadir el evento de cerrar el panel al icono de la X (SVG)
+    document.getElementById("detail-close").addEventListener("click", hideInfoPanel);
 });
 
 // Función que es llamada al darle click a una seta
@@ -16,41 +18,35 @@ function showInfoPanel(IDSeta, IDSocio, comentario) {
     // Cambiar la variable "viewingDetail"
     viewingDetail = true;
     // Cambiar algunos estilos
-    background.style.display = "block";
-    infoPanel.style.opacity = "100%";
-    infoPanel.style.transform = "translate(-50%, -50%) scale(100%)";
-    image.src = "./Images/GaleriaArtistica/SETA_" + IDSeta + ".png";
-    image.style.maxWidth = "50vw";
+    backgroundElement.style.display = "block";
+    infoPanelElement.style.opacity = "100%";
+    infoPanelElement.style.transform = "translate(-50%, -50%) scale(100%)";
+    imageElement.src = "./Images/GaleriaArtistica/SETA_" + IDSeta + ".png";
+    imageElement.style.maxWidth = "50vw";
+
+    // Si hay un comentario, mostrarlo, si no, ocultarlo.
     if(comentario.length > 0) {
-        profilePicture.src = "./Images/FotosDePerfil/SOCIO_" + IDSocio + ".png";
-        profilePicture.style.display = "block";
-    }
-    else profilePicture.style.display = "none";
+        profilePictureElement.src = "./Images/FotosDePerfil/SOCIO_" + IDSocio + ".png";
+        profilePictureElement.style.display = "block";
+    } else profilePictureElement.style.display = "none";
+
     // Actualizar la información de los elementos del panel informativo
-    showInfo("detail-comment", "Comentario: ", "\"" + comentario + "\"");
+    showInfo("detail-comment", "Comentario: ", comentario);
 }
 
 // Función que cambia la información de cada elemento del panel, diferenciando entre el título (detail-name) y el contenido (detail-content)
 function showInfo(elementID, infoName, content) {
-    if(content == "\"\"") document.getElementById(elementID).innerHTML = "";
-    else document.getElementById(elementID).innerHTML = "<span class='detail-comment-title'>" + infoName + "</span><span class='detail-content'>" + content + "</span>";
+    if(content == "") document.getElementById(elementID).innerHTML = ""; // Si el comentario == "", eliminar el contenido del elemento. Si no, crearlo.
+    else document.getElementById(elementID).innerHTML = "<span class='detail-comment-title'>" + infoName + "</span><span class='detail-content'>\"" + content + "\"</span>";
 }
 
 // Función que oculta el panel informativo
 function hideInfoPanel() {
     viewingDetail = false;
-    background.style.display = "none";
-    infoPanel.style.opacity = "0%";
-    infoPanel.style.transform = "translate(-50%, -50%) scale(0%)";
+    backgroundElement.style.display = "none";
+    infoPanelElement.style.opacity = "0%";
+    infoPanelElement.style.transform = "translate(-50%, -50%) scale(0%)";
 }
-
-function titleCase(str) {
-    var splitString = str.toLowerCase().split(' ');
-    for (var i = 0; i < splitString.length; i++) {
-        splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);     
-    }
-    return splitString.join(' '); 
- }
 
 // Evento que evita moverse por la página con la rueda del ratón si has abierto el panel informativo
 window.addEventListener("wheel", () => {
@@ -66,5 +62,5 @@ window.addEventListener("keydown", (event) => {
 // Evento que quita el panel informativo al hacer click fuera de éste
 window.addEventListener("click", (event) => {
     if(!viewingDetail) return;
-    if(event.target.id == background.id) hideInfoPanel();
+    if(event.target.id == backgroundElement.id) hideInfoPanel();
 });
