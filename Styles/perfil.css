@@ -1,126 +1,123 @@
-html {
-    --color-terciario: rgb(100, 160, 212);
-}
-
 body {
-    margin: 0;
     justify-content: center;
     background-color: var(--color-secundario-fondo);
     * { font-family: "Titillium web", sans-serif; }
 }
 
-#container {
-    height: 600px;
+#container { /* Contenedor principal de la página, que no contiene elementos ocultos. */
     display: flex;
     flex-direction: column;
 
-    .page-title {
+    .page-title { /* Título de la página */
         text-align: center;
         color: var(--color-acento);
     }
 
-    .profile-container {
+    .profile-container { /* Contenedor principal con toda la información del socio y su foto de perfil */
         display: flex;
         margin-left: auto;
         margin-right: auto;
         gap: 50px;
-        margin-top: 25px;
+        margin-top: 50px;
 
-        .profile-picture-container {
+        .profile-picture-container { /* Contenedor de la foto de perfil del socio y el botón para cambiarlo */
             display: flex;
             flex-direction: column;
             user-select: none;
             text-align: center;
             justify-content: center;
 
-            .profile-picture {
+            .profile-picture { /* Contenedor de la imagen */
                 background-color: var(--color-secundario);
                 padding: 10px;
                 width: 250px;
                 height: 250px;
 
-                img {
+                img { /* Imagen en sí, con el fondo negro en caso de que alguien suba una imagen transparente. */
                     width: 250px;
                     background-color: rgba(0, 0, 0, 20%);
                 }
             }
         }
-    }
 
-    .profile-info-container {
-        display: flex;
-        flex-direction: column;
-        transform: translateY(-20px);
-
-        h1 { color: var(--color-terciario); }
-
-        #error-message {
-            width: 100%;
-            text-align: center;
-            font-weight: bold;
-            margin-top: 5px;
-
-            .success { color: rgb(72, 180, 86); }
-            .error { color: var(--color-acento); }
-        }
-
-        .profile-info {
-            width: 400px;
-            height: 235px;
-            background-color: var(--color-secundario);
+        .profile-info-container { /* Contenedor de la información del socio */
             display: flex;
             flex-direction: column;
-
-            div:not(.actions) {
-                margin: 20px 20px 10px 20px;
-
-                .title {
-                    color: white;
-                }
-                .data {
-                    font-weight: bold; 
-                    background-color: var(--color-terciario);
-                    padding: 5px 10px;
-                    margin-left: 10px;
-                    border-radius: 5px;
-                }
-            }
-
-            .actions {
-                margin-top: 20px;
-                margin-left: auto;
-                margin-right: auto;
+            transform: translateY(-20px);
+    
+            h1 { color: var(--color-terciario); } /* Título: "Información" */
+    
+            .profile-info { /* Información del perfil (contenedor azul) */
+                width: 400px;
+                height: 235px;
+                background-color: var(--color-secundario);
                 display: flex;
-                gap: 20px;
-                user-select: none;
+                flex-direction: column;
+    
+                div:not(.actions) { /* El nombre, apellidos y correo del socio */
+                    margin: 20px 20px 10px 20px;
+    
+                    .title { /* Ejemplo: "Nombre: " */
+                        color: var(--color-principal-fondo);
+                    }
 
-                button {
-                    background-color: var(--color-terciario);
-                    padding: 10px 30px;
-                    text-decoration: none;
-                    color: white;
-                    font-weight: bold;
-                    border: none;
-                    font-size: 1rem;
-
-                    &:hover {
-                        transition: 0.1s ease-out;
-                        background-color: var(--color-acento);
-                        cursor: pointer;
+                    .data { /* Ejemplo: "SERGIO" */
+                        font-weight: bold; 
+                        background-color: var(--color-terciario);
+                        padding: 5px 10px;
+                        margin-left: 10px;
+                        border-radius: 5px;
+                        text-transform: uppercase;
+                    }
+                }
+    
+                .actions { /* Contenedor con las posibles acciones: Cambiar correo y contraseña */
+                    margin-top: 20px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: flex;
+                    gap: 20px;
+                    user-select: none;
+    
+                    button { /* Ambos botones tienen el mismo estilo */
+                        background-color: var(--color-terciario);
+                        padding: 10px 30px;
+                        text-decoration: none;
+                        color: var(--color-principal-fondo);
+                        font-weight: bold;
+                        border: none;
+                        font-size: 1rem;
+    
+                        &:hover {
+                            transition: 0.1s ease-out;
+                            background-color: var(--color-acento);
+                            cursor: pointer;
+                        }
                     }
                 }
             }
+
+            #error-message { /* Mensaje cuyo color cambia dependiendo del resultado */
+                width: 100%;
+                text-align: center;
+                font-weight: bold;
+                margin-top: 5px;
+                
+                 /* Si al cambiar la información se produce un error, cambiará a rojo. Si no, será verde. */
+                .success { color: var(--color-titulo); }
+                .error { color: var(--color-acento); }
+            }
         }
     }
 
-    .logout {
+    .logout { /* Botón para cerrar sesión */
         width: 100vw;
         text-align: center;
         margin-top: 60px;
         user-select: none;
 
         a {
-            color: white;
+            color: var(--color-principal-fondo);
             background-color: var(--color-acento);
             text-decoration: none;
             font-weight: bold;
@@ -133,7 +130,7 @@ body {
     }
 }
 
-#change-profile-info {
+#change-profile-info { /* Contenedor que actúa como un fondo negro transparente */
     visibility: hidden;
     position: fixed;
     z-index: 2;
@@ -143,7 +140,7 @@ body {
     right: 0;
     background-color: rgba(0, 0, 0, 40%);
 
-    .container {
+    .container { /* Contenedor que contiene el formulario de cambio de correo o contraseña */
         width: 500px;
         height: 400px;
         background-color: var(--color-secundario-fondo);
@@ -155,48 +152,43 @@ body {
         padding: 20px;
         border-radius: 20px;
 
-        .logo-container {
+        .logo-container { /* Logo de somican */
             user-select: none;
             width: 100%;
             text-align: center;
             padding-bottom: 20px;
 
-            img {
-                width: 50%;
-            }
+            img { width: 50%; }
         }
     }
 
-    #change-email-form, #change-password-form {
+    #change-email-form, #change-password-form { /* Estilo de ambos formularios, ya que son iguales. */
         display: none;
         flex-direction: column;
-
-        label {
-            user-select: none;
-        }
+        user-select: none;
         
-        input {
-            background-color: white;
+        input { /* La caja de texto */
+            background-color: var(--color-principal-fondo);
             padding: 5px;
             margin-bottom: 20px;
             border-radius: 5px;
             border: var(--color-secundario) 2px solid;
         }
 
-        button[type="submit"] {
+        button[type="submit"] { /* Estilo del botón de confirmación */
             padding: 10px;
             width: 40%;
             margin-left: auto;
             margin-right: auto;
             margin-top: 10px;
-            background-color: var(--color-acento);
+            background-color: var(--color-terciario);
             border: 0px;
-            color: white;
+            color: var(--color-principal-fondo);
             font-weight: bold;
             scale: 110%;
 
             &:hover {
-                background-color: #b11b1b;
+                background-color: var(--color-acento);
                 cursor: pointer;
             }
         }

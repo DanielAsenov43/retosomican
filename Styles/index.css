@@ -84,6 +84,7 @@ main { /* Elemento principal que contiene tanto el títlo como la galería */
                     z-index: 1;
                     border-radius: 50%;
                     border: var(--color-secundario) 5px solid;
+                    background-color: rgba(0, 0, 0, 20%);
                 }
     
                 &:hover { /* Al pasar el ratón por encima de cada carta */

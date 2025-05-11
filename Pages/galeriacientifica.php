@@ -95,7 +95,7 @@
 <body>
     <main> <!-- Contenido principal de la página -->
         <div class="title"> <!-- Igual que en index.php, contiene el título y un botón para subir setas -->
-            <h1>Galería Artística</h1>
+            <h1>Galería Científica</h1>
             <div class="upload-mushroom-container">
                 <a class="upload-mushroom" href="./subirSetaCientifica.php">SUBIR UNA SETA</a>
             </div>
@@ -129,7 +129,7 @@
         </div>
 
         <!-- Galería principal de la página -->
-        <div id="galeria">
+        <div id="gallery">
             <!-- El contenido de esta galería, como en index.php, se genera a través de una consulta en PHP,
              que devuelve todas las setas registradas. En este caso se ordenan por el nombre científico. -->
             <?php

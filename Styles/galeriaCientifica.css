@@ -26,6 +26,7 @@ main {
             display: grid;
             align-items: center;
             width: 300px;
+            user-select: none;
 
             .upload-mushroom { /* Estilo del botón */
                 width: min-content;
@@ -43,7 +44,7 @@ main {
             }
         }
     }
-
+    
     .search-box { /* Estilo del contenedor de la caja de búsqueda, que contiene el <input> y la imagen de la lupa */
         display: flex;
         align-items: center;
@@ -55,8 +56,9 @@ main {
         border: none;
         border-radius: 5px;
         width: min-content;
+        user-select: none;
     
-        input {
+        input { /* La caja de búsqueda */
             padding: 10px 15px;
             font-size: 1rem;
             border: none;
@@ -64,14 +66,14 @@ main {
             width: 250px;
         }
     
-        img {
+        img { /* La imagen de la lupa, a la izquierda de la caja de búsqueda */
             width: 20px;
             height: 20px;
         }
     }
     
     /* Galería de setas */
-    #galeria {
+    #gallery {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -81,15 +83,7 @@ main {
         margin-right: auto;
         transform: translateY(-75px);
 
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            user-select: none;
-        }
-
-        div {
+        div { /* Estilo de cada carta (seta) de la galería */
             background-color: var(--color-principal-fondo);
             border: 1px solid var(--color-secundario);
             padding: 15px;
@@ -99,6 +93,15 @@ main {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
 
+            img { /* Cada imagen de cada carta de la galería */
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                user-select: none;
+            }
+
+             /* Estilos del nombre científico, común y la fecha dentro de la carta */
             .nombreCientifico {
                 font-weight: bold;
                 font-style: italic;
@@ -106,16 +109,16 @@ main {
             }
             
             .nombreComun {
-                color: #555;
+                color: var(--color-terciario);
                 margin: 5px 0;
             }
             
             .fecha {
-                font-size: 0.9rem;
-                color: #888;
+                font-size: 1rem;
+                color: var(--color-titulo);
             }
-        
-            &:hover {
+            
+            &:hover { /* Al pasar el ratón por encima, agrandar la carta y acentuár la sombra */
                 cursor: pointer;
                 transform: scale(1.02);
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -123,7 +126,7 @@ main {
         }
     }
     
-    #sin-resultados {
+    #sin-resultados { /* Estilo del <span> que aparece cuando no hay resultados de búsqueda */
         position: absolute;
         left: 50%;
         transform: translate(-50%, -200%);
@@ -132,11 +135,11 @@ main {
         opacity: 40%;
     }
 
-    .hidden {
+    .hidden { /* Estilo de la información permanente de cada seta de la galería */
         display: none;
     }
 
-    .highlight {
+    .highlight { /* Estilo del texto resaltado en cada seta de los resultados de búsqueda. */
         background-color: var(--color-acento);
         color: var(--color-principal-fondo);
     }

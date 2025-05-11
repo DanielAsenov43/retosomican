@@ -12,6 +12,7 @@
     --color-acento-secundario: rgb(255, 230, 230);
     --color-principal-fondo: white;
     --color-secundario-fondo: rgb(235, 246, 255);
+    --color-terciario-fondo: rgb(205, 228, 247);
 }
 
 body { /* https://matthewjamestaylor.com/bottom-footer */
@@ -38,7 +39,7 @@ header { /* El header se divide en 2 mitades: header-top y header-bottom, una en
         display: flex;
         flex-direction: row;
         height: 150px;
-        background-color: var(--color-secundario-fondo);
+        background-color: var(--color-terciario-fondo);
 
         * { transition: 0.25s ease-out; }
 
@@ -104,6 +105,7 @@ header { /* El header se divide en 2 mitades: header-top y header-bottom, una en
                         max-width: 100%;
                         border-radius: 50%;
                         border: var(--color-secundario) 5px solid;
+                        background-color: rgba(0, 0, 0, 20%);
                     }
                 }
 
@@ -119,7 +121,7 @@ header { /* El header se divide en 2 mitades: header-top y header-bottom, una en
 
                 &:hover { /* Agrandar todo al pasar el ratón por encima del perfil (todo el div) */
                     transition: 0.1s ease-out;
-                    background-color: var(--color-secundario-fondo);
+                    background-color: var(--color-terciario-fondo);
                     filter: brightness(90%);
                     cursor: pointer;
 
@@ -246,6 +248,7 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
         display: flex;
         flex-direction: row;
         height: 150px;
+        background-color: var(--color-terciario-fondo);
 
         .left { /* Parte izquierda del footer, contiene los enlaces de privacidad y las redes sociales */
             position: relative;
@@ -264,7 +267,7 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
                     padding: 5px 10px;
                     margin: 0px 10px;
                     color: var(--color-principal-fondo);
-                    background-color: var(--color-secundario);
+                    background-color: var(--color-terciario);
                     text-wrap: nowrap;
                     text-decoration: none;
                     text-align: center;
@@ -288,7 +291,7 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
                     padding: 10px;
                     aspect-ratio: 1;
                     color: var(--color-secundario-fondo);
-                    background-color: var(--color-secundario);
+                    background-color: var(--color-terciario);
                     border-radius: 10px;
                     transition: 0.1s ease-out;
 
@@ -316,6 +319,7 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
+            color: var(--color-terciario);
 
             .title { font-size: 3rem; }
 
@@ -351,12 +355,14 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
             .contact-info { /* Texto de la información de contacto */
                 margin: auto 20px auto auto; /* 20px a la derecha */
                 line-height: 5px;
+                color: var(--color-terciario);
 
                 .title { font-weight: bold; }
             }
 
             .map { /* Estilo del mapa. Como es un <iframe>, es complicado alterarlo. */
-                border: var(--color-secundario) 5px dashed;
+                border: var(--color-terciario) 5px dashed;
+                background-color: var(--color-secundario-fondo);
                 user-select: none;
             }
         }

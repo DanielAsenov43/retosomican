@@ -65,6 +65,7 @@
             border-radius: 50%;
             border: var(--color-secundario) 5px solid;
             margin: 20px;
+            background-color: rgba(0, 0, 0, 20%);
         }
 
         #detail-comment {

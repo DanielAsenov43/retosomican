@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../Scripts/uploadImage.js"></script> <!-- Implementa la opción de subir y recortar una imagen con una relación de aspecto fija -->
 </head>
 
-<header>
+<header> <!-- Explicado en index.php, excepto que no contiene el perfil del socio. -->
     <div class="header-top">
         <div class="left">
             <a href="https://www.somican.com">
@@ -89,13 +89,15 @@
     </div>
 </header>
 
-<body>
-    <div id="change-profile-info">
-        <div class="container">
-            <div class="logo-container">
+<body> <!-- El <body> está dividido en 2 partes: Los contenedores invisibles y el contenido principal -->
+    <div id="change-profile-info"> <!-- Este div funciona de fondo transparente para el div interior -->
+        <div class="container"> <!-- Este div actúa como fondo blanco para los formularios de cambio de información -->
+            <div class="logo-container"> <!-- Logo del formulario en la parte superior -->
                 <img src="../Images/logo.png" draggable="false" alt="Logo Somican"/>
             </div>
-            <form id="change-email-form" action="../PHPScripts/changeEmail.php" method="POST"> <!-- Cambiar display block/none -->
+            <!-- Estos formularios se muestran/ocultan dependiendo de si le das a "Cambiar correo" o "Cambiar contraseña".
+                 Esto es controlado por changeProfileInfo.js, así como la visibilidad de estos contenedores. -->
+            <form id="change-email-form" action="../PHPScripts/changeEmail.php" method="POST"> <!-- Utilizamos POST para que la información no aparezca en el buscador -->
                 <label for="email-old">Correo actual: </label>
                 <input type="email" name="email-old" maxlength="32" required>
 
@@ -121,37 +123,44 @@
             </form>
         </div>
     </div>
+    <!-- Contenido principal de esta página -->
     <div id="container">
-        <h1 class="page-title">Perfil de Socio</h1>
+        <h1 class="page-title">Perfil de Socio</h1> <!-- Título -->
 
-        <div class="profile-container">
-            <div class="profile-picture-container">
-                <div class="profile-picture">
+        <div class="profile-container"> <!-- Contenedor con la foto de perfil a la izquierda y la información a la derecha -->
+            <div class="profile-picture-container"> <!-- Contenedor con la foto de perfil y el botón para cambiarla debajo -->
+                <div class="profile-picture"> <!-- Contenedor de la imagen de perfil, cuyo contenido es generado con PHP para obtener la imagen del socio -->
                     <?php echo "<img id='profile-picture-image' src='../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png' draggable='false'/>"; ?>
                 </div>
+                <!-- IMPORTANTE:
+                Hemos creado un script (uploadImage.js) que detecta elementos <input> cuya ID sea "crop".
+                Su funcionalidad está explicada en ese script, así como todos estos parámetros del elemento <input> -->
                 <input type="file" accept="image/*" id="crop" aspectRatio="1" phpScript="../PHPScripts/changeProfilePicture.php" sourceTag="PROFILE-PICTURE-SRC" preview="profile-picture-image" dontHideLabel/>
             </div>
-            <div class="profile-info-container">
-                <h1>Información</h1>
-                <div class="profile-info">
-                    <div class="name">
-                        <span class="title">Nombre:</span>
-                        <?php echo "<span class='data'>".$_SESSION["USER-NAME"]."</span>"; ?>
+            <div class="profile-info-container"> <!-- Contenedor de la información del perfil, contiene el título y la información debajo -->
+                <h1>Información</h1> <!-- Título -->
+                <div class="profile-info"> <!-- Contenedor de información: Nombre, Apellidos y Correo -->
+                    <div> <!-- NOMBRE -->
+                        <span class="title">Nombre:</span> <!-- Este elemento siempre es el mismo -->
+                        <?php echo "<span class='data'>".$_SESSION["USER-NAME"]."</span>"; ?> <!-- El contenido del nombre es generado por PHP. El resto de los <div>'s funcionan igual. -->
                     </div>
-                    <div class="surname">
+                    <div> <!-- APELLIDOS -->
                         <span class="title">Apellidos:</span>
                         <?php echo "<span class='data'>".$_SESSION["USER-SURNAME"]."</span>"; ?>
                     </div>
-                    <div class="email">
+                    <div> <!-- EMAIL -->
                         <span class="title">Correo:</span>
                         <?php echo "<span class='data'>".$_SESSION["USER-EMAIL"]."</span>"; ?>
                     </div>
-                    <div class="actions">
-                        <button id="change-email-button">Cambiar correo</button>
+                    <div class="actions"> <!-- Div que contiene los botones de cambio de correo y contraseña -->
+                        <button id="change-email-button">Cambiar correo</button> <!-- La funcionalidad de estos botones está controlada por changeProfileInfo.js -->
                         <button id="change-password-button">Cambiar contraseña</button>
                     </div>
                 </div>
                 <?php
+                    // Script que comprueba si la variable de sesión "CHANGE-RESULT" contiene un mensaje.
+                    // En caso afirmativo, genera un span con ese mensaje y lo borra.
+                    // Esto es utilizado para saber si ha habido un error al poner la contraseña, cambiar el correo, etc.
                     if(isset($_SESSION["CHANGE-RESULT"])) {
                         echo "<div id='error-message'>".$_SESSION["CHANGE-RESULT"]."</div>";
                         unset($_SESSION["CHANGE-RESULT"]);
@@ -159,13 +168,13 @@
                 ?>
             </div>
         </div>
-        <div class="logout">
+        <div class="logout"> <!-- Div que contiene un botón para cerrar la sesión. -->
             <a href="../PHPScripts/logout.php">Cerrar Sesión</a>
         </div>
     </div>
 </body>
 
-<footer>
+<footer> <!-- Explicado en index.php -->
     <div class="top navigation-bar">
         <div class="dropdown">
             <h2>Somican +</h2>
