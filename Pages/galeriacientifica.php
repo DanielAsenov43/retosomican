@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../Scripts/detallesSeta.js"></script> <!-- Implementa la opción de ver los detalles de una seta en esta página -->
 </head>
 
-<header>
+<header> <!-- Explicado en index.php -->
     <div class="header-top">
         <div class="left">
             <a href="https://www.somican.com">
@@ -93,26 +93,27 @@
 </header>
 
 <body>
-    <main>
-        <div class="title">
+    <main> <!-- Contenido principal de la página -->
+        <div class="title"> <!-- Igual que en index.php, contiene el título y un botón para subir setas -->
             <h1>Galería Artística</h1>
             <div class="upload-mushroom-container">
                 <a class="upload-mushroom" href="./subirSetaCientifica.php">SUBIR UNA SETA</a>
             </div>
         </div>
 
-        <div class="search-box">
-            <input type="text" id="caja-de-busqueda" placeholder="Buscar..." maxlength="50">
-            <img src="../Images/search-icon.png" alt="Búsqueda">
+        <div class="search-box"> <!-- Contenedor de la caja de búsqueda -->
+            <input type="text" id="caja-de-busqueda" placeholder="Buscar..." maxlength="50"> <!-- Caja de búsqueda -->
+            <img src="../Images/search-icon.png" alt="Búsqueda"> <!-- Imagen de la lupa -->
         </div>
         
+        <!-- Esta parte está explicada en index.php, básicamente contiene el panel informativo de cada seta -->
         <div id="background-black-fade"></div>
         <div id="mushroom-details">
             <svg viewBox="0 0 352 512" id="detail-close">
                 <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
             </svg>
             <div id="detail-image-container"><img id="detail-image" src="../Images/seta.jpg" draggable="false"/></div>
-            <p id="detail-nombre-legado"></p>
+            <p id="detail-nombre-legado"></p> <!-- Estos elementos son editados en detallesSeta.js al abrir el panel -->
             <p id="detail-nombre-determinado"></p>
             <p id="detail-nombre-cientifico"></p>
             <p id="detail-nombre-comun"></p>
@@ -127,21 +128,33 @@
             <p id="detail-observaciones"></p>
         </div>
 
+        <!-- Galería principal de la página -->
         <div id="galeria">
+            <!-- El contenido de esta galería, como en index.php, se genera a través de una consulta en PHP,
+             que devuelve todas las setas registradas. En este caso se ordenan por el nombre científico. -->
             <?php
-            $consultaSeta = "SELECT * FROM retosomican.setas WHERE registrada = TRUE";
+            $consultaSeta = "SELECT * FROM retosomican.setas WHERE registrada = TRUE ORDER BY nombreCientifico";
             $result = mysqli_query($_SESSION["SQL"], $consultaSeta);
 
+            // Bucle principal que genera las setas de la galería
             while ($row = mysqli_fetch_row($result)) {
+                // Subconsulta que obtiene el nombre completo del legado a partir de "IDSocio" guardado en la tabla "setas"
                 $consultaLegado = "SELECT * FROM retosomican.socios WHERE ID = $row[1]";
                 $datosLegado = mysqli_fetch_row(mysqli_query($_SESSION["SQL"], $consultaLegado));
                 $nombreLegado = $datosLegado[1] . " " . $datosLegado[2];
-
+                
+                // Generamos un div principal que llama a una función de JS al darle click. La función es explicada
+                // en detallesSeta.js, y recibe por parámetros todos los datos relevantes de la seta.
                 echo "<div onclick=\"showInfoPanel($row[0], '$nombreLegado', '$row[3]', '$row[4]', '$row[5]', '$row[6]', '$row[7]', '$row[8]', '$row[9]', '$row[10]', '$row[11]', '$row[12]', '$row[13]', '$row[14]')\">";
                 echo "<img src='../Images/GaleriaCientifica/SETA_$row[0].png' alt='Icono' />";
+                // Información principal de la seta. Su contenido puede ser alterado por buscador.js
                 echo "<p class='nombreCientifico'>$row[4]</p>";
                 echo "<p class='nombreComun'>$row[5]</p>";
                 echo "<p class='fecha'>$row[6]</p>";
+                // Estos <span>'s son importantes porque contienen la informaación de la seta, pero son invisibles.
+                // El HTML interno de los 3 elementos de arriba cambia según los resultados de búsqueda, ya que al
+                // buscar "gar" en "Agaricus", su contenido cambia a "A<span>gar</span>icus" para poder resaltarlo.
+                // Son utilizados para poder volver a obtener la información de la seta.
                 echo "<span class='hidden'>$row[4]</span>";
                 echo "<span class='hidden'>$row[5]</span>";
                 echo "<span class='hidden'>$row[6]</span>";
@@ -149,11 +162,12 @@
             }
             ?>
         </div>
+        <!-- Este span cambia su contenido dependiendo de si se han encontrado resultados de búsqueda o no -->
         <span id="sin-resultados"></span>
     </main>
 </body>
 
-<footer>
+<footer> <!-- Explicado en index.php -->
     <div class="top navigation-bar">
         <div class="dropdown">
             <h2>Somican +</h2>

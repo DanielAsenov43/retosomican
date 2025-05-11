@@ -44,7 +44,7 @@ main {
         }
     }
 
-    .search-box {
+    .search-box { /* Estilo del contenedor de la caja de búsqueda, que contiene el <input> y la imagen de la lupa */
         display: flex;
         align-items: center;
         padding: 10px 15px 10px 10px;
@@ -98,6 +98,22 @@ main {
             width: 250px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            .nombreCientifico {
+                font-weight: bold;
+                font-style: italic;
+                margin: 5px 0;
+            }
+            
+            .nombreComun {
+                color: #555;
+                margin: 5px 0;
+            }
+            
+            .fecha {
+                font-size: 0.9rem;
+                color: #888;
+            }
         
             &:hover {
                 cursor: pointer;
@@ -107,28 +123,12 @@ main {
         }
     }
     
-    .nombreCientifico {
-        font-weight: bold;
-        font-style: italic;
-        margin: 5px 0;
-    }
-    
-    .nombreComun {
-        color: #555;
-        margin: 5px 0;
-    }
-    
-    .fecha {
-        font-size: 0.9rem;
-        color: #888;
-    }
-    
     #sin-resultados {
         position: absolute;
         left: 50%;
         transform: translate(-50%, -200%);
         font-weight: bold;
-        font-size: 1.2vw;
+        font-size: 1.5rem;
         opacity: 40%;
     }
 

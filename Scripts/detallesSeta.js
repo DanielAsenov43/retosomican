@@ -11,14 +11,17 @@ window.addEventListener("load", () => {
 
 // Función que es llamada al darle click a una seta
 function showInfoPanel(IDSeta, nombreLegado, nombreDeterminado, nombreCientifico, nombreComun, fechaRecogida, lugarRecogida, habitat, alturaMar, olor, sabor, tipoSuelo, climatologia, observaciones) {
-    // Cambiar la variable "viewingDetail"
+    // Cambiar la variable "viewingDetail" para bloquear el movimiento por la página, entre otras cosas
     viewingDetail = true;
     // Cambiar algunos estilos
     background.style.display = "block";
     infoPanel.style.opacity = "100%";
     infoPanel.style.transform = "translate(-50%, -50%) scale(100%)";
     image.src = "../Images/GaleriaCientifica/SETA_" + IDSeta + ".png";
-    // Actualizar la información de los elementos del panel informativo
+    // Actualizar la información de los elementos del panel informativo.
+    // Esta función obtiene el elemento con ID "detail-nombre-científico", por ejemplo, y le pone el siguiente HTML:
+    // <span class="detail-name">Nombre científico: </span><span class="detail-content">nombreLegado</span>
+    // Es necesario separarlos para poder darles estilos distintos.
     showInfo("detail-nombre-legado", "Legado: ", titleCase(nombreLegado));
     showInfo("detail-nombre-determinado", "Determinado: ", titleCase(nombreDeterminado));
     showInfo("detail-nombre-cientifico", "Nombre científico: ", nombreCientifico);
@@ -49,12 +52,13 @@ function hideInfoPanel() {
     infoPanel.style.transform = "translate(-50%, -50%) scale(0%)";
 }
 
-function titleCase(str) {
-    var splitString = str.toLowerCase().split(' ');
-    for (var i = 0; i < splitString.length; i++) {
-        splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);     
-    }
-    return splitString.join(' '); 
+// Función que convierte una cadena a "title case", es decir, la primera letra de
+// cada palabra en mayúscula y el resto en minúsculas. Utilizado sobre todo para nombres y apellidos.
+// Fuente: https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
+function titleCase(string) {
+    // Convierte la primera letra en mayúsculas y el resto en minúsculas
+    // Explicación del patrón: https://www.rexegg.com/regex-quickstart.php
+    return string.toLowerCase().replace(/\b\w/g, firstLetter => firstLetter.toUpperCase());
  }
 
 // Evento que evita moverse por la página con la rueda del ratón si has abierto el panel informativo
