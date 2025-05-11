@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./Styles/detallesSeta.css"> <!-- Otros estilos -->
 
     <!-- Fuente de google: Titillium Web -->
+    <!-- HTML copiado de: https://fonts.google.com/specimen/Titillium+Web -->
+    <!-- Es necesario para que la fuente funcione en toda la página -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" />
@@ -91,38 +93,40 @@
     </div>
 </header>
 
-<body>
-    <main>
-        <h1 id="page-title">Galería Artística</h1>
-        <?php
-            if (isset($_SESSION["LOGGED-IN"])) echo '<a class="subir-seta" href="./Pages/subirFotoArtistica.php">SUBIR UNA FOTO</a>';
-        ?>
-        <div id="background-black-fade"></div>
-        <div id="detalles-seta">
-            <!-- SVG de la X para cerrar el panel, obtenido de la página antigua de somican -->
-            <svg viewBox="0 0 352 512" id="detail-close" onclick="hideInfoPanel()">
+<body> <!-- Elemento que contiene la información principal de la página -->
+    <main> <!-- Todos los <body> deben contener un <main> (u otro elemento) que contenga toda la información. Esto es necesario para que el footer funcione sin que se rompa la página. -->
+        <div class="title">
+            <h1>Galería Artística</h1> <!-- Título de la página -->
+            <div class="upload-photo-container"> <!-- Elemento que contiene el botón de subir foto, que sólo se crea cuando se ha iniciado sesión -->
+                <?php if (isset($_SESSION["LOGGED-IN"])) echo '<a class="upload-photo" href="./Pages/subirFotoArtistica.php">SUBIR UNA FOTO</a>'; ?>
+            </div>
+        </div>
+
+        <!-- Estos elementos están ocultos por defecto, ya que contienen la información de cada seta (imagen, comentarios, etc) que aparece al darle click a una seta. -->
+        <div id="background-black-fade"></div> <!-- Elemento que cubre toda la pantalla de color negro transparente al abrir la foto -->
+        <div id="mushroom-details">
+            <svg viewBox="0 0 352 512" id="detail-close"> <!-- SVG de la X que aparece arriba a la derecha para cerrar el panel informativo -->
                 <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
             </svg>
-            <div id="detail-image-container">
+            <div id="detail-image-container"> <!-- Contenedor con la imagen que se va a ver en el panel informativo -->
                 <img id="detail-image" draggable="false" alt="Seta" />
             </div>
-            <div class="detail-comment-container">
+            <div class="detail-comment-container"> <!-- Contenedor de la foto de perfil del socio y el comentario a su derecha -->
                 <img src="./Images/user-default.png" id="detail-profile-picture" draggable="false" alt="Foto de Perfil">
                 <span id="detail-comment"></span>
             </div>
         </div>
 
+        <!-- Elemento principal que contiene toda la galería -->
         <div id="gallery-container">
-            <div class="gallery">
+            <div class="gallery"> <!-- Este div es necesario para poder centrar la galería y ajustarlo mejor en la web, así como poner márgenes, ... -->
                 <?php
-                if (!session_id())
-                    session_start();
-                // Crear y ejecutar una consulta que devuelve todas las setas registradas.
+                // Crear y ejecutar una consulta que devuelve todas las setas registradas. La conexión la obtenemos de la sesión, que ha sido establecida en "connection.php"
                 $query = "SELECT * FROM retosomican.fotosSetas WHERE registrada = TRUE";
                 $result = mysqli_query($_SESSION["SQL"], $query);
                 // Bucle que pasa por todas las filas devueltas y crea elementos que contienen las setas
                 while ($row = mysqli_fetch_row($result)) {
-                    echo '<div onclick="showInfoPanel('.$row[0].', '.$row[1].', \''.$row[3].'\')">';
+                    echo '<div class="card" onclick="showInfoPanel('.$row[0].', '.$row[1].', \''.$row[3].'\')">';
                     echo "<img class='mushroom' src='./Images/GaleriaArtistica/SETA_$row[0].png' draggable='false' alt='Icono' />";
                     echo "<img class='user' src='./Images/FotosDePerfil/SOCIO_$row[1].png' alt='Usuario' />";
                     echo "</div>";
