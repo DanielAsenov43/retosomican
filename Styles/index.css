@@ -1,5 +1,4 @@
 body { /* Toda la página tendrá esta fuente y color de fondo: */
-body { /* Toda la página tendrá esta fuente y color de fondo: */
     font-family: var(--font);
     background-color: var(--color-secundario-fondo);
     /* { border: red 1px solid; } */
@@ -69,7 +68,6 @@ main { /* Elemento principal que contiene tanto el títlo como la galería */
                 text-align: center;
                 width: 250px;
                 height: min-content;
-                box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
                 box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
                 transition: 0.2s ease;
     

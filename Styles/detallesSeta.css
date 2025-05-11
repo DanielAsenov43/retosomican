@@ -19,7 +19,7 @@
         text-align: center;
 
         #detail-image {
-            max-width: 20vw;
+            max-width: 30vw;
             border-radius: 10px;
             user-select: none;
             transition: 0.35s ease-out;

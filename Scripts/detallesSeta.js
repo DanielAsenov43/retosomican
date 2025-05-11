@@ -5,13 +5,8 @@ let zoomedIn = false;
 window.addEventListener("load", () => {
     // Al cargar la página, inicializar los elementos
     background = document.getElementById("background-black-fade");
-    infoPanel = document.getElementById("detalles-seta");
+    infoPanel = document.getElementById("mushroom-details");
     image = document.getElementById("detail-image");
-
-    image.addEventListener("click", () => {
-        zoomedIn = !zoomedIn;
-        image.style.maxWidth = (zoomedIn) ? "50vw" : "20vw";
-    });
 });
 
 // Función que es llamada al darle click a una seta
