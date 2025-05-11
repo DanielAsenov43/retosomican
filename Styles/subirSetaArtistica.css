@@ -4,23 +4,23 @@ body {
     * { font-family: 'Titillium Web', sans-serif };
 }
 
-#container {
+#container { /* <div> con todo el contenido de la página */
     width: 500px;
-    height: auto;
+    height: min-content;
     background-color: var(--color-principal-fondo);
-    margin: 100px auto; /* TOP, RIGHT, BOTTOM, LEFT */
+    margin: 100px auto;
     box-shadow: 0 0 10px var(--color-secundario);
     text-align: center;
     justify-content: center;
     padding: 20px;
     border-radius: 10px;
 
-    h1 {
+    h1 { /* Título de la página */
         transform: translateY(-20px);
         color: var(--color-acento);
     }
 
-    form {
+    form { /* Formulario: Subir foto, comentario y botón para enviar. */
         #upload-image-container {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -28,7 +28,7 @@ body {
             text-align: center;
             display: flex;
             
-            #crop-label {
+            #crop-label { /* Botón para subir la foto; elemento generado por uploadImage.js */
                 z-index: 2;
                 display: grid;
                 align-items: center;
@@ -49,7 +49,7 @@ body {
                 }
             }
 
-            #preview-image {
+            #preview-image { /* Imagen que muestra la previsualización de la foto que se va a subir */
                 display: none;
                 width: 100%;
                 aspect-ratio: 16/9;
@@ -57,12 +57,12 @@ body {
             }
         }
 
-        .comment-container {
+        .comment-container { /* Contenedor principal del comentario */
             width: 100%;
             height: 100px;
             display: flex;
 
-            textarea {
+            textarea { /* Elemento del comentario en sí */
                 resize: none;
                 width: 100%;
                 height: 100%;
@@ -72,31 +72,29 @@ body {
                 border-radius: 0 0 20px 20px;
                 font-size: 1.2rem;
 
-                &::placeholder {
+                &::placeholder { /* Centrar el texto por defecto (placeholder) vertical y horizontalmente */
                     text-align: center;
                     line-height: 100px;
                 }
 
-                &:focus {
+                &:focus { /* Al hacer click sobre el comentario, traerlo delante de "Subir Foto" y cambiar el color */
                     border-color: var(--color-acento);
                     outline: none;
                     z-index: 3;
 
-                    &::placeholder {
-                        opacity: 0;
-                    }
+                    &::placeholder { opacity: 0; }
                 }
             }
         }
 
-        .button-container {
+        .button-container { /* Contenedor del botón para enviar el formulario */
             width: 100%;
             margin-top: 40px;
             
-            button {
+            button { /* Estilo del botón en sí */
                 padding: 10px 30px;
                 background-color: var(--color-terciario);
-                color: white;
+                color: var(--color-principal-fondo);
                 font-weight: bold;
                 font-size: 1.5rem;
                 text-transform: uppercase;

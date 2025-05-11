@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../Scripts/uploadImage.js"></script> <!-- Implementa la opción de subir y recortar una imagen con una relación de aspecto fija -->
 </head>
 
-<header>
+<header> <!-- Explicado en index.php -->
     <div class="header-top">
         <div class="left">
             <a href="https://www.somican.com">
@@ -35,6 +35,9 @@
             <h1>Sociedad Micológica Cántabra</h1>
         </div>
         <div class="right">
+            <a href="./perfil.php" class="profile">
+                <?php include "../PHPScripts/headerProfile.php"; ?>
+            </a>
             <a href="https://www.facebook.com/sociedad.micologicacantabra?locale=es_ES">
                 <!-- SVG's de facebook, youtube y email para no perder calidad -->
                 <svg class="facebook" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
@@ -89,24 +92,24 @@
 </header>
 
 <body>
-    <div id="container">
-        <h1>Subir una foto artística</h1>
-        <form action="../PHPScripts/uploadArtistic.php" method="POST">
-            <div id="upload-image-container">
+    <div id="container"> <!-- Contenedor principal con todos los elementos para subir una foto con un comentario -->
+        <h1>Subir una foto artística</h1> <!-- Título de la página -->
+        <form action="../PHPScripts/uploadArtistic.php" method="POST"> <!-- Formulario que sólo tiene el comentario como información. La imagen se pasa de forma externa a través de uploadImage.js -->
+            <div id="upload-image-container"> <!-- Contenedor con la imagen de previsualización (invisible) y el botón de selección de imagen -->
                 <img id="preview-image" alt="" draggable="false">
                 <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="ARTISTIC-PICTURE-SRC" preview="preview-image" required/>
             </div>
-            <div class="comment-container">
+            <div class="comment-container"> <!-- Contenedor del comentario, div utilizado para ajustar su posición -->
                 <textarea name="comentario" rows="4" maxlength="512" placeholder="Comentario (opcional)"></textarea>
             </div>
-            <div class="button-container">
+            <div class="button-container"> <!-- Sontenedor del botón, utilizado para centrarlo. -->
                 <button type="submit" id="upload-button">Subir Foto</button>
             </div>
         </form>
     </div>
 </body>
 
-<footer>
+<footer> <!-- Explicado en index.php -->
     <div class="top navigation-bar">
         <div class="dropdown">
             <h2>Somican +</h2>
