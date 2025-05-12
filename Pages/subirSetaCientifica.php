@@ -95,27 +95,16 @@
             <div class="row">
                 <div class="column">
                     <div class="hint">*obligatorio</div>
-            <div class="row">
-                <div class="column">
-                    <div class="hint">*obligatorio</div>
 
-                    <label for="nombre-cientifico">Nombre científico<span>*</span></label>
-                    <input type="text" name="nombre-cientifico" maxlength="64" required placeholder='Ej. "Agaricus benesii"' />
                     <label for="nombre-cientifico">Nombre científico<span>*</span></label>
                     <input type="text" name="nombre-cientifico" maxlength="64" required placeholder='Ej. "Agaricus benesii"' />
 
                     <label for="fecha">Fecha de recogida<span>*</span></label>
                     <input type="date" name="fecha" required />
-                    <label for="fecha">Fecha de recogida<span>*</span></label>
-                    <input type="date" name="fecha" required />
 
                     <label for="lugar">Lugar de recogida<span>*</span></label>
                     <input type="text" name="lugar" maxlength="32" required placeholder='Ej. "Santander"' />
-                    <label for="lugar">Lugar de recogida<span>*</span></label>
-                    <input type="text" name="lugar" maxlength="32" required placeholder='Ej. "Santander"' />
 
-                    <label for="habitat">Hábitat<span>*</span></label>
-                    <input type="text" name="habitat" maxlength="32" required placeholder='Ej. "Pinar"'/>
                     <label for="habitat">Hábitat<span>*</span></label>
                     <input type="text" name="habitat" maxlength="32" required placeholder='Ej. "Pinar"'/>
 
@@ -144,21 +133,13 @@
 
                     <label for="olor">Olor</label>
                     <input type="text" name="olor" maxlength="32" placeholder='Ej. "Lavanda"' />
-                    <label for="olor">Olor</label>
-                    <input type="text" name="olor" maxlength="32" placeholder='Ej. "Lavanda"' />
 
-                    <label for="sabor">Sabor</label>
-                    <input type="text" name="sabor" maxlength="32" placeholder='Ej. "Harina"' />
                     <label for="sabor">Sabor</label>
                     <input type="text" name="sabor" maxlength="32" placeholder='Ej. "Harina"' />
 
                     <label for="suelo">Tipo de suelo</label>
                     <input type="text" name="suelo" maxlength="32" placeholder='Ej. "Suelo herboso"' />
-                    <label for="suelo">Tipo de suelo</label>
-                    <input type="text" name="suelo" maxlength="32" placeholder='Ej. "Suelo herboso"' />
 
-                    <label for="clima">Climatología</label>
-                    <input type="text" name="clima" maxlength="32" placeholder='Ej. "Templado"' />
                     <label for="clima">Climatología</label>
                     <input type="text" name="clima" maxlength="32" placeholder='Ej. "Templado"' />
 
@@ -170,15 +151,6 @@
             </div>
             <div class="form-button">
                 <button type="submit">SUBIR</button>
-                    <div class="observaciones">
-                        <label>Observaciones</label>
-                        <textarea name="observaciones" rows="4" maxlength="512"></textarea>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="form-button">
-                <button type="submit">ENVIAR</button>
             </div>
         </form>
     </div>
