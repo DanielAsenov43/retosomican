@@ -13,9 +13,7 @@ $emailQuery = "SELECT * FROM retosomican.socios WHERE email LIKE \"" . $userEmai
 $result = mysqli_query($_SESSION["SQL"], $emailQuery);
 
 if(mysqli_num_rows($result) <= 0) { // No existe un usuario registrado con ese correo
-    // Error: correo no registrado
-    $_SESSION["ERROR-LOGIN"] = "¡Correo incorrecto!";
-    header("location: ../Pages/accesoSocios.php");
+    wrongEmail(); // Error: correo no registrado
     return;
 }
 
@@ -44,8 +42,12 @@ function setSessionInfo($userID, $userName, $userSurname, $userEmail, $loggedIn)
     $_SESSION["USER-SURNAME"] = $userSurname;
     $_SESSION["USER-EMAIL"] = $userEmail;
 }
+function wrongEmail() {
+    $_SESSION["ERROR-LOGIN"] = "¡El correo o la contraseña no son correctos!";
+    header("location: ../Pages/accesoSocios.php");
+}
 function wrongPassword() {
-    $_SESSION["ERROR-LOGIN"] = "¡Contraseña incorrecta!";
+    $_SESSION["ERROR-LOGIN"] = "¡El correo o la contraseña no son correctos!";
     header("location: ../Pages/accesoSocios.php");
 }
 ?>

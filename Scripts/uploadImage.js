@@ -1,6 +1,6 @@
 let cropper;
 let aspectRatio, PHPScript, sourceTag;
-let popupActive = false;
+let popupActive = false, hideLabel = true;
 // Elementos HTML
 let head, uploadImageElement, label;
 let popupBackground, popupContainer, cropContainer;
@@ -32,6 +32,7 @@ function init() {
     PHPScript = getUploadAttribute("phpScript", "El elemento <input> necesita tener un atributo \"phpScript\" con su ruta!");
     sourceTag = getUploadAttribute("sourceTag", "El elemento <input> necesita tener un atributo \"sourceTag\" con su nombre!");
     previewImage = document.getElementById(getUploadAttribute("preview"));
+    hideLabel = !uploadImageElement.hasAttribute("dontHideLabel");
     setupListeners();
 }
 
@@ -73,7 +74,7 @@ function crop() {
     if(previewImage) {
         previewImage.src = imageSource;
         previewImage.style.display = "block";
-        label.style.display = "none";
+        if(hideLabel) label.style.display = "none";
     }
     hidePopup();
 }

@@ -5,134 +5,142 @@ body {
     background-color: var(--color-secundario-fondo);
 }
 
-#background-image {
-    opacity: 25%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    aspect-ratio: inherit;
-    position: fixed;
-    z-index: -1;
-}
+main {
+    .title { /* Este elemento contiene el título (posición absoluta para centrarlo) y el botón de subir imagen */
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        height: 150px;
 
-.titulo {
-    user-select: none;
-    z-index: -1;
-    width: 100%;
-    text-align: center;
-    color: rgb(224, 58, 58);
-    font-size: 3rem;
-    position: absolute;
-}
+        h1 { /* Estilo del título */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            user-select: none;
+            text-align: center;
+            color: var(--color-acento);
+            font-size: 3rem;
+        }
 
-.subir-seta {
-    z-index: 2;
-    position: absolute;
-    right: 55px;
-    transform: translateY(40px);
-    padding: 20px 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 0px;
-    background-color: #78c4fc;
-    color: #fff;
-    border: none;
-    user-select: none;
-    text-decoration: none;
+        .upload-mushroom-container { /* Estilo del botón a la derecha, primero el contenedor y luego el botón en sí */
+            display: grid;
+            align-items: center;
+            width: 300px;
+            user-select: none;
 
-    &:hover {
-        background-color: rgb(224, 58, 58);
+            .upload-mushroom { /* Estilo del botón */
+                width: min-content;
+                text-align: center;
+                text-decoration: none;
+                text-wrap: nowrap;
+                font-size: 1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                background-color: var(--color-terciario);
+                color: var(--color-principal-fondo);
+                padding: 15px 25px;
+
+                &:hover { background-color: var(--color-acento); }
+            }
+        }
     }
-}
-
-.search-box {
-    margin: 120px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--color-principal);
-    border: none;
-    padding: 10px 15px 10px 10px;
-    border-radius: 5px;
-    width: min-content;
-
-    input {
-        padding: 10px 15px;
-        font-size: 1rem;
-        border: 2px solid #ccc;
+    
+    .search-box { /* Estilo del contenedor de la caja de búsqueda, que contiene el <input> y la imagen de la lupa */
+        display: flex;
+        align-items: center;
+        padding: 10px 15px 10px 10px;
+        margin: 50px auto;
+        transform: translateY(-100%);
+        gap: 10px;
+        background-color: var(--color-principal);
+        border: none;
         border-radius: 5px;
-        width: 250px;
+        width: min-content;
+        user-select: none;
+    
+        input { /* La caja de búsqueda */
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+        }
+    
+        img { /* La imagen de la lupa, a la izquierda de la caja de búsqueda */
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+    /* Galería de setas */
+    #gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateY(-75px);
+
+        div { /* Estilo de cada carta (seta) de la galería */
+            background-color: var(--color-principal-fondo);
+            border: 1px solid var(--color-secundario);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            img { /* Cada imagen de cada carta de la galería */
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                user-select: none;
+            }
+
+             /* Estilos del nombre científico, común y la fecha dentro de la carta */
+            .nombreCientifico {
+                font-weight: bold;
+                font-style: italic;
+                margin: 5px 0;
+            }
+            
+            .nombreComun {
+                color: var(--color-terciario);
+                margin: 5px 0;
+            }
+            
+            .fecha {
+                font-size: 1rem;
+                color: var(--color-titulo);
+            }
+            
+            &:hover { /* Al pasar el ratón por encima, agrandar la carta y acentuár la sombra */
+                cursor: pointer;
+                transform: scale(1.02);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+    
+    #sin-resultados { /* Estilo del <span> que aparece cuando no hay resultados de búsqueda */
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -200%);
+        font-weight: bold;
+        font-size: 1.5rem;
+        opacity: 40%;
     }
 
-    img {
-        width: 20px;
-        height: 20px;
+    .hidden { /* Estilo de la información permanente de cada seta de la galería */
+        display: none;
     }
-}
 
-/* Galería de setas */
-#setas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translateY(-75px);
-}
-
-#setas > div {
-    /* selecciona en el elemento con id="setas" hijos directos que son <div> */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-    &:hover {
-        cursor: pointer;
-        transform: scale(1.02);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    .highlight { /* Estilo del texto resaltado en cada seta de los resultados de búsqueda. */
+        background-color: var(--color-acento);
+        color: var(--color-principal-fondo);
     }
-}
-
-#setas img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    user-select: none;
-}
-
-.nombreCientifico {
-    font-weight: bold;
-    font-style: italic;
-    margin: 5px 0;
-}
-
-.nombreComun {
-    color: #555;
-    margin: 5px 0;
-}
-
-.fecha {
-    font-size: 0.9rem;
-    color: #888;
-}
-
-#sin-resultados {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -200%);
-    font-weight: bold;
-    font-size: 1.2vw;
-    opacity: 40%;
 }

@@ -1,4 +1,4 @@
-#detalles-seta {
+#mushroom-details {
     transform-origin: center center;
     position: fixed;
     width: min-content;
@@ -19,7 +19,7 @@
         text-align: center;
 
         #detail-image {
-            max-width: 20vw;
+            max-width: 30vw;
             border-radius: 10px;
             user-select: none;
             transition: 0.35s ease-out;
@@ -65,6 +65,7 @@
             border-radius: 50%;
             border: var(--color-secundario) 5px solid;
             margin: 20px;
+            background-color: rgba(0, 0, 0, 20%);
         }
 
         #detail-comment {

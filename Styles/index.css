@@ -1,98 +1,98 @@
-html {
-    /* Colores */
-    --color-principal: rgb(121, 199, 255);
-    --color-secundario: rgb(151, 187, 219);
-    --color-acento: rgb(224, 58, 58);
-    --color-principal-fondo: white;
-    --color-secundario-fondo: aliceblue;
-}
-
-body {
-    margin: 0px;
-    font-family: "Titillium web", sans-serif;
-    justify-content: center;
+body { /* Toda la página tendrá esta fuente y color de fondo: */
+    font-family: var(--font);
     background-color: var(--color-secundario-fondo);
-
-    .title {
-        user-select: none;
-        z-index: -1;
-        width: 100%;
-        text-align: center;
-        color: var(--color-acento);
-        font-size: 3rem;
-        position: absolute;
-    }
+    /* { border: red 1px solid; } */
 }
 
-.subir-seta {
-    z-index: 2;
-    position: absolute;
-    right: 55px;
-    transform: translateY(40px);
-    padding: 20px 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 0px;
-    background-color: var(--color-principal);
-    color: white;
-    border: none;
-    user-select: none;
-    text-decoration: none;
+main { /* Elemento principal que contiene tanto el títlo como la galería */
+    display: flex;
+    flex-direction: column;
 
-    &:hover {
-        background-color: var(--color-acento);
-    }
-}
-
-#gallery-container {
-    width: 100%;
-    margin-top: 170px;
-    position: relative;
-
-    * {
-        user-select: none;
-    }
-    .gallery {
+    .title { /* Este elemento contiene el título (posición absoluta para centrarlo) y el botón de subir imagen */
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 50px 35px;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-bottom: 100px;
+        flex-direction: row;
+        justify-content: right;
+        height: 150px;
 
-        div {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 10px;
+        h1 { /* Estilo del título */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            user-select: none;
             text-align: center;
-            width: 250px;
-            height: min-content;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: 0.2s ease;
+            color: var(--color-acento);
+            font-size: 3rem;
+        }
 
-            .mushroom {
+        .upload-photo-container { /* Estilo del botón a la derecha, primero el contenedor y luego el botón en sí */
+            display: grid;
+            align-items: center;
+            width: 300px;
+
+            .upload-photo { /* Estilo del botón */
+                width: min-content;
+                text-align: center;
+                text-decoration: none;
+                text-wrap: nowrap;
+                font-size: 1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                background-color: var(--color-terciario);
+                color: var(--color-principal-fondo);
+                padding: 15px 25px;
+
+                &:hover { background-color: var(--color-acento); }
+            }
+        }
+    }
+    
+    #gallery-container { /* Contenedor de la galería en sí */
+        width: 100%;
+        user-select: none;
+
+        .gallery { /* Div que contiene la galería. Es necesario para establecer márgenes y ajustar su contenido */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px 35px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 100px;
+    
+            .card { /* Estilo de cada seta, con su imagen y foto de perfil del socio. A este contenedor le llamamos "card" */
+                background-color: var(--color-principal-fondo);
+                border: 1px var(--color-principal) solid;
+                padding: 15px;
                 border-radius: 10px;
-                width: 100%;
-                aspect-ratio: auto;
-            }
+                text-align: center;
+                width: 250px;
+                height: min-content;
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+                transition: 0.2s ease;
+    
+                .mushroom { /* Estilo de la imagen de la seta en cada carta */
+                    border-radius: 10px;
+                    width: 100%;
+                    aspect-ratio: auto;
+                }
 
-            &:hover {
-                transition-duration: 0.05s;
-                filter: brightness(90%);
-                scale: 1.02;
-                cursor: pointer;
-            }
-
-            .user {
-                position: absolute;
-                width: 60px;
-                transform: translate(-250px, 120px);
-                z-index: 1;
-                border-radius: 50%;
-                border: var(--color-secundario) 5px solid;
+                .user { /* Estilo de la foto de perfil de cada usuario en cada carta */
+                    position: absolute;
+                    width: 60px;
+                    transform: translate(-250px, 120px);
+                    z-index: 1;
+                    border-radius: 50%;
+                    border: var(--color-secundario) 5px solid;
+                    background-color: rgba(0, 0, 0, 20%);
+                }
+    
+                &:hover { /* Al pasar el ratón por encima de cada carta */
+                    transition-duration: 0.05s;
+                    filter: brightness(90%);
+                    scale: 1.02;
+                    cursor: pointer;
+                }
             }
         }
     }
