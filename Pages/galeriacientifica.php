@@ -3,7 +3,10 @@
 <html lang="es">
 <head>
     <?php
-        if(!isset($_SESSION["LOGGED-IN"])) header("location: ./accesoSocios.php");
+        if(!isset($_SESSION["LOGGED-IN"])) {
+            $_SESSION["NEXT"] = "galeriaCientifica.php";
+            header("location: ./accesoSocios.php");
+        }
     ?>
     <!-- Explicado en index.php -->
     <meta charset="UTF-8" />
@@ -146,7 +149,7 @@
                 // Generamos un div principal que llama a una función de JS al darle click. La función es explicada
                 // en detallesSeta.js, y recibe por parámetros todos los datos relevantes de la seta.
                 echo "<div onclick=\"showInfoPanel($row[0], '$nombreLegado', '$row[3]', '$row[4]', '$row[5]', '$row[6]', '$row[7]', '$row[8]', '$row[9]', '$row[10]', '$row[11]', '$row[12]', '$row[13]', '$row[14]')\">";
-                echo "<img src='../Images/GaleriaCientifica/SETA_$row[0].png' alt='Icono' />";
+                echo "<img src='../Images/GaleriaCientifica/SETA_$row[0].png' draggable='false' alt='Icono' />";
                 // Información principal de la seta. Su contenido puede ser alterado por buscador.js
                 echo "<p class='nombreCientifico'>$row[4]</p>";
                 echo "<p class='nombreComun'>$row[5]</p>";

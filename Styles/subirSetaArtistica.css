@@ -1,10 +1,4 @@
-body {
-    margin: 0;
-    background-color: var(--color-secundario-fondo);
-    * { font-family: 'Titillium Web', sans-serif };
-}
-
-#container { /* <div> con todo el contenido de la página */
+main { /* <div> con todo el contenido de la página */
     width: 500px;
     height: min-content;
     background-color: var(--color-principal-fondo);

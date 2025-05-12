@@ -3,7 +3,10 @@
 <?php include "../PHPScripts/connection.php"; ?>
 <head>
     <?php
-        if(!isset($_SESSION["LOGGED-IN"])) header("location: ./accesoSocios.php");
+        if(!isset($_SESSION["LOGGED-IN"])) {
+            $_SESSION["NEXT"] = "../index.php";
+            header("location: ./accesoSocios.php");
+        }
     ?>
     <!-- Explicado en index.php -->
     <meta charset="UTF-8" />
@@ -69,7 +72,7 @@
             <h2>Galerías +</h2>
             <div class="dropdown-content">
                 <a href="../index.php">Galería Artística</a>
-                <a href="./galeriaCientifica.php">Galería Científica</a>
+                <a href="./galeriaCientifica.pgp">Galería Científica</a>
             </div>
         </div>
         <div class="button">
@@ -123,7 +126,7 @@
         </div>
     </div>
     <!-- Contenido principal de esta página -->
-    <div id="container">
+    <main>
         <h1 class="page-title">Perfil de Socio</h1> <!-- Título -->
 
         <div class="profile-container"> <!-- Contenedor con la foto de perfil a la izquierda y la información a la derecha -->
@@ -170,7 +173,7 @@
         <div class="logout"> <!-- Div que contiene un botón para cerrar la sesión. -->
             <a href="../PHPScripts/logout.php">Cerrar Sesión</a>
         </div>
-    </div>
+    </main>
 </body>
 
 <footer> <!-- Explicado en index.php -->

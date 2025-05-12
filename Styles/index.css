@@ -1,9 +1,3 @@
-body { /* Toda la página tendrá esta fuente y color de fondo: */
-    font-family: var(--font);
-    background-color: var(--color-secundario-fondo);
-    /* { border: red 1px solid; } */
-}
-
 main { /* Elemento principal que contiene tanto el títlo como la galería */
     display: flex;
     flex-direction: column;

@@ -23,6 +23,8 @@ body { /* https://matthewjamestaylor.com/bottom-footer */
     grid-template-columns: 100%;
     min-height: 100vh; /* "Viewport Height" para que ocupe toda la parte visible de la página */
     min-height: 100svh; /* "Small Viewport Height" para buscadores modernos */
+    background-color: var(--color-secundario-fondo);
+    * { font-family: var(--font); }
 }
 
 header { /* El header se divide en 2 mitades: header-top y header-bottom, una encima de otra */

@@ -1,10 +1,4 @@
-body {
-    justify-content: center;
-    background-color: var(--color-secundario-fondo);
-    * { font-family: "Titillium web", sans-serif; }
-}
-
-#container { /* Contenedor principal de la página, que no contiene elementos ocultos. */
+main { /* Contenedor principal de la página, que no contiene elementos ocultos. */
     display: flex;
     flex-direction: column;
 
@@ -85,6 +79,7 @@ body {
                         font-weight: bold;
                         border: none;
                         font-size: 1rem;
+                        text-wrap: nowrap;
     
                         &:hover {
                             transition: 0.1s ease-out;

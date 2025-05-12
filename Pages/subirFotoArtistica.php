@@ -91,7 +91,7 @@
 </header>
 
 <body>
-    <div id="container"> <!-- Contenedor principal con todos los elementos para subir una foto con un comentario -->
+    <main> <!-- Contenedor principal con todos los elementos para subir una foto con un comentario -->
         <h1>Subir una foto artística</h1> <!-- Título de la página -->
         <form action="../PHPScripts/uploadArtistic.php" method="POST"> <!-- Formulario que sólo tiene el comentario como información. La imagen se pasa de forma externa a través de uploadImage.js -->
             <div id="upload-image-container"> <!-- Contenedor con la imagen de previsualización (invisible) y el botón de selección de imagen -->
@@ -105,7 +105,7 @@
                 <button type="submit" id="upload-button">Subir Foto</button>
             </div>
         </form>
-    </div>
+    </main>
 </body>
 
 <footer> <!-- Explicado en index.php -->
