@@ -66,7 +66,7 @@ header { /* El header se divide en 2 mitades: header-top y header-bottom, una en
                 text-wrap: nowrap;
             }
 
-            @media (max-width: 1500px) { /* Si la página se estrecha demasiado, ocultar el título */
+            @media (max-width: 1300px) { /* Si la página se estrecha demasiado, ocultar el título */
                 h1 { visibility: hidden; }
             }
             
@@ -326,12 +326,6 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
             .subtitle { margin: -15px 0 15px 0; }
 
             .description { margin-top: -5px; }
-
-            @media (max-width: 1400px) { /* Ocultar esta parte si la página se estrecha demasiado */
-                .title, .subtitle, .description {
-                    visibility: hidden;
-                }
-            }
         }
 
         .right { /* La parte de la derecha contiene el logo del ayuntamiento, información de contacto y el mapa */
@@ -352,6 +346,10 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
                 }
             }
 
+            @media (max-width: 1400px) { /* Ocultar esta parte si la página se estrecha demasiado */
+                .logo { visibility: hidden; }
+            }
+
             .contact-info { /* Texto de la información de contacto */
                 margin: auto 20px auto auto; /* 20px a la derecha */
                 line-height: 5px;
@@ -361,7 +359,7 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
             }
 
             .map { /* Estilo del mapa. Como es un <iframe>, es complicado alterarlo. */
-                border: var(--color-terciario) 5px dashed;
+                border: var(--color-secundario) 5px solid;
                 background-color: var(--color-secundario-fondo);
                 user-select: none;
             }

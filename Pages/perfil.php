@@ -69,7 +69,7 @@
             <h2>Galerías +</h2>
             <div class="dropdown-content">
                 <a href="../index.php">Galería Artística</a>
-                <a href="">Galería Científica</a>
+                <a href="./galeriaCientifica.php">Galería Científica</a>
             </div>
         </div>
         <div class="button">

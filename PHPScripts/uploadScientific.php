@@ -5,8 +5,10 @@ $connection = $_SESSION["SQL"];
 $GLOBALS["FILENAME"] = "SETA_{ID}.png";
 $GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/";
 
-$RESULT_SUCCESS_MESSAGE = "¡La seta se ha subido con éxito!";
-$RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
+$RESULT_SUCCESS_MESSAGE = "¡La seta ha sido enviada con éxito!";
+$RESULT_SUCCESS_COMMENT = "Gracias por tu colaboración. La información ha sido enviada correctamente y será revisada por nuestro equipo.";
+$RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta";
+$RESULT_ERROR_COMMENT = "Se ha producido un error interno a la hora de subir la seta. Por favor, inténtelo más tarde o contacte con un administrador.";
 
 if(!isset($_SESSION["LOGGED-IN"])){
     // Si el usuario no está registrado
@@ -46,8 +48,14 @@ olor, sabor, tipoSuelo, climatologia, observaciones) VALUES
 ".$olor.", ".$sabor.", ".$suelo.", ".$clima.", ".$observaciones.")";
 
 // Ejecutar la consulta
-if ($connection -> query($query)) $_SESSION["RESULT"] = "<span class='success'>".$RESULT_SUCCESS_MESSAGE."</span>";
-else $_SESSION["RESULT"] = "<span class='error'>".$RESULT_ERROR_MESSAGE."</span>";
+if ($connection -> query($query)) {
+    $_SESSION["RESULT"] = "<span class='success'>".$RESULT_SUCCESS_MESSAGE."</span>";
+    $_SESSION["RESULT-COMMENT"] = $RESULT_SUCCESS_COMMENT;
+}
+else {
+    $_SESSION["RESULT"] = "<span class='error'>".$RESULT_ERROR_MESSAGE."</span>";
+    $_SESSION["RESULT-COMMENT"] = $RESULT_ERROR_COMMENT;
+}
 
 header("location: ../Pages/resultadoSubirSeta.php");
 

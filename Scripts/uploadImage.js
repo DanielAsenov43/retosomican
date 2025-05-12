@@ -25,7 +25,7 @@ function init() {
     newElement(head, "link", { "rel": "stylesheet", "href": "../cropperjs/cropper.css" });
     newElement(head, "link", { "rel": "stylesheet", "href": "../Styles/uploadImage.css" }, true);
     label = newElement(uploadImageElement.parentElement, "label", { for: INPUT_ID, id: LABEL_ID });
-    label.innerHTML = "Subir Imagen";
+    label.innerHTML = getUploadAttribute("text") || "Subir Imagen";
     // Otras operaciones
     aspectRatio = (uploadImageElement.hasAttribute("aspectRatio")) ? eval(uploadImageElement.getAttribute("aspectRatio")) : 1;
     
@@ -33,6 +33,8 @@ function init() {
     sourceTag = getUploadAttribute("sourceTag", "El elemento <input> necesita tener un atributo \"sourceTag\" con su nombre!");
     previewImage = document.getElementById(getUploadAttribute("preview"));
     hideLabel = !uploadImageElement.hasAttribute("dontHideLabel");
+    sourceTag = getUploadAttribute("sourceTag", "El elemento <input> necesita tener un atributo \"sourceTag\" con su nombre!");
+
     setupListeners();
 }
 
@@ -65,7 +67,7 @@ function createImageUploadPopup(event) {
     });
     cropButton = newElement(popupContainer, "button", { class: POPUP_CROP_BUTTON_ID, id: POPUP_CROP_BUTTON_ID });
     cropButton.addEventListener("click", crop);
-    cropButton.innerHTML = "Subir imagen";
+    cropButton.innerHTML = "Subir Imagen";
 }
 
 function crop() {
@@ -95,9 +97,9 @@ window.addEventListener("keydown", (event) => {
 });
 
 // Evento que quita el panel informativo al hacer click fuera de éste
-/*window.addEventListener("click", (event) => {
+window.addEventListener("click", (event) => {
     if(popupActive && event.target.id == popupBackground.id) hidePopup();
-});*/
+});
 // Otras funciones
 function newElement(parent, elementType, attributes={}, firstChild=false) {
     let element = document.createElement(elementType);
