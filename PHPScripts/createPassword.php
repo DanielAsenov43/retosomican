@@ -25,7 +25,9 @@ if($password == strtolower($password)) {
     return;
 }
 
+// Encriptación
 $password = password_hash($password, PASSWORD_DEFAULT);
+
 $createPasswordQuery = "UPDATE retosomican.socios SET contrasenia = '$password', clave = NULL WHERE ID = " . $_SESSION["USER-ID"];
 if($connection -> query($createPasswordQuery)) {
     $_SESSION["USER-PASSWORD"] = $password;
