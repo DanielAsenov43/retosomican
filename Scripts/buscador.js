@@ -6,7 +6,7 @@ let oldFilterText, newFilterText; // Texto para comparar lo que se ha buscado
 window.addEventListener("load", () => {
     // Inicializar elementos
     buscador = document.getElementById("caja-de-busqueda");
-    setas = document.getElementById("galeria").children;
+    setas = document.getElementById("gallery").children;
     sinResultados = document.getElementById("sin-resultados");
 
     // Inicializar bucle principal que comprueba cada 0.01s lo que hay en la barra de búsqueda.

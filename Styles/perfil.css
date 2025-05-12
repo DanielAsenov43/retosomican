@@ -18,7 +18,6 @@ body {
         margin-left: auto;
         margin-right: auto;
         gap: 50px;
-        margin-top: 50px;
 
         .profile-picture-container { /* Contenedor de la foto de perfil del socio y el botón para cambiarlo */
             display: flex;
@@ -113,7 +112,8 @@ body {
     .logout { /* Botón para cerrar sesión */
         width: 100vw;
         text-align: center;
-        margin-top: 60px;
+        margin-top: 50px;
+        margin-bottom: 50px;
         user-select: none;
 
         a {
