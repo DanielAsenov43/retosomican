@@ -1,14 +1,14 @@
-img {
+img { /* Estilo de todas las imágenes con las que se trabajen. Es necesario para que todo se vea correctamente. */
     max-width: 100%;
     height: auto;
 }
 
-#crop {
+#crop { /* Ocultamos el elemento con ID "crop" porque se genera automáticamente con JS */
     display: none;
 }
 
-#crop-label {
-    background-color: rgb(100, 160, 212);
+#crop-label { /* Este es el nuevo botón, con un estilo por defecto, que sustituye al input. */
+    background-color: var(--color-terciario);
     font-weight: bold;
     color: white;
     padding: 10px 20px;
@@ -20,7 +20,7 @@ img {
     }
 }
 
-#crop-popup-background {
+#crop-popup-background { /* Estilo del fondo del panel para recortar la imagen */
     position: fixed;
     z-index: 2;
     top: 0;
@@ -28,11 +28,8 @@ img {
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 40%);
-    * {
-        font-family: "Titillium Web", sans-serif;
-    }
 
-    #crop-popup-container {
+    #crop-popup-container { /* Contenedor principal con la interfaz de recorte de imagen y el botón para subirlo */
         position: absolute;
         left: 50%;
         top: 50%;
@@ -49,12 +46,12 @@ img {
         justify-content: center;
         text-align: center;
         
-        .crop-popup-button {
+        .crop-popup-button { /* Estilo del botón para confirmar el recorte de la imagen */
             padding: 20px 10px;
             border: none;
             margin-top: 20px;
-            background-color: rgb(100, 160, 212);
-            color: white;
+            background-color: var(--color-secundario);
+            color: var(--color-principal-fondo);
             font-weight: bold;
             text-transform: uppercase;
             font-size: 1.5rem;

@@ -35,6 +35,7 @@ if($claveBBDD == null || $claveBBDD == "" || $claveBBDD == "NULL") {
     if(password_verify($userPassword, $row[5])) { // Comparamos la contraseña del formulario con la de la BBDD
         // Si la contraseña coincide, incializamos todas las variables de la sesión:
         setSessionInfo(true, $row[0], $row[1], $row[2], $row[3]);
+        
         $_SESSION["USER-PASSWORD"] = $row[5]; // Establecemos la contraseña
         if($row[4] != null && $row[4] != "" && $row[4] != "NULL") { // Si el número de teléfono no es nulo, se lo establecemos
             $_SESSION["USER-PHONE-NUMBER"] = $row[4];
