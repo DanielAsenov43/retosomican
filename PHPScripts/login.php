@@ -9,7 +9,7 @@ if(!isset($_POST["email"]) || !isset( $_POST["password"])){
 $userEmail = $_POST["email"];
 $userPassword = $_POST["password"];
 
-$emailQuery = "SELECT * FROM retosomican.socios WHERE email LIKE \"" . $userEmail . "\"";
+$emailQuery = "SELECT * FROM retosomican.socios WHERE email LIKE \"$userEmail\"";
 $result = mysqli_query($_SESSION["SQL"], $emailQuery);
 
 if(mysqli_num_rows($result) <= 0) { // No existe un usuario registrado con ese correo
@@ -19,7 +19,7 @@ if(mysqli_num_rows($result) <= 0) { // No existe un usuario registrado con ese c
 
 $row = mysqli_fetch_array($result);
 
-if($row[6] == null || $row[6] == "") { // El usuario ya tiene contraseña (se ha registrado)
+if($row[6] == null || $row[6] == "" || $row[6] == "NULL") { // El usuario ya tiene contraseña (se ha registrado)
     if(password_verify($userPassword, $row[5])) {
         // Si la contraseña coincide:
         setSessionInfo(true, $row[0], $row[1], $row[2], $row[3], $row[4]);
@@ -27,14 +27,15 @@ if($row[6] == null || $row[6] == "") { // El usuario ya tiene contraseña (se ha
         login();
     } else wrongPassword();
 } else {
-    if(intval($userPassword) == $row[6]) {
-        setSessionInfo(false, $row[0], $row[1], $row[2], $row[3], $row[4]);
+    if($userPassword == $row[6]) {
+        setSessionInfo($row[0], $row[1], $row[2], $row[3], false);
         header("location: ../Pages/crearContrasenia.php");
-
     } else wrongPassword();
 }
 
-function setSessionInfo($loggedIn, $userID, $userName, $userSurname, $userEmail, $userPhoneNumber) {
+
+
+function setSessionInfo($userID, $userName, $userSurname, $userEmail, $loggedIn) {
     if($loggedIn) $_SESSION["LOGGED-IN"] = true;
     $_SESSION["USER-ID"] = $userID;
     $_SESSION["USER-NAME"] = $userName;
@@ -55,6 +56,6 @@ function login() {
     if(isset($_SESSION["NEXT"])) {
         header("location: ../Pages/".$_SESSION["NEXT"]);
         unset($_SESSION["NEXT"]);
-    } else header("location: ../Pages/GaleriaCientifica.php");
+    } else header("location: ../Pages/galeriaCientifica.php");
 }
 ?>

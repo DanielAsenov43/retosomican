@@ -77,6 +77,7 @@ main {
         transform: translateY(-75px);
 
         div { /* Estilo de cada carta (seta) de la galería */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             background-color: var(--color-principal-fondo);
             border: 1px solid var(--color-secundario);
             padding: 15px;
@@ -84,7 +85,6 @@ main {
             text-align: center;
             width: 250px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
 
             img { /* Cada imagen de cada carta de la galería */
                 width: 100%;
