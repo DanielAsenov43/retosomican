@@ -36,6 +36,9 @@ if($claveBBDD == null || $claveBBDD == "" || $claveBBDD == "NULL") {
         // Si la contraseña coincide, incializamos todas las variables de la sesión:
         setSessionInfo(true, $row[0], $row[1], $row[2], $row[3]);
         $_SESSION["USER-PASSWORD"] = $row[5]; // Establecemos la contraseña
+        if($row[4] != null && $row[4] != "" && $row[4] != "NULL") { // Si el número de teléfono no es nulo, se lo establecemos
+            $_SESSION["USER-PHONE-NUMBER"] = $row[4];
+        }
         login(); // Ejecutamos la función login(), que le lleva a otra página una vez registrado
     } else wrongPassword(); // Si la contraseña no coincide, ejecutamos la función wrongPassword();
 // Si la clave no es nula, significa que el socio todavía no se ha registrado, así que hay que comparar con la clave de la BBDD
@@ -57,7 +60,6 @@ function setSessionInfo($loggedIn, $userID, $userName, $userSurname, $userEmail)
     $_SESSION["USER-NAME"] = $userName;
     $_SESSION["USER-SURNAME"] = $userSurname;
     $_SESSION["USER-EMAIL"] = $userEmail;
-    $_SESSION["USER-PHONE-NUMBER"] = $userPhoneNumber;
 }
 // Función que muestra un mensaje de "correo incorrecto" y te manda a la misma página para volver a iniciar sesión
 function wrongEmail() {
