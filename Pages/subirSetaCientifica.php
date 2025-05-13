@@ -119,17 +119,6 @@
                 <div class="column">
                     <label for="nombre-comun">Nombre común</label>
                     <input type="text" name="nombre-comun" maxlength="64" placeholder='Ej. "Champiñón de escamas"' />
-                    <label for="altura">Altura sobre el nivel del mar<span>*</span></label>
-                    <input type="number" name="altura" min="0" max="8848" required placeholder='(metros)' />
-                
-                    <div class="upload-image">
-                        <img id="preview-image" alt="" draggable="false">
-                        <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="SCIENTIFIC-PICTURE-SRC" preview="preview-image" required/>
-                    </div>
-                </div>
-                <div class="column">
-                    <label for="nombre-comun">Nombre común</label>
-                    <input type="text" name="nombre-comun" maxlength="64" placeholder='Ej. "Champiñón de escamas"' />
 
                     <label for="olor">Olor</label>
                     <input type="text" name="olor" maxlength="32" placeholder='Ej. "Lavanda"' />

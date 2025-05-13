@@ -1,10 +1,11 @@
 <?php
-include "./connection.php";
-$connection = $_SESSION["SQL"];
+include "./connection.php"; // Ejecutar el código en connection.php para crear una sesión
+$connection = $_SESSION["SQL"]; // Guardar la sesión en una variable
 
-$GLOBALS["FILENAME"] = "SETA_{ID}.png";
-$GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/";
+$GLOBALS["FILENAME"] = "SETA_{ID}.png"; // Formato del nombre de la foto de la seta
+$GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/"; // Ruta de la galería donde se guardarán las imágenes
 
+// Mensajes de
 $RESULT_SUCCESS_MESSAGE = "¡La seta se ha subido con éxito!";
 $RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
 

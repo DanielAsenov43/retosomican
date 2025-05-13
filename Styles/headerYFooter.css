@@ -361,7 +361,7 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
             }
 
             .map { /* Estilo del mapa. Como es un <iframe>, es complicado alterarlo. */
-                border: var(--color-terciario) 5px dashed;
+                border: var(--color-secundario) 5px solid;
                 background-color: var(--color-secundario-fondo);
                 user-select: none;
             }
