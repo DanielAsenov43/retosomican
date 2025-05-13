@@ -24,8 +24,7 @@ if($row[6] == null || $row[6] == "") { // El usuario ya tiene contraseña (se ha
         // Si la contraseña coincide:
         setSessionInfo($row[0], $row[1], $row[2], $row[3], true);
         $_SESSION["USER-PASSWORD"] = $row[5];
-        header("location: ../Pages/galeriaCientifica.php");
-
+        login();
     } else wrongPassword();
 } else {
     if(intval($userPassword) == $row[6]) {
@@ -49,5 +48,12 @@ function wrongEmail() {
 function wrongPassword() {
     $_SESSION["ERROR-LOGIN"] = "¡El correo o la contraseña no son correctos!";
     header("location: ../Pages/accesoSocios.php");
+}
+
+function login() {
+    if(isset($_SESSION["NEXT"])) {
+        header("location: ../Pages/".$_SESSION["NEXT"]);
+        unset($_SESSION["NEXT"]);
+    } else header("location: ../Pages/GaleriaCientifica.php");
 }
 ?>

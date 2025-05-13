@@ -23,6 +23,8 @@ body { /* https://matthewjamestaylor.com/bottom-footer */
     grid-template-columns: 100%;
     min-height: 100vh; /* "Viewport Height" para que ocupe toda la parte visible de la página */
     min-height: 100svh; /* "Small Viewport Height" para buscadores modernos */
+    background-color: var(--color-secundario-fondo);
+    * { font-family: var(--font); }
 }
 
 header { /* El header se divide en 2 mitades: header-top y header-bottom, una encima de otra */
@@ -66,7 +68,7 @@ header { /* El header se divide en 2 mitades: header-top y header-bottom, una en
                 text-wrap: nowrap;
             }
 
-            @media (max-width: 1500px) { /* Si la página se estrecha demasiado, ocultar el título */
+            @media (max-width: 1300px) { /* Si la página se estrecha demasiado, ocultar el título */
                 h1 { visibility: hidden; }
             }
             
@@ -326,12 +328,6 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
             .subtitle { margin: -15px 0 15px 0; }
 
             .description { margin-top: -5px; }
-
-            @media (max-width: 1400px) { /* Ocultar esta parte si la página se estrecha demasiado */
-                .title, .subtitle, .description {
-                    visibility: hidden;
-                }
-            }
         }
 
         .right { /* La parte de la derecha contiene el logo del ayuntamiento, información de contacto y el mapa */
@@ -350,6 +346,10 @@ footer { /* El footer está dividido en 3 partes: top, middle y bottom. */
                     width: 100%;
                     height: 100%;
                 }
+            }
+
+            @media (max-width: 1400px) { /* Ocultar esta parte si la página se estrecha demasiado */
+                .logo { visibility: hidden; }
             }
 
             .contact-info { /* Texto de la información de contacto */
