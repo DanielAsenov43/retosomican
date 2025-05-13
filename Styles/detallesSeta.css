@@ -1,4 +1,4 @@
-#background-black-fade { /*  */
+#background-black-fade { /* <div> que cubre toda la página al abrir los detalles de una seta, de color negro transparente */
     display: none;
     position: fixed;
     z-index: 2;
@@ -10,7 +10,7 @@
     opacity: 40%;
 }
 
-#mushroom-details {
+#mushroom-details { /* Contenedor de los detalles de la seta */
     transform-origin: center center;
     position: fixed;
     width: min-content;
@@ -25,22 +25,20 @@
     transition-duration: 0.35s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    #detail-image-container {
+    #detail-image-container { /* Contenedor de la imagen de la seta */
         width: 100%;
         justify-content: center;
         text-align: center;
 
-        #detail-image {
+        #detail-image { /* La imagen en sí */
             width: 40vw;
             border-radius: 10px;
             user-select: none;
             transition: 0.35s ease-out;
-
-            &:hover { cursor: pointer; }
         }
     }
 
-    #detail-close {
+    #detail-close { /* Estilo del SVG con forma de X para cerrar el panel informativo */
         position: absolute;
         color: black;
         opacity: 40%;
@@ -57,19 +55,19 @@
         }
     }
 
-    .detail-name {
+    .detail-name { /* Estilo del título de cada detalle, por ejemplo: "Nombre Científico: " */
         color: grey;
     }
 
-    .detail-content {
+    .detail-content { /* Estilo del contenido de cadad etalle, por ejemplo, "Agaricus Benesii" */
         font-weight: bold;
     }
 
-    .detail-comment-container {
+    .detail-comment-container { /* Contenedor del comentario, en caso de que exista, que contiene la foto de perfil y el comentario */
         display: flex;
         user-select: none;
 
-        #detail-profile-picture {
+        #detail-profile-picture { /* Estilo de la foto de perfil */
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -78,7 +76,7 @@
             background-color: rgba(0, 0, 0, 20%);
         }
 
-        #detail-comment {
+        #detail-comment { /* Estilo del contenedor del comentario, con el título y el contenido */
             color: var(--color-secundario);
             font-weight: bold;
             width: 100%;
@@ -86,7 +84,7 @@
             display: flex;
             flex-direction: column;
 
-            .detail-content {
+            .detail-content { /* Estilo del contenido del comentario */
                 background-color: var(--color-secundario-fondo);
                 margin-top: 10px;
                 margin-bottom: 10px;

@@ -157,10 +157,6 @@
                     <div> <!-- TELÉFONO -->
                         <span class="title">Teléfono:</span>
                         <button id="change-phone-number-button">Añadir Teléfono</button>
-                        <?php 
-                        if
-                        "<span class='data'>".$_SESSION["USER-PHONE-NUMBER"]."</span>"; 
-                        ?>
                     </div>
                     <div class="actions"> <!-- Div que contiene los botones de cambio de correo y contraseña -->
                         <button id="change-email-button">Cambiar correo</button> <!-- La funcionalidad de estos botones está controlada por changeProfileInfo.js -->
