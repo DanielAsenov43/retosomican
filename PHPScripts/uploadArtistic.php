@@ -1,46 +1,49 @@
 <?php
+// Ejecutar el script "connection.php" que crea una sesión y guarda la conexión en $_SESSION["SQL"]
 include "./connection.php";
+// Variables globales dentro de este script
+$GLOBALS["FILENAME"] = "SETA_{ID}.png"; // Formato del nombre de las fotos, cambiando {ID} por la ID de la seta
+$GLOBALS["ARTISTIC-GALLERY-PATH"] = "../Images/GaleriaArtistica/"; // Ruta del lugar donde se guardan las fotos
 
-$GLOBALS["FILENAME"] = "SETA_{ID}.png";
-$GLOBALS["ARTISTIC-GALLERY-PATH"] = "../Images/GaleriaArtistica/";
-
+// Mensajes del resultado de enviar el formulario
 $RESULT_SUCCESS_MESSAGE = "¡La foto se ha subido con éxito!";
 $RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
 
-// Si el usuario no está registrad
+// Si el usuario no ha iniciado sesión por cualquier motivo, mandarle a iniciar sesión
 if(!isset($_SESSION["LOGGED-IN"])) header('location: ../Pages/accesoSocios.php');
 
+// Consulta que obtiene el número de setas de la BBDD, tanto registradas como no registradas, para calcular la ID de la seta nueva
 $IDQuery = "SELECT COUNT(IDSeta) FROM retosomican.fotosSetas";
 $result = mysqli_fetch_row(mysqli_query($_SESSION["SQL"], $IDQuery));
+// La ID de la seta es igual al número de setas existentes + 1, ya que si hay 25 setas, esta será la seta 26.
 $ID = $result[0] + 1;
-$IDLegado = $_SESSION["USER-ID"];
+$IDLegado = $_SESSION["USER-ID"]; // También obtenemos y guardamos la ID del legado para saber quién ha subido la foto.
 
-// Campos obligatorios
-$imageData = $_SESSION["ARTISTIC-PICTURE-SRC"];
-unset($_SESSION["ARTISTIC-PICTURE-SRC"]);
-uploadImage($GLOBALS["ARTISTIC-GALLERY-PATH"], str_replace("{ID}", $ID, $GLOBALS["FILENAME"]), $imageData);
+// IMAGEN -----------------------------------------------------------------------------
+// IMPORTANTE: La fuente de la imagen recortada es gestionada por "uploadMushroomImage.php"
+// Ese script recibe directamente las variables desde JS y las guarda en $_SESSION 
+$imageData = $_SESSION["ARTISTIC-PICTURE-SRC"]; // Enlace desencriptado de la imagen
+unset($_SESSION["ARTISTIC-PICTURE-SRC"]); // Eliminamos la imagen de la sesión una vez que se haya subido la seta
 
+// Sustituir {ID} en el nombre de la imagen por la ID de la seta y luego guardamos la imagen
+$imageName = str_replace("{ID}", $ID, $GLOBALS["FILENAME"]);
+uploadImage($GLOBALS["ARTISTIC-GALLERY-PATH"], $imageName, $imageData);
 
-// Campos opcionales
+// Obtenemos el comentario del formulario si existe. El parámetro $isString envuelve el texto en comillas.
 $comentario = getPostInfo("comentario", true);
 
-// Consulta:
-$query = "
-INSERT INTO retosomican.fotosSetas (IDSeta, IDSocio, registrada, comentario) VALUES
-($ID, $IDLegado, TRUE, $comentario)
-";
+// Consulta de inserción:
+$query = "INSERT INTO retosomican.fotosSetas (IDSeta, IDSocio, registrada, comentario) VALUES ($ID, $IDLegado, TRUE, $comentario)";
 
-// Ejecutar la consulta
-if ($_SESSION["SQL"] -> query($query)) $_SESSION["RESULT"] = "<span class='success'>".$RESULT_SUCCESS_MESSAGE."</span>";
-else $_SESSION["RESULT"] = "<span class='error'>".$RESULT_ERROR_MESSAGE."</span>";
+// Ejecutar la consulta:
+// Si la consulta se ha ejecutado correctamente, el resultado 
+if ($_SESSION["SQL"] -> query($query)) setResult($RESULT_SUCCESS_MESSAGE, false);
+else  setResult($RESULT_ERROR_MESSAGE, true);
+
+// Una vez enviado, enviar al socio a la página del resultado
 header("location: ../Pages/resultadoSubirSeta.php");
 
-// Funciones que facilitan obtener la información de los campos.
-// Si el campo es obligatorio y no se ha rellenado, volverá al formulario
-function getRequiredPostInfo($name, $isString) {
-    if(!isset($_POST[$name])) header("location: ../Pages/subirFotoArtistica.php");
-    return ($isString) ? "\"".$_POST[$name]."\"" : $_POST[$name];
-}
+// FUNCIONES ===================================================================
 
 // Si el campo es opcional y no se ha rellenado, devolverá "NULL"
 function getPostInfo($name, $isString) {
@@ -51,5 +54,11 @@ function getPostInfo($name, $isString) {
 // Función que sube una imagen a la carpeta 
 function uploadImage($filePath, $fileName, $imageData) {
     file_put_contents($filePath . $fileName, $imageData);
+}
+
+// Función que cambia el resultado de la variable de sesión dependiendo del valor de $isError
+function setResult($message, $isError) {
+    if(!$isError) $_SESSION["RESULT"] = "<span class='success'>$message</span>";
+    else $_SESSION["RESULT"] = "<span class='error'>$message</span>";
 }
 ?>
