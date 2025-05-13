@@ -57,10 +57,11 @@ function setSessionInfo($loggedIn, $userID, $userName, $userSurname, $userEmail)
     $_SESSION["USER-NAME"] = $userName;
     $_SESSION["USER-SURNAME"] = $userSurname;
     $_SESSION["USER-EMAIL"] = $userEmail;
+    $_SESSION["USER-PHONE-NUMBER"] = $userPhoneNumber;
 }
 // Función que muestra un mensaje de "correo incorrecto" y te manda a la misma página para volver a iniciar sesión
 function wrongEmail() {
-    $_SESSION["ERROR-LOGIN"] = "¡El correo o la contraseña no son correctos!";
+    $_SESSION["ERROR-LOGIN"] = "¡El correo o  no son correctos!";
     header("location: ../Pages/accesoSocios.php");
 }
 // Función que muestra el mensaje de "contraseña incorrecta" o cualquier otro mensaje si queremos ser ambiguos
