@@ -61,7 +61,7 @@ if($connection -> query($changePasswordQuery)) {
 // Si da error, enviamos un mensaje de error y volvemos al perfil
 else setResult($ERROR_DDBB_CONNECTION, true);
 // Después del cambio de contraseña, volvemos al perfil del socio
-header("location: ../Pages/profile.php");
+header("location: ../Pages/perfil.php");
 
 // FUNCIONES =======================================================================
 
