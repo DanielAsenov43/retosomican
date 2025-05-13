@@ -38,11 +38,10 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
             flex-direction: column;
             transform: translateY(-20px);
     
-            h1 { color: var(--color-terciario); } /* Título: "Información" */
-    
             .profile-info { /* Información del perfil (contenedor azul) */
                 width: 400px;
-                height: 235px;
+                height: 295px;
+                margin-top: 20px;
                 background-color: var(--color-secundario);
                 display: flex;
                 flex-direction: column;
@@ -61,10 +60,29 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
                         margin-left: 10px;
                         border-radius: 5px;
                     }
+
+                    #add-phone-number-button { /*  */
+                        background-color: var(--color-terciario);
+                        position: absolute;
+                        padding: 5px 15px;
+                        transform: translate(10px, -5px); 
+                        text-decoration: none;
+                        color: var(--color-principal-fondo);
+                        font-weight: bold;
+                        border: none;
+                        font-size: 1rem;
+                        text-wrap: nowrap;
+                        
+                        &:hover {
+                            transition: 0.1s ease-out;
+                            background-color: var(--color-acento);
+                            cursor: pointer;
+                        }
+                    }
                 }
     
                 .actions { /* Contenedor con las posibles acciones: Cambiar correo y contraseña */
-                    margin-top: 20px;
+                    margin-top: 22px;
                     margin-left: auto;
                     margin-right: auto;
                     display: flex;
@@ -136,7 +154,7 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
 
     .container { /* Contenedor que contiene el formulario de cambio de correo o contraseña */
         width: 500px;
-        height: 400px;
+        height: min-content;
         background-color: var(--color-secundario-fondo);
         opacity: 100%;
         position: absolute;
@@ -144,6 +162,7 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
         top: 50%;
         transform: translate(-50%, -50%);
         padding: 20px;
+        padding-bottom: 30px;
         border-radius: 20px;
 
         .logo-container { /* Logo de somican */
@@ -156,7 +175,7 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
         }
     }
 
-    #change-email-form, #change-password-form { /* Estilo de ambos formularios, ya que son iguales. */
+    #change-email-form, #change-password-form, #add-phone-number-form { /* Estilo de ambos formularios, ya que son iguales. */
         display: none;
         flex-direction: column;
         user-select: none;
