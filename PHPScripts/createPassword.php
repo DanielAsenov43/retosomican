@@ -32,11 +32,12 @@ $createPasswordQuery = "UPDATE retosomican.socios SET contrasenia = '$password',
 if($connection -> query($createPasswordQuery)) {
     $_SESSION["USER-PASSWORD"] = $password;
     $_SESSION["ERROR-LOGIN"] = $CHANGE_SUCCESS;
+    $_SESSION["LOGGED-IN"] = true;
     copy("../Images/user-default.png", "../Images/FotosDePerfil/SOCIO_".$_SESSION["USER-ID"].".png");
 } else {
     $_SESSION["ERROR-LOGIN"] = $ERROR_QUERY;
 }
-header("location: ../Pages/accesoSocios.php");
+header("location: ../Pages/galeriaCientifica.php");
 
 function showError($errorMessage) {
     $_SESSION["ERROR-LOGIN"] = $errorMessage;

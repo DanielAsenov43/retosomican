@@ -9,7 +9,7 @@
     transform: translate(-50%, -50%) scale(0%);
     border-radius: 20px;
     padding: 50px 25px 10px 25px;
-    background-color: white;
+    background-color: var(--color-principal-fondo);
     transition-duration: 0.35s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -24,9 +24,7 @@
             user-select: none;
             transition: 0.35s ease-out;
 
-            &:hover {
-                cursor: pointer;
-            }
+            &:hover { cursor: pointer; }
         }
     }
 

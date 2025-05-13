@@ -95,11 +95,11 @@ if (isset($_SESSION["LOGGED-IN"])) {
 </header>
 
 <body>
-    <main>
-        <div class="login-container">
-            <h1>INICIAR SESIÓN</h1>
-            <p class="subtitulo">Acceso a SOMICAN como Socio</p>
-            <form method="POST" action="../PHPScripts/login.php">
+    <main> <!-- Elemento principal de la página -->
+        <div class="login-container background-1"> <!-- <div> que contiene el título, subtítulo y formulario de la página -->
+            <h1>INICIAR SESIÓN</h1> <!-- Título -->
+            <p>Acceso a SOMICAN como Socio</p> <!-- Subtítulo -->
+            <form method="POST" action="../PHPScripts/login.php"> <!-- Formulario que te lleva a login.php -->
                 <label for="email">CORREO ELECTRÓNICO</label>
                 <input type="email" id="email" name="email" placeholder="socio01@gmail.com" required />
 
@@ -109,7 +109,7 @@ if (isset($_SESSION["LOGGED-IN"])) {
                 <button type="submit">ACCEDER</button>
             </form>
         </div>
-        <span id="error-message"></span>
+        <span id="error-message"></span> <!-- Este span muestra cualquier error que pueda surgir a la hora de loguearse -->
     </main>
 </body>
 
