@@ -22,27 +22,28 @@ $row = mysqli_fetch_array($result);
 if($row[6] == null || $row[6] == "") { // El usuario ya tiene contraseña (se ha registrado)
     if(password_verify($userPassword, $row[5])) {
         // Si la contraseña coincide:
-        setSessionInfo($row[0], $row[1], $row[2], $row[3], true);
+        setSessionInfo(true, $row[0], $row[1], $row[2], $row[3], $row[4]);
         $_SESSION["USER-PASSWORD"] = $row[5];
         login();
     } else wrongPassword();
 } else {
     if(intval($userPassword) == $row[6]) {
-        setSessionInfo($row[0], $row[1], $row[2], $row[3], false);
+        setSessionInfo(false, $row[0], $row[1], $row[2], $row[3], $row[4]);
         header("location: ../Pages/crearContrasenia.php");
 
     } else wrongPassword();
 }
 
-function setSessionInfo($userID, $userName, $userSurname, $userEmail, $loggedIn) {
+function setSessionInfo($loggedIn, $userID, $userName, $userSurname, $userEmail, $userPhoneNumber) {
     if($loggedIn) $_SESSION["LOGGED-IN"] = true;
     $_SESSION["USER-ID"] = $userID;
     $_SESSION["USER-NAME"] = $userName;
     $_SESSION["USER-SURNAME"] = $userSurname;
     $_SESSION["USER-EMAIL"] = $userEmail;
+    $_SESSION["USER-PHONE-NUMBER"] = $userPhoneNumber;
 }
 function wrongEmail() {
-    $_SESSION["ERROR-LOGIN"] = "¡El correo o la contraseña no son correctos!";
+    $_SESSION["ERROR-LOGIN"] = "¡El correo o  no son correctos!";
     header("location: ../Pages/accesoSocios.php");
 }
 function wrongPassword() {
