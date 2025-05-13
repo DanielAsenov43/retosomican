@@ -163,9 +163,10 @@
                         <span class="title">Teléfono:</span>
                         <?php 
                         if (isset($_SESSION["USER-PHONE-NUMBER"])){
-                            echo "<span class='data'>".$_SESSION["USER-PHONE-NUMBER"]."</span>"; 
+                            echo "<span class='data'>".$_SESSION["USER-PHONE-NUMBER"]."</span>";
+                            echo "<button id='add-phone-number-button'>Cambiar</button>"; 
                         } else {
-                            echo "<button id='change-phone-number-button'>Añadir Teléfono</button>"; 
+                            echo "<button id='add-phone-number-button'>Añadir Teléfono</button>"; 
                         }
                         ?>
                     </div>
