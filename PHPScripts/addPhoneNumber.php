@@ -1,11 +1,8 @@
 <?php
 include "./connection.php";
-$ERROR_SAME_EMAIL = "¡El correo nuevo debe ser distinto!";
-$ERROR_OLD_EMAIL_DOES_NOT_MATCH = "¡El correo actual no coincide!";
-$ERROR_NEW_EMAIL_IN_USE = "¡El correo nuevo no es válido!";
-$ERROR_PASSWORD_DOES_NOT_MATCH = "¡La contraseña no es correcta!";
+$ERROR_SAME_PHONE_NUMBER = "¡El nuevo número de teléfono debe ser distinto!";
 $ERROR_DDBB_CONNECTION = "¡Se ha producido un error interno!";
-$CHANGE_SUCCESS = "¡El correo se ha actualizado!";
+$CHANGE_SUCCESS = "¡El número de teléfono se ha actualizado!";
 
 $connection = $_SESSION["SQL"];
 
