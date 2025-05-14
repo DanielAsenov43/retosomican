@@ -8,7 +8,7 @@
 include "./connection.php"; // Ejecutar el código en connection.php para crear una sesión
 $connection = $_SESSION["SQL"]; // Guardar la sesión en una variable
 
-$AUTO_REGISTER_MUSHROOM = true; // Variable que controla si las setas se aprueban automáticamente
+$AUTO_REGISTER_MUSHROOM = false; // Variable que controla si las setas se aprueban automáticamente
 $GLOBALS["FILENAME"] = "SETA_{ID}.png"; // Formato del nombre de la foto de la seta
 $GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/"; // Ruta de la galería donde se guardarán las imágenes
 

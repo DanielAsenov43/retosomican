@@ -2,6 +2,7 @@
 // Ejecutar el script "connection.php" que crea una sesión y guarda la conexión en $_SESSION["SQL"]
 include "./connection.php";
 // Variables globales dentro de este script
+$AUTO_REGISTER_MUSHROOM = false; 
 $GLOBALS["FILENAME"] = "SETA_{ID}.png"; // Formato del nombre de las fotos, cambiando {ID} por la ID de la seta
 $GLOBALS["ARTISTIC-GALLERY-PATH"] = "../Images/GaleriaArtistica/"; // Ruta del lugar donde se guardan las fotos
 
@@ -18,6 +19,7 @@ $result = mysqli_fetch_row(mysqli_query($_SESSION["SQL"], $IDQuery));
 // La ID de la seta es igual al número de setas existentes + 1, ya que si hay 25 setas, esta será la seta 26.
 $ID = $result[0] + 1;
 $IDLegado = $_SESSION["USER-ID"]; // También obtenemos y guardamos la ID del legado para saber quién ha subido la foto.
+$autoRegister = ($AUTO_REGISTER_MUSHROOM) ? "TRUE" : "FALSE";
 
 // IMAGEN -----------------------------------------------------------------------------
 // IMPORTANTE: La fuente de la imagen recortada es gestionada por "uploadMushroomImage.php"
@@ -33,7 +35,7 @@ uploadImage($GLOBALS["ARTISTIC-GALLERY-PATH"], $imageName, $imageData);
 $comentario = getPostInfo("comentario", true);
 
 // Consulta de inserción:
-$query = "INSERT INTO retosomican.fotosSetas (IDSeta, IDSocio, registrada, comentario) VALUES ($ID, $IDLegado, TRUE, $comentario)";
+$query = "INSERT INTO retosomican.fotosSetas (IDSeta, IDSocio, registrada, comentario) VALUES ($ID, $IDLegado, $autoRegister, $comentario)";
 
 // Ejecutar la consulta:
 // Si la consulta se ha ejecutado correctamente, el resultado 
