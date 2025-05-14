@@ -39,7 +39,7 @@ $password = password_hash($password, PASSWORD_DEFAULT);
 // Creamos la consulta de actualización de contraseña
 $createPasswordQuery = "UPDATE retosomican.socios SET contrasenia = '$password', clave = NULL WHERE ID = " . $_SESSION["USER-ID"];
 // Mandamos la actualización y comprobamos si han surgido errores
-if($connection -> query($createPasswordQuery)) {
+if($_SESSION["SQL"] -> query($createPasswordQuery)) {
     // Si todo ha salido bien, actualizamos los datos
     $_SESSION["USER-PASSWORD"] = $password;
     $_SESSION["ERROR-LOGIN"] = $CHANGE_SUCCESS;

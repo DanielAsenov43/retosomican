@@ -53,7 +53,7 @@ $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 // Creamos la línea de actualización de SQL que le cambia la contraseña al socio
 $changePasswordQuery = "UPDATE retosomican.socios SET contrasenia = '$newPassword' WHERE ID = " . $_SESSION["USER-ID"];
 // Ejecutamos la actualización y comprobamos si da error.
-if($connection -> query($changePasswordQuery)) {
+if($_SESSION["SQL"] -> query($changePasswordQuery)) {
     // Si no da error, mostramos un mensaje de cambio exitoso y apuntamos la nueva contraseña en la sesión.
     setResult($CHANGE_SUCCESS, false);
     $_SESSION["USER-PASSWORD"] = $newPassword;
