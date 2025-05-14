@@ -95,7 +95,7 @@
     <div id="change-profile-info"> <!-- Este div funciona de fondo transparente para el div interior -->
         <div class="container"> <!-- Este div actúa como fondo blanco para los formularios de cambio de información -->
             <div class="logo-container"> <!-- Logo del formulario en la parte superior -->
-                <img src="../Images/logo.png" draggable="false" alt="Logo Somican"/>
+                <img src="../Images/Logo.png" draggable="false" alt="Logo Somican"/>
             </div>
             <!-- Estos formularios se muestran/ocultan dependiendo de si le das a "Cambiar correo" o "Cambiar contraseña".
                  Esto es controlado por changeProfileInfo.js, así como la visibilidad de estos contenedores. -->
