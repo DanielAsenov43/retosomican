@@ -186,6 +186,8 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
             margin-bottom: 20px;
             border-radius: 5px;
             border: var(--color-secundario) 2px solid;
+            
+            
         }
 
         button[type="submit"] { /* Estilo del botón de confirmación */

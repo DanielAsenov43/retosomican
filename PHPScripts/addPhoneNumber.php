@@ -1,51 +1,54 @@
 <?php
-include "./connection.php";
-$ERROR_SAME_EMAIL = "¡El correo nuevo debe ser distinto!";
-$ERROR_OLD_EMAIL_DOES_NOT_MATCH = "¡El correo actual no coincide!";
-$ERROR_NEW_EMAIL_IN_USE = "¡El correo nuevo no es válido!";
-$ERROR_PASSWORD_DOES_NOT_MATCH = "¡La contraseña no es correcta!";
-$ERROR_DDBB_CONNECTION = "¡Se ha producido un error interno!";
-$CHANGE_SUCCESS = "¡El correo se ha actualizado!";
+/* !!!
+    LA MAYORÍA DEL SCRIPT ES IGUAL QUE "changePassword.php", CONSULTAR ANTES DE LEER.
+ !!! */
+include "./connection.php"; // Crear la sesión
 
+// Constantes de mensajes de error o éxito
+$ERROR_SAME_NUMBER = "¡El número de teléfono nuevo debe ser distinto!";
+$ERROR_NUMBER_IN_USE = "¡Número de teléfono inválido!";
+$ERROR_DDBB_CONNECTION = "¡Se ha producido un error interno!";
+$CHANGE_SUCCESS = "¡El número de teléfono se ha actualizado!";
+
+// Guardamos la conexión
 $connection = $_SESSION["SQL"];
 
-// POST INFO
-$phoneNumber = $_POST["phone-number"];
+// Información del formulario
+$phoneNumber = strval($_POST["phone-number"]);
 
-if(!compare($oldEmail, $_SESSION["USER-EMAIL"])) {
-    setResult($ERROR_OLD_EMAIL_DOES_NOT_MATCH, true);
-    return;
-}
-if(compare($oldEmail, $newEmail)) {
-    setResult($ERROR_SAME_EMAIL, true);
-    return;
-}
-if(!password_verify($password, $_SESSION["USER-PASSWORD"])) {
-    setResult($ERROR_PASSWORD_DOES_NOT_MATCH, true);
-    return;
+// Si el usuario tiene un número de teléfono y coincide, mostrar un error ya que el nuevo debe ser distinto.
+if(isset($_SESSION["USER-PHONE-NUMBER"])) {
+    if($phoneNumber == $_SESSION["USER-PHONE-NUMBER"]) {
+        setResult($ERROR_SAME_NUMBER, true);
+        return;
+    }
 }
 
-$userEmailsQuery = "SELECT * FROM retosomican.socios WHERE email LIKE '$newEmail'";
-$result = mysqli_query($connection, $userEmailsQuery);
+// Consulta que comprueba si existe un usuario con el mismo número de teléfono.
+$usersWithPhoneQuery = "SELECT * FROM retosomican.socios WHERE telefono LIKE '$phoneNumber'";
+$result = mysqli_query($connection, $usersWithPhoneQuery);
+// Si hay algún usuario, mostrar un error.
 if(mysqli_num_rows($result) > 0) {
-    setResult($ERROR_NEW_EMAIL_IN_USE, true);
+    setResult($ERROR_NUMBER_IN_USE, true);
     return;
 }
 
-$changeEmailQuery = "UPDATE retosomican.socios SET email = '$newEmail' WHERE ID = " . $_SESSION["USER-ID"];
-if($connection -> query($changeEmailQuery)) {
+// Si ha pasado todas las pruebas, cambiar el número de teléfono
+$changePhoneQuery = "UPDATE retosomican.socios SET telefono = '$phoneNumber' WHERE ID = " . $_SESSION["USER-ID"];
+if($connection -> query($changePhoneQuery)) {
+    // Si la actualización se realiza correctamente:
     setResult($CHANGE_SUCCESS, false);
-    $_SESSION["USER-EMAIL"] = $newEmail;
+    $_SESSION["USER-PHONE-NUMBER"] = $phoneNumber;
 }
+// En caso contrario
 else setResult($ERROR_DDBB_CONNECTION, true);
 
-function compare($string1, $string2) {
-    return strtolower($string1) == strtolower($string2);
-}
+// FUNCIONES ==============================================================
 
+// Función que cambia el resultado dependiendo del parámetro $isError
 function setResult($message, $isError) { 
     if($isError) $_SESSION["CHANGE-RESULT"] = "<span class='error'>$message</span>";
     else $_SESSION["CHANGE-RESULT"] = "<span class='success'>$message</span>";
-    header("location: ../Pages/profile.php");
+    header("location: ../Pages/perfil.php");
 }
 ?>

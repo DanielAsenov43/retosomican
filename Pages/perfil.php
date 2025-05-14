@@ -125,7 +125,7 @@
             </form>
             <form id="add-phone-number-form" action="../PHPScripts/addPhoneNumber.php" method="POST">
                 <label for="phone-number">Añade tu número de teléfono: </label>
-                <input type="number" name="phone-number" pattern="\d{9}" title="El número debe contener 9 dígitos" required>
+                <input type="text" name="phone-number" minlength="9" maxlength="9" pattern="\d{9}" title="El número debe tener 9 dígitos" required>
                 
                 <button type="submit">Agregar el teléfono</button>
             </form>
