@@ -12,10 +12,10 @@ $AUTO_REGISTER_MUSHROOM = false; // Variable que controla si las setas se aprueb
 $GLOBALS["FILENAME"] = "SETA_{ID}.png"; // Formato del nombre de la foto de la seta
 $GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/"; // Ruta de la galería donde se guardarán las imágenes
 
-$RESULT_SUCCESS_MESSAGE = "¡La seta ha sido enviada con éxito!";
-$RESULT_SUCCESS_COMMENT = "Gracias por tu colaboración. La información ha sido enviada correctamente y será revisada por nuestro equipo.";
-$RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta";
-$RESULT_ERROR_COMMENT = "Se ha producido un error interno a la hora de subir la seta. Por favor, inténtelo más tarde o contacte con un administrador.";
+$GLOBALS["RESULT-SUCCESS-MESSAGE"] = "¡La seta se ha enviado con éxito!";
+$GLOBALS["RESULT-SUCCESS-MESSAGE"] = "La seta ha sido enviada y será revisada por un administrador. Muchas gracias por su aportación.";
+$GLOBALS["RESULT-ERROR-MESSAGE"] = "Ha surgido un error al subir la seta";
+$GLOBALS["RESULT-ERROR-MESSAGE"] = "Los datos no han podido ser enviados por un error interno. Por favor, inténtelo de nuevo más tarde o contacte a un administrador.";
 
 if(!isset($_SESSION["LOGGED-IN"])) header('location: ../Pages/accesoSocios.php');
 
@@ -59,8 +59,8 @@ olor, sabor, tipoSuelo, climatologia, observaciones) VALUES
 $olor, $sabor, $suelo, $clima, $observaciones)";
 
 // Ejecutar la consulta y cambiar el resultado si surge algún error
-if ($connection -> query($query)) showResult($RESULT_SUCCESS_MESSAGE, $RESULT_SUCCESS_COMMENT, false);
-else showResult($RESULT_ERROR_MESSAGE, $RESULT_ERROR_COMMENT, true);
+if ($connection -> query($query)) setResult(true);
+else setResult(false);
 
 header("location: ../Pages/resultadoSubirSeta.php");
 
@@ -82,9 +82,13 @@ function uploadImage($filePath, $fileName, $imageData) {
     file_put_contents($filePath . $fileName, $imageData);
 }
 
-function showResult($message, $comment, $isError) {
-    if(!$isError) $_SESSION["RESULT"] = "<span class='success'>$message</span>";
-    else $_SESSION["RESULT"] = "<span class='error'>$message</span>";
-    $_SESSION["RESULT-COMMENT"] = $comment;
+function setResult($success) {
+    if($success) {
+        $_SESSION["RESULT"] = "<span class='success'>".$GLOBALS["RESULT-SUCCESS-MESSAGE"]."</span>";
+        $_SESSION["RESULT-COMMENT"] = $GLOBALS["RESULT-SUCCESS-COMMENT"];
+    } else {
+        $_SESSION["RESULT"] = "<span class='error'>".$GLOBALS["RESULT-ERROR-MESSAGE"]."</span>";
+        $_SESSION["RESULT-COMMENT"] = $GLOBALS["RESULT-ERROR-COMMENT"];
+    }
 }
 ?>

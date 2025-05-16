@@ -7,8 +7,10 @@ $GLOBALS["FILENAME"] = "SETA_{ID}.png"; // Formato del nombre de las fotos, camb
 $GLOBALS["ARTISTIC-GALLERY-PATH"] = "../Images/GaleriaArtistica/"; // Ruta del lugar donde se guardan las fotos
 
 // Mensajes del resultado de enviar el formulario
-$RESULT_SUCCESS_MESSAGE = "¡La foto se ha subido con éxito!";
-$RESULT_ERROR_MESSAGE = "Ha surgido un error al intentar subir la seta.";
+$GLOBALS["RESULT-SUCCESS-MESSAGE"] = "¡La foto se ha enviado con éxito!";
+$GLOBALS["RESULT-SUCCESS-MESSAGE"] = "La foto ha sido enviada y será revisada por un administrador. Muchas gracias por su aportación.";
+$GLOBALS["RESULT-ERROR-MESSAGE"] = "Ha surgido un error al subir la foto";
+$GLOBALS["RESULT-ERROR-MESSAGE"] = "La imagen no ha podido ser enviada por un error interno. Por favor, inténtelo de nuevo más tarde o contacte a un administrador.";
 
 // Si el usuario no ha iniciado sesión por cualquier motivo, mandarle a iniciar sesión
 if(!isset($_SESSION["LOGGED-IN"])) header('location: ../Pages/accesoSocios.php');
@@ -39,8 +41,8 @@ $query = "INSERT INTO retosomican.fotosSetas (IDSeta, IDSocio, registrada, comen
 
 // Ejecutar la consulta:
 // Si la consulta se ha ejecutado correctamente, el resultado 
-if ($_SESSION["SQL"] -> query($query)) setResult($RESULT_SUCCESS_MESSAGE, false);
-else  setResult($RESULT_ERROR_MESSAGE, true);
+if ($_SESSION["SQL"] -> query($query)) setResult(true);
+else  setResult(false);
 
 // Una vez enviado, enviar al socio a la página del resultado
 header("location: ../Pages/resultadoSubirSeta.php");
@@ -59,8 +61,13 @@ function uploadImage($filePath, $fileName, $imageData) {
 }
 
 // Función que cambia el resultado de la variable de sesión dependiendo del valor de $isError
-function setResult($message, $isError) {
-    if(!$isError) $_SESSION["RESULT"] = "<span class='success'>$message</span>";
-    else $_SESSION["RESULT"] = "<span class='error'>$message</span>";
+function setResult($success) {
+    if($success) {
+        $_SESSION["RESULT"] = "<span class='success'>".$GLOBALS["RESULT-SUCCESS-MESSAGE"]."</span>";
+        $_SESSION["RESULT-COMMENT"] = $GLOBALS["RESULT-SUCCESS-COMMENT"];
+    } else {
+        $_SESSION["RESULT"] = "<span class='error'>".$GLOBALS["RESULT-ERROR-MESSAGE"]."</span>";
+        $_SESSION["RESULT-COMMENT"] = $GLOBALS["RESULT-ERROR-COMMENT"];
+    }
 }
 ?>
