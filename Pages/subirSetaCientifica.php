@@ -136,7 +136,7 @@
 
                     <div class="observaciones"> <!-- <div> que contiene la etiqueta de observaciones y su caja de texto. -->
                         <label for="observaciones">Observaciones</label>
-                        <textarea name="observaciones" maxlength="512"></textarea>
+                        <textarea name="observaciones" maxlength="256"></textarea>
                     </div>
                 </div>
             </div>
