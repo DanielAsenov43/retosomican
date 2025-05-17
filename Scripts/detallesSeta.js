@@ -54,11 +54,13 @@ function hideInfoPanel() {
 
 // Función que convierte una cadena a "title case", es decir, la primera letra de
 // cada palabra en mayúscula y el resto en minúsculas. Utilizado sobre todo para nombres y apellidos.
-// Fuente: https://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript
 function titleCase(string) {
-    // Convierte la primera letra en mayúsculas y el resto en minúsculas
-    // Explicación del patrón: https://www.rexegg.com/regex-quickstart.php
-    return string.toLowerCase().replace(/\b\w/g, firstLetter => firstLetter.toUpperCase());
+    let titleCase = "";
+    for(let word of string.split(" ")) {
+        titleCase += word.substring(0, 1).toUpperCase();
+        titleCase += word.substring(1).toLowerCase() + " ";
+    }
+    return titleCase.substring(0, titleCase.length - 1);
  }
 
 // Evento que evita moverse por la página con la rueda del ratón si has abierto el panel informativo

@@ -61,6 +61,11 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
                         border-radius: 5px;
                     }
 
+                    /* Asegurarse de que el nombre y apellidos estén en mayúsculas y el correo en minúsculas */
+                    &:nth-child(1) { text-transform: uppercase; }
+                    &:nth-child(2) { text-transform: uppercase; }
+                    &:nth-child(3) { text-transform: lowercase; }
+
                     #add-phone-number-button { /*  */
                         background-color: var(--color-terciario);
                         position: absolute;
