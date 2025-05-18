@@ -13,9 +13,9 @@ $GLOBALS["FILENAME"] = "SETA_{ID}.png"; // Formato del nombre de la foto de la s
 $GLOBALS["SCIENTIFIC-GALLERY-PATH"] = "../Images/GaleriaCientifica/"; // Ruta de la galería donde se guardarán las imágenes
 
 $GLOBALS["RESULT-SUCCESS-MESSAGE"] = "¡La seta se ha enviado con éxito!";
-$GLOBALS["RESULT-SUCCESS-MESSAGE"] = "La seta ha sido enviada y será revisada por un administrador. Muchas gracias por su aportación.";
+$GLOBALS["RESULT-SUCCESS-COMMENT"] = "La seta ha sido enviada y será revisada por un administrador. Muchas gracias por su aportación.";
 $GLOBALS["RESULT-ERROR-MESSAGE"] = "Ha surgido un error al subir la seta";
-$GLOBALS["RESULT-ERROR-MESSAGE"] = "Los datos no han podido ser enviados por un error interno. Por favor, inténtelo de nuevo más tarde o contacte a un administrador.";
+$GLOBALS["RESULT-ERROR-COMMENT"] = "Los datos no han podido ser enviados por un error interno. Por favor, inténtelo de nuevo más tarde o contacte a un administrador.";
 
 if(!isset($_SESSION["LOGGED-IN"])) header('location: ../Pages/accesoSocios.php');
 

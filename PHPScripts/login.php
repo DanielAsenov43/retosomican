@@ -27,12 +27,18 @@ if(mysqli_num_rows($result) <= 0) {
 // Ejemplo: $row = [1, "SERGIO", "GONZÁLEZ FERNÁNDEZ", "socio001@gmail.com", ...]
 $row = mysqli_fetch_array($result);
 $claveBBDD = $row[6]; // La clave es el 6to campo de la BBDD
+$alta = $row[7];
 
 // Si la clave es nula, significa que el socio ya se ha registrado por primera vez, y hay que comprobar la contraseña
 if($claveBBDD == null || $claveBBDD == "" || $claveBBDD == "NULL") {
     // Como la contraseña está encriptada, utilizamos la función password_hash(texto, textoEncriptado)
     // Esta función compara ambos textos y devuelve true o false dependiendo de si coinciden o no.
     if(password_verify($userPassword, $row[5])) { // Comparamos la contraseña del formulario con la de la BBDD
+
+        if(!$alta) { // Si el socio no está dado de alta, volver
+            socioDeBaja();
+            return;
+        }
         // Si la contraseña coincide, incializamos todas las variables de la sesión:
         setSessionInfo(true, $row[0], $row[1], $row[2], $row[3]);
         
@@ -70,6 +76,10 @@ function wrongEmail() {
 // Función que muestra el mensaje de "contraseña incorrecta" o cualquier otro mensaje si queremos ser ambiguos
 function wrongPassword() {
     $_SESSION["ERROR-LOGIN"] = "¡El correo o la contraseña no son correctos!";
+    header("location: ../Pages/accesoSocios.php");
+}
+function socioDeBaja() {
+    $_SESSION["ERROR-LOGIN"] = "Su cuenta no está dada de alta. Por favor, contacte con un administrador.";
     header("location: ../Pages/accesoSocios.php");
 }
 // Función que te lleva a la página que contenga $_SESSION["NEXT"], o si no contiene ninguna, a la galería científica.

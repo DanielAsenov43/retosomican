@@ -8,9 +8,9 @@ $GLOBALS["ARTISTIC-GALLERY-PATH"] = "../Images/GaleriaArtistica/"; // Ruta del l
 
 // Mensajes del resultado de enviar el formulario
 $GLOBALS["RESULT-SUCCESS-MESSAGE"] = "¡La foto se ha enviado con éxito!";
-$GLOBALS["RESULT-SUCCESS-MESSAGE"] = "La foto ha sido enviada y será revisada por un administrador. Muchas gracias por su aportación.";
+$GLOBALS["RESULT-SUCCESS-COMMENT"] = "La foto ha sido enviada y será revisada por un administrador. Muchas gracias por su aportación.";
 $GLOBALS["RESULT-ERROR-MESSAGE"] = "Ha surgido un error al subir la foto";
-$GLOBALS["RESULT-ERROR-MESSAGE"] = "La imagen no ha podido ser enviada por un error interno. Por favor, inténtelo de nuevo más tarde o contacte a un administrador.";
+$GLOBALS["RESULT-ERROR-COMMENT"] = "La imagen no ha podido ser enviada por un error interno. Por favor, inténtelo de nuevo más tarde o contacte a un administrador.";
 
 // Si el usuario no ha iniciado sesión por cualquier motivo, mandarle a iniciar sesión
 if(!isset($_SESSION["LOGGED-IN"])) header('location: ../Pages/accesoSocios.php');
