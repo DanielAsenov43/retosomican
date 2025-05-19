@@ -51,6 +51,11 @@ if($claveBBDD == null || $claveBBDD == "" || $claveBBDD == "NULL") {
 // Si la clave no es nula, significa que el socio todavía no se ha registrado, así que hay que comparar con la clave de la BBDD
 } else {
     if($userPassword == $row[6]) { // Si la contraseña escrita coincide con la clave de la BBDD
+        
+        if(!$alta) { // Si el socio no está dado de alta, volver
+            socioDeBaja();
+            return;
+        }
         // Inicializamos las variables de la sesión con la información del socio
         setSessionInfo(false, $row[0], $row[1], $row[2], $row[3]);
         // Mandamos al socio a crear una contraseña
