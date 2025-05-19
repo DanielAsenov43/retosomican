@@ -99,7 +99,7 @@
                 <input type="file" accept="image/*" id="crop" aspectRatio="16/9" phpScript="../PHPScripts/uploadMushroomImage.php" sourceTag="ARTISTIC-PICTURE-SRC" preview="preview-image" required/>
             </div>
             <div class="comment-container"> <!-- Contenedor del comentario, div utilizado para ajustar su posición -->
-                <textarea name="comentario" rows="4" maxlength="512" placeholder="Comentario (opcional)"></textarea>
+                <textarea name="comentario" rows="4" maxlength="256" placeholder="Comentario (opcional)"></textarea>
             </div>
             <div class="button-container"> <!-- Contenedor del botón, utilizado para centrarlo. -->
                 <button type="submit" id="upload-button">Subir Foto</button>

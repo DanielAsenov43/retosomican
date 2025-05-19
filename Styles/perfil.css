@@ -61,6 +61,11 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
                         border-radius: 5px;
                     }
 
+                    /* Asegurarse de que el nombre y apellidos estén en mayúsculas y el correo en minúsculas */
+                    &:nth-child(1) .data { text-transform: uppercase; }
+                    &:nth-child(2) .data { text-transform: uppercase; }
+                    &:nth-child(3) .data { text-transform: lowercase; }
+
                     #add-phone-number-button { /*  */
                         background-color: var(--color-terciario);
                         position: absolute;
@@ -82,7 +87,7 @@ main { /* Contenedor principal de la página, que no contiene elementos ocultos.
                 }
     
                 .actions { /* Contenedor con las posibles acciones: Cambiar correo y contraseña */
-                    margin-top: 22px;
+                    margin-top: 27px;
                     margin-left: auto;
                     margin-right: auto;
                     display: flex;

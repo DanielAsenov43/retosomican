@@ -103,7 +103,7 @@ if (isset($_SESSION["LOGGED-IN"])) {
                 <label for="email">CORREO ELECTRÓNICO</label>
                 <input type="email" id="email" name="email" placeholder="socio01@gmail.com" required />
 
-                <label for="password">CONTRASEÑA</label>
+                <label for="password">CONTRASEÑA O CLAVE</label>
                 <input type="password" id="password" name="password" placeholder="********" required />
 
                 <button type="submit">ACCEDER</button>
